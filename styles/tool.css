@@ -1,0 +1,63 @@
+/* ============================================
+   Tool Layout — Wide, full-width app canvas
+   No article styling, no max-width constraint.
+   ============================================ */
+
+.tool-canvas {
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(100vh - 70px);
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Override .container constraints if someone nests one */
+.tool-canvas .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+/* Common tool UI patterns */
+.tool-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.tool-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.tool-grid--2col { grid-template-columns: 1fr 1fr; }
+.tool-grid--sidebar { grid-template-columns: 300px 1fr; }
+
+@media (max-width: 768px) {
+    .tool-grid--2col,
+    .tool-grid--sidebar {
+        grid-template-columns: 1fr;
+    }
+    .tool-canvas { padding: 1rem; }
+}
+
+/* Tool buttons */
+.tool-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--border-subtle);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.tool-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+}
+.tool-btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}

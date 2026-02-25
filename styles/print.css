@@ -1,0 +1,51 @@
+/* ============================================
+   Print Stylesheet
+   Students printing resource pages, etc.
+   ============================================ */
+@media print {
+    /* Hide nav, toolbar, theme/a11y controls */
+    .topbar, .tb-float, .tb-group, .tb-panel,
+    .site-toolbar, #tb-theme, #tb-a11y,
+    .qr-code, .sidebar, .filter-bar,
+    .hero-sub, .anim-fade { 
+        /* Keep hero heading but hide subtitle */
+    }
+    
+    .topbar, .tb-float, .tb-group, .tb-panel,
+    .site-toolbar, #tb-theme, #tb-a11y { 
+        display: none !important; 
+    }
+
+    /* Reset colors for paper */
+    body, html, .page-wrap {
+        background: white !important;
+        color: black !important;
+    }
+
+    * {
+        color: black !important;
+        border-color: #ccc !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a { text-decoration: underline; }
+    a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+    a[href^="#"]::after, a[href^="javascript"]::after { content: ""; }
+
+    /* Cards print as simple blocks */
+    .card, .resource-card, .tool-panel {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Ensure text is readable */
+    body { font-size: 12pt; line-height: 1.5; }
+    h1 { font-size: 18pt; }
+    h2 { font-size: 14pt; }
+    h3 { font-size: 12pt; }
+
+    .container { max-width: 100%; padding: 0; }
+}
