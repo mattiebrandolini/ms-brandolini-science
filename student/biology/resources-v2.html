@@ -7,72 +7,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Fraunces:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-/* ============================================
-   THEME
-   ============================================ */
 :root, [data-theme="dark"] {
-    --bg: #0b0f1a;
-    --bg-raised: #121929;
-    --bg-hover: #1a2338;
-    --bg-active: #1e2a42;
-    --text: #e8ecf4;
-    --text-secondary: #8b95aa;
-    --text-dim: #5a6478;
-    --border: rgba(255,255,255,0.07);
-    --accent: #34d399;
-    --accent-dim: rgba(52,211,153,0.12);
-    --link: #60a5fa;
-    --link-hover: #93c5fd;
-    --sidebar-w: 280px;
-    --topbar-h: 56px;
+    --bg: #0b0f1a; --bg-raised: #121929; --bg-hover: #1a2338;
+    --bg-active: #1e2a42; --text: #e8ecf4; --text-secondary: #8b95aa;
+    --text-dim: #5a6478; --border: rgba(255,255,255,0.07);
+    --accent: #34d399; --accent-dim: rgba(52,211,153,0.12);
+    --link: #60a5fa; --link-hover: #93c5fd;
+    --sidebar-w: 280px; --topbar-h: 56px;
 }
 [data-theme="light"] {
-    --bg: #f5f6f8;
-    --bg-raised: #ffffff;
-    --bg-hover: #f0f1f4;
-    --bg-active: #e8eaef;
-    --text: #1a202c;
-    --text-secondary: #64748b;
-    --text-dim: #94a3b8;
-    --border: rgba(0,0,0,0.08);
-    --accent: #059669;
-    --accent-dim: rgba(5,150,105,0.1);
-    --link: #2563eb;
-    --link-hover: #1d4ed8;
+    --bg: #f5f6f8; --bg-raised: #ffffff; --bg-hover: #f0f1f4;
+    --bg-active: #e8eaef; --text: #1a202c; --text-secondary: #64748b;
+    --text-dim: #94a3b8; --border: rgba(0,0,0,0.08);
+    --accent: #059669; --accent-dim: rgba(5,150,105,0.1);
+    --link: #2563eb; --link-hover: #1d4ed8;
 }
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
     font-family: 'DM Sans', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.55;
-    transition: background 0.3s, color 0.3s;
+    background: var(--bg); color: var(--text);
+    line-height: 1.55; transition: background 0.3s, color 0.3s;
     overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ============================================
-   TOPBAR
-   ============================================ */
+/* TOPBAR */
 .topbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    height: var(--topbar-h);
-    display: flex; align-items: center; gap: 1rem;
-    padding: 0 1.25rem;
-    background: var(--bg-raised);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
+    height: var(--topbar-h); display: flex; align-items: center; gap: 1rem;
+    padding: 0 1.25rem; background: var(--bg-raised);
+    border-bottom: 1px solid var(--border); backdrop-filter: blur(12px);
 }
 .topbar-back {
     color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;
-    display: flex; align-items: center; gap: 0.3rem;
-    transition: color 0.15s; flex-shrink: 0;
+    display: flex; align-items: center; gap: 0.3rem; transition: color 0.15s; flex-shrink: 0;
 }
 .topbar-back:hover { color: var(--text); }
 .topbar-title {
@@ -88,15 +58,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .topbar-search:focus { border-color: var(--accent); width: 280px; }
 .topbar-search::placeholder { color: var(--text-dim); }
-
 .filter-btn {
     padding: 0.35rem 0.7rem; font-size: 0.8rem; font-weight: 600;
     border-radius: 5px; border: 1px solid var(--border);
-    color: var(--text-secondary); transition: all 0.15s;
-    white-space: nowrap;
+    color: var(--text-secondary); transition: all 0.15s; white-space: nowrap;
 }
 .filter-btn:hover, .filter-btn.active { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
-
 .theme-btn {
     width: 34px; height: 34px; border-radius: 50%;
     border: 1px solid var(--border); background: var(--bg);
@@ -104,156 +71,124 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transition: all 0.15s; flex-shrink: 0;
 }
 .theme-btn:hover { transform: scale(1.1); }
-
 .sidebar-toggle {
-    display: none; width: 34px; height: 34px;
-    border-radius: 6px; border: 1px solid var(--border);
-    background: var(--bg); color: var(--text-secondary);
-    font-size: 1.1rem; align-items: center; justify-content: center;
+    display: none; width: 34px; height: 34px; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--bg);
+    color: var(--text-secondary); font-size: 1.1rem;
+    align-items: center; justify-content: center;
 }
 
-/* ============================================
-   SIDEBAR
-   ============================================ */
+/* SIDEBAR */
 .sidebar {
     position: fixed; top: var(--topbar-h); left: 0; bottom: 0;
-    width: var(--sidebar-w); overflow-y: auto;
-    background: var(--bg-raised);
-    border-right: 1px solid var(--border);
-    padding: 1rem 0; z-index: 40;
+    width: var(--sidebar-w); overflow-y: auto; background: var(--bg-raised);
+    border-right: 1px solid var(--border); padding: 1rem 0; z-index: 40;
     transition: transform 0.3s ease;
 }
 .sidebar::-webkit-scrollbar { width: 4px; }
 .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
 .sidebar-section { margin-bottom: 0.25rem; }
 .sidebar-section-label {
-    padding: 0.5rem 1.25rem 0.35rem;
-    font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-dim);
+    padding: 0.5rem 1.25rem 0.35rem; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
 }
 .sidebar-unit {
     display: flex; align-items: center; gap: 0.6rem;
-    padding: 0.55rem 1.25rem; cursor: pointer;
-    transition: all 0.12s; border-left: 3px solid transparent;
-    font-size: 0.88rem; font-weight: 500; color: var(--text-secondary);
+    padding: 0.55rem 1.25rem; cursor: pointer; transition: all 0.12s;
+    border-left: 3px solid transparent; font-size: 0.88rem;
+    font-weight: 500; color: var(--text-secondary);
 }
 .sidebar-unit:hover { background: var(--bg-hover); color: var(--text); }
-.sidebar-unit.active {
-    background: var(--accent-dim); color: var(--accent);
-    border-left-color: var(--accent);
-}
-.sidebar-unit-dot {
-    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-}
+.sidebar-unit.active { background: var(--accent-dim); color: var(--accent); border-left-color: var(--accent); }
+.sidebar-unit-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .sidebar-unit-name { flex: 1; line-height: 1.3; }
 .sidebar-unit-count {
     font-size: 0.72rem; font-weight: 600; color: var(--text-dim);
     background: var(--bg); padding: 0.1rem 0.45rem; border-radius: 100px;
 }
 
-/* ============================================
-   MAIN CONTENT
-   ============================================ */
+/* MAIN */
 .main {
-    margin-left: var(--sidebar-w);
-    margin-top: var(--topbar-h);
+    margin-left: var(--sidebar-w); margin-top: var(--topbar-h);
     min-height: calc(100vh - var(--topbar-h));
-    padding: 1.75rem 2rem 3rem;
-    max-width: 820px;
+    padding: 1.75rem 2rem 3rem; max-width: 860px;
 }
-
 .unit-header {
-    margin-bottom: 1.75rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);
 }
 .unit-header h2 {
     font-family: 'Fraunces', serif; font-weight: 700;
     font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.25rem;
 }
-.unit-header .unit-meta {
-    font-size: 0.85rem; color: var(--text-secondary);
-}
+.unit-header .unit-meta { font-size: 0.85rem; color: var(--text-secondary); }
 
-/* Topic blocks */
+/* TOPIC BLOCKS */
 .topic-block {
-    margin-bottom: 1.25rem;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--bg-raised);
-    overflow: hidden;
-    transition: border-color 0.2s;
+    margin-bottom: 1.25rem; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--bg-raised); overflow: hidden; transition: border-color 0.2s;
 }
 .topic-block:hover { border-color: rgba(255,255,255,0.12); }
 [data-theme="light"] .topic-block:hover { border-color: rgba(0,0,0,0.15); }
-
 .topic-head {
     display: flex; align-items: center; gap: 0.65rem;
-    padding: 0.9rem 1.15rem; cursor: pointer;
-    transition: background 0.12s; user-select: none;
+    padding: 0.9rem 1.15rem; cursor: pointer; transition: background 0.12s; user-select: none;
 }
 .topic-head:hover { background: var(--bg-hover); }
-
 .topic-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-.topic-code {
-    font-size: 0.78rem; font-weight: 700; color: var(--text-dim);
-    min-width: 2.5rem;
-}
+.topic-code { font-size: 0.78rem; font-weight: 700; color: var(--text-dim); min-width: 2.5rem; }
 .topic-name { font-weight: 600; font-size: 0.95rem; flex: 1; }
-.topic-resource-count {
-    font-size: 0.72rem; color: var(--text-dim); font-weight: 500;
-}
-.topic-chevron {
-    font-size: 0.7rem; color: var(--text-dim);
-    transition: transform 0.2s;
-}
+.topic-resource-count { font-size: 0.72rem; color: var(--text-dim); font-weight: 500; }
+.topic-chevron { font-size: 0.7rem; color: var(--text-dim); transition: transform 0.2s; }
 .topic-block.open .topic-chevron { transform: rotate(90deg); }
-
-/* Resources area */
 .topic-resources {
-    display: none; padding: 0 1.15rem 1rem;
-    border-top: 1px solid var(--border);
+    display: none; padding: 0 1.15rem 1rem; border-top: 1px solid var(--border);
 }
 .topic-block.open .topic-resources { display: block; }
 
+/* TYPE GROUPS */
 .resource-type-group { margin-top: 0.75rem; }
 .resource-type-label {
     font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.08em; color: var(--text-dim);
-    display: flex; align-items: center; gap: 0.4rem;
-    margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;
 }
 
+/* RESOURCE ITEMS — with thumbnail + QR */
 .resource-item {
-    display: flex; align-items: center; gap: 0.75rem;
-    padding: 0.5rem 0.6rem; margin-bottom: 0.2rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.6rem; margin-bottom: 0.35rem;
     border-radius: 6px; transition: background 0.12s;
 }
 .resource-item:hover { background: var(--bg-hover); }
 
-.resource-link {
-    flex: 1; min-width: 0;
+.resource-thumb {
+    flex-shrink: 0; width: 100px; height: 56px;
+    border-radius: 5px; overflow: hidden; background: var(--bg);
 }
-.resource-link a {
-    color: var(--link); font-weight: 600; font-size: 0.9rem;
-    text-decoration: none; transition: color 0.15s;
-    display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.resource-link a:hover { color: var(--link-hover); text-decoration: underline; }
-.resource-provider {
-    font-size: 0.78rem; color: var(--text-dim);
-}
-.resource-duration {
-    font-size: 0.75rem; color: var(--text-dim); white-space: nowrap;
+.resource-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.resource-thumb-ph {
+    width: 100%; height: 100%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1.4rem; color: var(--text-dim);
 }
 
-.resource-tags {
-    display: flex; gap: 0.3rem; flex-shrink: 0;
+.resource-body { flex: 1; min-width: 0; }
+.resource-title-link {
+    color: var(--link); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; transition: color 0.15s;
+    display: block; overflow: hidden; text-overflow: ellipsis;
 }
+.resource-title-link:hover { color: var(--link-hover); text-decoration: underline; }
+.resource-title-plain { color: var(--text); font-weight: 600; font-size: 0.9rem; }
+.resource-meta-row {
+    font-size: 0.78rem; color: var(--text-dim);
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    margin-top: 0.1rem;
+}
+
+.resource-tags { display: flex; gap: 0.3rem; margin-top: 0.25rem; }
 .rtag {
-    font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.4rem;
+    font-size: 0.65rem; font-weight: 600; padding: 0.12rem 0.4rem;
     border-radius: 3px; white-space: nowrap;
 }
 .rtag-wida { background: rgba(96,165,250,0.15); color: #93c5fd; }
@@ -263,59 +198,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 [data-theme="light"] .rtag-pace { background: #d1fae5; color: #065f46; }
 [data-theme="light"] .rtag-visuals { background: #fce7f3; color: #9d174d; }
 
-.qr-btn {
-    width: 28px; height: 28px; border-radius: 4px;
-    border: 1px solid var(--border); background: var(--bg);
-    font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s; flex-shrink: 0; color: var(--text-dim);
+.resource-qr {
+    flex-shrink: 0; width: 52px; height: 52px;
+    border-radius: 4px; overflow: hidden;
+    background: var(--bg); border: 1px solid var(--border);
+    align-self: center;
 }
-.qr-btn:hover { border-color: var(--accent); color: var(--accent); }
+.resource-qr img { width: 100%; height: 100%; display: block; }
 
-.resource-notes-inline {
+.resource-notes-line {
     font-size: 0.78rem; color: var(--text-secondary); font-style: italic;
-    padding: 0.25rem 0 0 2.5rem;
+    padding: 0.15rem 0 0.35rem 0; margin-left: calc(100px + 0.75rem);
 }
 
-/* QR Popup */
-.qr-popup {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.7); z-index: 200;
-    display: none; align-items: center; justify-content: center;
-}
-.qr-popup.show { display: flex; }
-.qr-popup-inner {
-    background: var(--bg-raised); border-radius: 12px; padding: 1.5rem;
-    text-align: center; border: 1px solid var(--border);
-    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
-}
-.qr-popup-inner img { border-radius: 6px; }
-.qr-popup-title {
-    margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-secondary);
-    max-width: 200px;
-}
-.qr-popup-close {
-    margin-top: 0.75rem; padding: 0.35rem 1rem; border-radius: 6px;
-    background: var(--accent); color: #0b0f1a; font-weight: 600;
-    font-size: 0.85rem;
-}
-
-/* Empty / No results */
-.empty-state {
-    text-align: center; padding: 3rem 1rem; color: var(--text-dim);
-}
+.empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-dim); }
 .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
 
-/* All-units view */
-.all-units-header {
-    margin-bottom: 1.5rem;
-}
-.all-units-header h2 {
-    font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem;
-}
-
-/* ============================================
-   MOBILE
-   ============================================ */
+/* MOBILE */
 @media (max-width: 768px) {
     .sidebar { transform: translateX(-100%); z-index: 45; }
     .sidebar.open { transform: translateX(0); box-shadow: 8px 0 24px rgba(0,0,0,0.3); }
@@ -324,19 +223,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .topbar-search { width: 140px; }
     .topbar-search:focus { width: 180px; }
     .topbar-title { display: none; }
-    .resource-tags { display: none; }
+    .resource-thumb { width: 80px; height: 45px; }
+    .resource-qr { width: 44px; height: 44px; }
+    .resource-notes-line { margin-left: calc(80px + 0.75rem); }
     .resource-item { gap: 0.5rem; }
 }
-
-/* ============================================
-   SCROLLBAR
-   ============================================ */
-.main::-webkit-scrollbar { width: 5px; }
-.main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
     </style>
 </head>
 <body>
-    <!-- Topbar -->
     <div class="topbar">
         <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
         <a href="../../student/" class="topbar-back">← Courses</a>
@@ -346,41 +240,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <input type="text" class="topbar-search" id="search" placeholder="Search topics...">
         <button class="theme-btn" id="theme-toggle"></button>
     </div>
-
-    <!-- Sidebar -->
     <nav class="sidebar" id="sidebar"></nav>
-
-    <!-- Main -->
     <main class="main" id="main"></main>
 
-    <!-- QR Popup -->
-    <div class="qr-popup" id="qr-popup">
-        <div class="qr-popup-inner">
-            <img id="qr-img" src="" width="180" height="180" alt="QR Code">
-            <div class="qr-popup-title" id="qr-title"></div>
-            <button class="qr-popup-close" onclick="closeQR()">Close</button>
-        </div>
-    </div>
-
-    <!-- Config (bio) -->
     <script src="../../js/config-biology.js"></script>
-
     <script>
-/* ============================================
-   COURSE VIEWER v2 — ENGINE
-   ============================================ */
 const C = window.COURSE_CONFIG;
-let resources = [];
-let activeUnit = 'all';
-let searchQ = '';
-let typeFilter = '';
+let resources = [], activeUnit = 'all', searchQ = '', typeFilter = '';
 
-// ---- Data ----
 const UNITS = {};
-C.topics.forEach(t => {
-    if (!UNITS[t.tab]) UNITS[t.tab] = { id: t.tab, label: '', topics: [] };
-    UNITS[t.tab].topics.push(t);
-});
+C.topics.forEach(t => { if (!UNITS[t.tab]) UNITS[t.tab] = { id: t.tab, label: '', topics: [] }; UNITS[t.tab].topics.push(t); });
 C.tabs.forEach(t => { if (UNITS[t.id]) UNITS[t.id].label = t.label; });
 
 const TYPE_CFG = {
@@ -388,142 +257,85 @@ const TYPE_CFG = {
     game:'🕹️ Games', lab:'🧪 Labs', reading:'📖 Reading',
     worksheet:'📝 Worksheets', interactive:'🎮 Interactive', other:'💡 Other'
 };
+const TYPE_EMOJI = {
+    video:'📹', audio:'🎧', simulation:'🔬', game:'🕹️', lab:'🧪',
+    reading:'📖', worksheet:'📝', interactive:'🎮', other:'💡'
+};
 const TYPE_ORDER = Object.keys(TYPE_CFG);
 
-// ---- CSV ----
-function parseLine(line) {
-    const r=[]; let c='', q=false;
-    for (let i=0;i<line.length;i++) {
-        const ch=line[i];
-        if(ch==='"') q=!q;
-        else if(ch===','&&!q){r.push(c.trim());c='';}
-        else c+=ch;
-    } r.push(c.trim()); return r;
-}
-async function loadCSV() {
+function parseLine(l){const r=[];let c='',q=false;for(let i=0;i<l.length;i++){const ch=l[i];if(ch==='"')q=!q;else if(ch===','&&!q){r.push(c.trim());c='';}else c+=ch;}r.push(c.trim());return r;}
+async function loadCSV(){
     if(!C.sheetUrl) return [];
-    try {
-        const r=await fetch(C.sheetUrl); const t=await r.text();
-        const lines=t.trim().split('\n'); if(lines.length<2) return [];
-        const h=parseLine(lines[0]);
-        return lines.slice(1).map(l=>{
-            const v=parseLine(l), row={};
-            h.forEach((k,i)=>row[k.trim().toLowerCase().replace(/\s+/g,'_')]=v[i]||'');
-            return row;
-        });
-    } catch(e){ console.error(e); return []; }
+    try{const r=await fetch(C.sheetUrl);const t=await r.text();const ls=t.trim().split('\n');if(ls.length<2) return [];
+    const h=parseLine(ls[0]);return ls.slice(1).map(l=>{const v=parseLine(l),row={};h.forEach((k,i)=>row[k.trim().toLowerCase().replace(/\s+/g,'_')]=v[i]||'');return row;});
+    }catch(e){console.error(e);return [];}
 }
 
-// ---- Group Colors ----
-const GRP_COLORS = [
-    '#7c3aed','#059669','#0891b2','#ca8a04','#16a34a','#8b5cf6',
-    '#dc2626','#0284c7','#ea580c','#d946ef','#6366f1','#14b8a6',
-    '#f59e0b','#ef4444','#84cc16','#22c55e','#f97316','#a855f7',
-    '#ec4899','#3b82f6','#06b6d4','#10b981','#8b5cf6','#f472b6',
-    '#a78bfa','#fbbf24','#fbbf24','#fbbf24','#fb923c','#f87171',
-    '#64748b','#78716c','#0ea5e9','#84cc16','#eab308','#a3e635',
-    '#f43f5e','#06b6d4','#7c3aed','#059669'
-];
-function grpColor(g) { return GRP_COLORS[(g-1) % GRP_COLORS.length]; }
+const GRP_COLORS=['#7c3aed','#059669','#0891b2','#ca8a04','#16a34a','#8b5cf6','#dc2626','#0284c7','#ea580c','#d946ef','#6366f1','#14b8a6','#f59e0b','#ef4444','#84cc16','#22c55e','#f97316','#a855f7','#ec4899','#3b82f6','#06b6d4','#10b981','#8b5cf6','#f472b6','#a78bfa','#fbbf24','#fbbf24','#fbbf24','#fb923c','#f87171','#64748b','#78716c','#0ea5e9','#84cc16','#eab308','#a3e635','#f43f5e','#06b6d4','#7c3aed','#059669'];
+function grpColor(g){return GRP_COLORS[(g-1)%GRP_COLORS.length];}
 
-// ---- QR ----
-function showQR(url, title) {
-    document.getElementById('qr-img').src =
-        `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}`;
-    document.getElementById('qr-title').textContent = title;
-    document.getElementById('qr-popup').classList.add('show');
-}
-function closeQR() { document.getElementById('qr-popup').classList.remove('show'); }
-window.showQR = showQR; window.closeQR = closeQR;
-
-// ---- Sidebar ----
-function renderSidebar() {
-    const sb = document.getElementById('sidebar');
-    let html = `<div class="sidebar-section">
-        <div class="sidebar-section-label">Navigation</div>
-        <div class="sidebar-unit ${activeUnit==='all'?'active':''}" data-unit="all">
-            <div class="sidebar-unit-dot" style="background:var(--accent)"></div>
-            <span class="sidebar-unit-name">All Topics</span>
-            <span class="sidebar-unit-count">${C.topics.length}</span>
-        </div>
-    </div>`;
-
-    html += '<div class="sidebar-section"><div class="sidebar-section-label">Units</div>';
-    Object.values(UNITS).forEach(u => {
-        if (u.id === 'all') return;
-        const active = activeUnit === u.id ? 'active' : '';
-        const dot = grpColor(u.topics[0]?.group || 1);
-        html += `<div class="sidebar-unit ${active}" data-unit="${u.id}">
-            <div class="sidebar-unit-dot" style="background:${dot}"></div>
-            <span class="sidebar-unit-name">${u.label.replace(/^[^:]+:\s*/, '')}</span>
-            <span class="sidebar-unit-count">${u.topics.length}</span>
-        </div>`;
-    });
-    html += '</div>';
-    sb.innerHTML = html;
-
-    sb.querySelectorAll('.sidebar-unit').forEach(el => {
-        el.addEventListener('click', () => {
-            activeUnit = el.dataset.unit;
-            renderSidebar();
-            renderMain();
-            document.getElementById('sidebar').classList.remove('open');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    });
+// Extract YouTube video ID from URL
+function ytId(url) {
+    if (!url) return null;
+    const m = url.match(/(?:v=|\/embed\/|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
 }
 
-// ---- Render Resource ----
+function thumbHtml(r) {
+    // Try video_id field first, then extract from URL
+    const vid = r.video_id || ytId(r.url);
+    if (vid) {
+        return `<div class="resource-thumb"><img src="https://img.youtube.com/vi/${vid}/mqdefault.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<div class=resource-thumb-ph>${TYPE_EMOJI[r.type]||'📄'}</div>'"></div>`;
+    }
+    return `<div class="resource-thumb"><div class="resource-thumb-ph">${TYPE_EMOJI[r.type]||'📄'}</div></div>`;
+}
+
+function qrHtml(url) {
+    if (!url) return '';
+    return `<div class="resource-qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=${encodeURIComponent(url)}" alt="QR" loading="lazy"></div>`;
+}
+
 function renderRes(r) {
     const link = r.url
-        ? `<a href="${r.url}" target="_blank" rel="noopener">${r.title||'Link'}</a>`
-        : `<span style="color:var(--text)">${r.title||'Untitled'}</span>`;
+        ? `<a class="resource-title-link" href="${r.url}" target="_blank" rel="noopener">${r.title||'Link'}</a>`
+        : `<span class="resource-title-plain">${r.title||'Untitled'}</span>`;
 
     let tags = '';
     if(r.wida) tags += `<span class="rtag rtag-wida">W${r.wida}</span>`;
     if(r.pace) tags += `<span class="rtag rtag-pace">${r.pace}</span>`;
     if(r.visuals) tags += `<span class="rtag rtag-visuals">${r.visuals}</span>`;
 
-    const qr = r.url
-        ? `<button class="qr-btn" onclick="showQR('${r.url.replace(/'/g,"\\'")}','${(r.title||'').replace(/'/g,"\\'")}')">⊞</button>`
-        : '';
-
     const notes = r.notes
-        ? `<div class="resource-notes-inline">💡 ${r.notes}</div>`
+        ? `<div class="resource-notes-line">💡 ${r.notes}</div>`
         : '';
 
     return `<div class="resource-item">
-        <div class="resource-link">${link}
-            <span class="resource-provider">${r.provider||''}${r.duration?' · '+r.duration:''}</span>
+        ${thumbHtml(r)}
+        <div class="resource-body">
+            <div class="resource-link">${link}</div>
+            <div class="resource-meta-row">
+                ${r.provider ? `<span>${r.provider}</span>` : ''}
+                ${r.duration ? `<span>· ${r.duration}</span>` : ''}
+            </div>
+            ${tags ? `<div class="resource-tags">${tags}</div>` : ''}
         </div>
-        <div class="resource-tags">${tags}</div>
-        ${qr}
+        ${qrHtml(r.url)}
     </div>${notes}`;
 }
 
-// ---- Render Topic Block ----
 function renderTopic(t) {
     let tr = resources.filter(r => r.topic_code === t.code);
     if (typeFilter) tr = tr.filter(r => r.type === typeFilter);
-
-    // Group by type
     const byType = {};
-    tr.forEach(r => {
-        const type = TYPE_CFG[r.type] ? r.type : 'other';
-        if(!byType[type]) byType[type] = [];
-        byType[type].push(r);
-    });
-
-    // Sort within types
+    tr.forEach(r => { const type = TYPE_CFG[r.type] ? r.type : 'other'; if(!byType[type]) byType[type]=[]; byType[type].push(r); });
     Object.values(byType).forEach(arr => arr.sort((a,b) => {
         const ra=parseInt(a.rank)||999, rb=parseInt(b.rank)||999;
-        return ra !== rb ? ra-rb : (a.title||'').localeCompare(b.title||'');
+        return ra!==rb ? ra-rb : (a.title||'').localeCompare(b.title||'');
     }));
-
     const sorted = TYPE_ORDER.filter(t => byType[t]);
     let resHtml = '';
-    if (sorted.length === 0) {
-        resHtml = '<div class="empty-state" style="padding:1rem"><span style="color:var(--text-dim);font-size:0.85rem">No resources yet</span></div>';
+    if (!sorted.length) {
+        resHtml = '<div style="padding:1rem;color:var(--text-dim);font-size:0.85rem;font-style:italic">No resources yet</div>';
     } else {
         sorted.forEach(type => {
             resHtml += `<div class="resource-type-group">
@@ -532,7 +344,6 @@ function renderTopic(t) {
             </div>`;
         });
     }
-
     const count = tr.length;
     return `<div class="topic-block" data-code="${t.code}">
         <div class="topic-head" onclick="toggleTopic('${t.code}')">
@@ -547,63 +358,63 @@ function renderTopic(t) {
 }
 
 window.toggleTopic = function(code) {
-    const el = document.querySelector(`.topic-block[data-code="${code}"]`);
-    if (el) el.classList.toggle('open');
+    document.querySelector(`.topic-block[data-code="${code}"]`)?.classList.toggle('open');
 };
 
-// ---- Main Render ----
+function renderSidebar() {
+    const sb = document.getElementById('sidebar');
+    let html = `<div class="sidebar-section">
+        <div class="sidebar-section-label">Navigation</div>
+        <div class="sidebar-unit ${activeUnit==='all'?'active':''}" data-unit="all">
+            <div class="sidebar-unit-dot" style="background:var(--accent)"></div>
+            <span class="sidebar-unit-name">All Topics</span>
+            <span class="sidebar-unit-count">${C.topics.length}</span>
+        </div></div><div class="sidebar-section"><div class="sidebar-section-label">Units</div>`;
+    Object.values(UNITS).forEach(u => {
+        if(u.id==='all') return;
+        html += `<div class="sidebar-unit ${activeUnit===u.id?'active':''}" data-unit="${u.id}">
+            <div class="sidebar-unit-dot" style="background:${grpColor(u.topics[0]?.group||1)}"></div>
+            <span class="sidebar-unit-name">${u.label.replace(/^[^:]+:\s*/,'')}</span>
+            <span class="sidebar-unit-count">${u.topics.length}</span>
+        </div>`;
+    });
+    html += '</div>';
+    sb.innerHTML = html;
+    sb.querySelectorAll('.sidebar-unit').forEach(el => {
+        el.addEventListener('click', () => {
+            activeUnit = el.dataset.unit;
+            renderSidebar(); renderMain();
+            document.getElementById('sidebar').classList.remove('open');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+}
+
 function renderMain() {
     const main = document.getElementById('main');
     const q = searchQ.toLowerCase();
-
-    let topics;
-    if (activeUnit === 'all') {
-        topics = C.topics;
-    } else {
-        topics = UNITS[activeUnit]?.topics || [];
-    }
-
-    if (q) {
-        topics = topics.filter(t =>
-            t.code.toLowerCase().includes(q) || t.name.toLowerCase().includes(q)
-        );
-    }
-
-    if (topics.length === 0) {
-        main.innerHTML = `<div class="empty-state">
-            <div class="empty-icon">🔍</div>
-            <div>No topics match your search.</div>
-        </div>`;
+    let topics = activeUnit === 'all' ? C.topics : (UNITS[activeUnit]?.topics || []);
+    if (q) topics = topics.filter(t => t.code.toLowerCase().includes(q) || t.name.toLowerCase().includes(q));
+    if (!topics.length) {
+        main.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>No topics match your search.</div></div>';
         return;
     }
-
     let html = '';
-
     if (activeUnit === 'all') {
-        // Group by unit
-        const unitOrder = C.tabs.filter(t => t.id !== 'all');
-        unitOrder.forEach(u => {
-            const unitTopics = topics.filter(t => t.tab === u.id);
-            if (!unitTopics.length) return;
-            html += `<div class="unit-header" id="unit-${u.id}">
-                <h2>${u.label}</h2>
-                <div class="unit-meta">${unitTopics.length} topics</div>
-            </div>`;
-            html += unitTopics.map(renderTopic).join('');
+        C.tabs.filter(t=>t.id!=='all').forEach(u => {
+            const ut = topics.filter(t => t.tab === u.id);
+            if (!ut.length) return;
+            html += `<div class="unit-header" id="unit-${u.id}"><h2>${u.label}</h2><div class="unit-meta">${ut.length} topics</div></div>`;
+            html += ut.map(renderTopic).join('');
         });
     } else {
         const u = UNITS[activeUnit];
-        html += `<div class="unit-header">
-            <h2>${u?.label || activeUnit}</h2>
-            <div class="unit-meta">${topics.length} topics</div>
-        </div>`;
+        html += `<div class="unit-header"><h2>${u?.label||activeUnit}</h2><div class="unit-meta">${topics.length} topics</div></div>`;
         html += topics.map(renderTopic).join('');
     }
-
     main.innerHTML = html;
 }
 
-// ---- Type Filters ----
 function renderFilters() {
     const div = document.getElementById('type-filters');
     const types = ['video','simulation','lab','reading','game'];
@@ -611,49 +422,32 @@ function renderFilters() {
     div.innerHTML = types.map(t =>
         `<button class="filter-btn ${typeFilter===t?'active':''}" data-type="${t}" title="${TYPE_CFG[t]}">${labels[t]}</button>`
     ).join('');
-
     div.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             typeFilter = typeFilter === btn.dataset.type ? '' : btn.dataset.type;
-            renderFilters();
-            renderMain();
+            renderFilters(); renderMain();
         });
     });
 }
 
-// ---- Search ----
-document.getElementById('search').addEventListener('input', e => {
-    searchQ = e.target.value;
-    renderMain();
-});
+document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value; renderMain(); });
 
-// ---- Theme ----
 function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     document.getElementById('theme-toggle').textContent = t==='dark' ? '☀️' : '🌙';
     localStorage.setItem('theme', t);
 }
 document.getElementById('theme-toggle').addEventListener('click', () => {
-    const cur = document.documentElement.getAttribute('data-theme');
-    applyTheme(cur === 'dark' ? 'light' : 'dark');
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 });
 applyTheme(localStorage.getItem('theme') || 'dark');
 
-// ---- Mobile sidebar ----
 document.getElementById('sidebar-toggle').addEventListener('click', () => {
     document.getElementById('sidebar').classList.toggle('open');
 });
 
-// ---- QR popup close on bg click ----
-document.getElementById('qr-popup').addEventListener('click', e => {
-    if (e.target.id === 'qr-popup') closeQR();
-});
-
-// ---- Init ----
 async function init() {
-    renderSidebar();
-    renderFilters();
-    renderMain();
+    renderSidebar(); renderFilters(); renderMain();
     resources = await loadCSV();
     renderMain();
 }
