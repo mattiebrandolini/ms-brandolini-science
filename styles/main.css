@@ -3,30 +3,33 @@
    ============================================ */
 
 :root {
+    /* Backgrounds */
     --bg-deep: #0a0e1a;
     --bg-card: #111827;
     --bg-card-hover: #1a2234;
+
+    /* Course accent colors (see styles/REFERENCE.md) */
     --accent-bio: #34d399;
-    --accent-earth: #d97706;
-    --accent-anat: #f87171;
-    --accent-crim: #a78bfa;
-    --accent-ocean: #22d3ee;
-    --accent-phys: #fb923c;
     --accent-env: #60a5fa;
-    --accent-astro: #818cf8;
     --accent-chem: #f472b6;
-    --accent-warm: #fbbf24;
     --accent-earth: #d97706;
     --accent-anat: #f87171;
     --accent-crim: #a78bfa;
     --accent-ocean: #22d3ee;
     --accent-phys: #facc15;
     --accent-astro: #c084fc;
+    --accent-warm: #fbbf24;
+
+    /* Text */
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-dim: #64748b;
+
+    /* Borders */
     --border-subtle: rgba(255,255,255,0.06);
     --border-hover: rgba(255,255,255,0.12);
+
+    /* Radii */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
