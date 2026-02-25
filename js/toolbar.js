@@ -1,9 +1,8 @@
 /* ============================================
    Site Toolbar — Theme + Accessibility
    
-   Top-fixed bar with theme toggle + a11y panel.
-   Self-contained: injects its own HTML + CSS.
-   One script to rule them all.
+   If a .topbar-nav exists, buttons go IN it.
+   Otherwise, creates a small fixed cluster.
    ============================================ */
 (function() {
     'use strict';
@@ -24,47 +23,58 @@
         // Inject CSS
         const style = document.createElement('style');
         style.textContent = `
-            .site-toolbar {
-                position: fixed;
-                top: 0; right: 0;
-                z-index: 10000;
+            /* --- Inline (inside topbar) --- */
+            .tb-inline {
                 display: flex;
                 align-items: center;
-                gap: 0.25rem;
-                padding: 0.5rem 0.75rem;
-                pointer-events: none;
+                gap: 0.5rem;
+                margin-left: 0.75rem;
             }
-            .stb-btn {
-                pointer-events: auto;
-                width: 44px; height: 44px;
-                border-radius: 10px;
-                border: 2px solid var(--border, rgba(255,255,255,0.15));
-                background: var(--bg-card, rgba(15,20,40,0.85));
-                backdrop-filter: blur(10px);
-                font-size: 1.25rem;
+            .tb-btn {
+                width: 36px; height: 36px;
+                border-radius: 8px;
+                border: 1.5px solid var(--border-subtle, rgba(255,255,255,0.1));
+                background: transparent;
+                font-size: 1.1rem;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: transform 0.15s, border-color 0.15s;
+                transition: transform 0.15s, background 0.15s;
+                flex-shrink: 0;
             }
-            [data-theme="light"] .stb-btn {
-                background: rgba(255,255,255,0.9);
-                border-color: rgba(0,0,0,0.15);
-            }
-            .stb-btn:hover {
+            .tb-btn:hover {
                 transform: scale(1.08);
-                border-color: var(--accent, #818cf8);
+                background: var(--bg-card-hover, rgba(255,255,255,0.06));
+            }
+
+            /* --- Floating fallback (splitter page etc) --- */
+            .tb-float {
+                position: fixed;
+                top: 1rem; right: 1rem;
+                z-index: 10000;
+                display: flex;
+                gap: 0.4rem;
+            }
+            .tb-float .tb-btn {
+                background: var(--bg-card, rgba(15,20,40,0.9));
+                backdrop-filter: blur(10px);
+                border-color: var(--border, rgba(255,255,255,0.15));
+                width: 42px; height: 42px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            [data-theme="light"] .tb-float .tb-btn {
+                background: rgba(255,255,255,0.92);
+                border-color: rgba(0,0,0,0.12);
             }
 
             /* --- Panel --- */
-            .stb-panel {
-                pointer-events: auto;
+            .tb-panel {
                 display: none;
                 position: fixed;
-                top: 54px; right: 0.75rem;
                 z-index: 10001;
-                width: 280px;
+                width: 270px;
                 padding: 1rem 1.1rem;
                 border-radius: 12px;
                 border: 1.5px solid var(--border, rgba(255,255,255,0.12));
@@ -73,69 +83,63 @@
                 box-shadow: 0 8px 32px rgba(0,0,0,0.35);
                 font-family: inherit;
             }
-            [data-theme="light"] .stb-panel {
+            [data-theme="light"] .tb-panel {
                 background: rgba(255,255,255,0.97);
                 box-shadow: 0 8px 32px rgba(0,0,0,0.12);
             }
-            .stb-panel.open { display: block; }
-            .stb-panel h3 {
-                margin: 0 0 0.75rem 0;
-                font-size: 0.95rem;
+            .tb-panel.open { display: block; }
+            .tb-panel h3 {
+                margin: 0 0 0.65rem 0;
+                font-size: 0.9rem;
                 font-weight: 600;
                 color: var(--text-primary, #f1f5f9);
                 letter-spacing: 0.02em;
             }
-            .stb-row {
+            .tb-row {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 0.5rem 0;
+                padding: 0.45rem 0;
                 border-bottom: 1px solid var(--border, rgba(255,255,255,0.07));
             }
-            .stb-row:last-child { border-bottom: none; }
-            .stb-label {
-                font-size: 0.85rem;
+            .tb-row:last-child { border-bottom: none; }
+            .tb-lbl {
+                font-size: 0.82rem;
                 color: var(--text-secondary, #94a3b8);
             }
-            .stb-toggle {
+            .tb-tog {
                 position: relative;
-                width: 42px; height: 24px;
+                width: 40px; height: 22px;
                 background: var(--border, rgba(255,255,255,0.15));
-                border-radius: 12px;
+                border-radius: 11px;
                 border: none;
                 cursor: pointer;
                 transition: background 0.2s;
                 flex-shrink: 0;
             }
-            .stb-toggle::after {
+            .tb-tog::after {
                 content: '';
                 position: absolute;
                 top: 3px; left: 3px;
-                width: 18px; height: 18px;
+                width: 16px; height: 16px;
                 border-radius: 50%;
                 background: white;
                 transition: transform 0.2s;
             }
-            .stb-toggle.on {
-                background: var(--accent, #818cf8);
-            }
-            .stb-toggle.on::after {
-                transform: translateX(18px);
-            }
-            .stb-size-btns {
-                display: flex; gap: 0.3rem;
-            }
-            .stb-size-btn {
-                padding: 0.2rem 0.55rem;
-                border-radius: 6px;
+            .tb-tog.on { background: var(--accent, #818cf8); }
+            .tb-tog.on::after { transform: translateX(18px); }
+            .tb-sizes { display: flex; gap: 0.3rem; }
+            .tb-sz {
+                padding: 0.15rem 0.5rem;
+                border-radius: 5px;
                 border: 1.5px solid var(--border, rgba(255,255,255,0.15));
                 background: transparent;
                 color: var(--text-secondary, #94a3b8);
-                font-size: 0.78rem;
+                font-size: 0.75rem;
                 cursor: pointer;
                 transition: all 0.15s;
             }
-            .stb-size-btn.active {
+            .tb-sz.active {
                 background: var(--accent, #818cf8);
                 color: white;
                 border-color: var(--accent, #818cf8);
@@ -144,59 +148,78 @@
         document.head.appendChild(style);
 
         // Remove any old floating theme buttons
-        document.querySelectorAll('#theme-toggle').forEach(el => el.remove());
+        document.querySelectorAll('#theme-toggle, .site-toolbar').forEach(el => el.remove());
 
-        // Inject toolbar
-        const bar = document.createElement('div');
-        bar.className = 'site-toolbar';
-        bar.innerHTML = `
-            <button class="stb-btn" id="stb-theme" title="Toggle dark/light mode">${theme==='dark'?'☀️':'🌙'}</button>
-            <button class="stb-btn" id="stb-a11y" title="Accessibility settings">⚙️</button>
+        // Build buttons HTML
+        const btnHTML = `
+            <button class="tb-btn" id="tb-theme" title="Toggle dark/light">${theme==='dark'?'☀️':'🌙'}</button>
+            <button class="tb-btn" id="tb-a11y" title="Accessibility">⚙️</button>
         `;
-        document.body.appendChild(bar);
 
-        // Inject panel
-        const panel = document.createElement('div');
-        panel.className = 'stb-panel';
-        panel.id = 'stb-panel';
+        // Find topbar-nav or create floating container
+        const topbarNav = document.querySelector('.topbar-nav');
+        let container;
+        if (topbarNav) {
+            container = document.createElement('div');
+            container.className = 'tb-inline';
+            container.innerHTML = btnHTML;
+            topbarNav.appendChild(container);
+        } else {
+            container = document.createElement('div');
+            container.className = 'tb-float';
+            container.innerHTML = btnHTML;
+            document.body.appendChild(container);
+        }
 
+        // Build panel
         const dyOn = saved('data-dyslexic') === 'true';
         const cbOn = saved('data-colorblind') === 'true';
         const spOn = saved('data-spacing') === 'true';
         const moOn = saved('data-motion') === 'true';
         const sz = saved('data-textsize') || 'medium';
 
+        const panel = document.createElement('div');
+        panel.className = 'tb-panel';
+        panel.id = 'tb-panel';
         panel.innerHTML = `
             <h3>Accessibility</h3>
-            <div class="stb-row">
-                <span class="stb-label">Dyslexia-friendly font</span>
-                <button class="stb-toggle ${dyOn?'on':''}" data-key="data-dyslexic"></button>
+            <div class="tb-row">
+                <span class="tb-lbl">Dyslexia-friendly font</span>
+                <button class="tb-tog ${dyOn?'on':''}" data-key="data-dyslexic"></button>
             </div>
-            <div class="stb-row">
-                <span class="stb-label">Colorblind-friendly</span>
-                <button class="stb-toggle ${cbOn?'on':''}" data-key="data-colorblind"></button>
+            <div class="tb-row">
+                <span class="tb-lbl">Colorblind-friendly</span>
+                <button class="tb-tog ${cbOn?'on':''}" data-key="data-colorblind"></button>
             </div>
-            <div class="stb-row">
-                <span class="stb-label">Extra spacing</span>
-                <button class="stb-toggle ${spOn?'on':''}" data-key="data-spacing"></button>
+            <div class="tb-row">
+                <span class="tb-lbl">Extra spacing</span>
+                <button class="tb-tog ${spOn?'on':''}" data-key="data-spacing"></button>
             </div>
-            <div class="stb-row">
-                <span class="stb-label">Reduced motion</span>
-                <button class="stb-toggle ${moOn?'on':''}" data-key="data-motion"></button>
+            <div class="tb-row">
+                <span class="tb-lbl">Reduced motion</span>
+                <button class="tb-tog ${moOn?'on':''}" data-key="data-motion"></button>
             </div>
-            <div class="stb-row">
-                <span class="stb-label">Text size</span>
-                <div class="stb-size-btns">
-                    <button class="stb-size-btn ${sz==='small'?'active':''}" data-size="small">A</button>
-                    <button class="stb-size-btn ${sz==='medium'?'active':''}" data-size="medium">A</button>
-                    <button class="stb-size-btn ${sz==='large'?'active':''}" data-size="large">A</button>
+            <div class="tb-row">
+                <span class="tb-lbl">Text size</span>
+                <div class="tb-sizes">
+                    <button class="tb-sz ${sz==='small'?'active':''}" data-size="small">A</button>
+                    <button class="tb-sz ${sz==='medium'?'active':''}" data-size="medium">A</button>
+                    <button class="tb-sz ${sz==='large'?'active':''}" data-size="large">A</button>
                 </div>
             </div>
         `;
         document.body.appendChild(panel);
 
+        // Position panel near the ⚙️ button
+        function positionPanel() {
+            const btn = document.getElementById('tb-a11y');
+            const rect = btn.getBoundingClientRect();
+            panel.style.top = (rect.bottom + 6) + 'px';
+            panel.style.right = (window.innerWidth - rect.right) + 'px';
+        }
+
         // --- Events ---
-        const themeBtn = document.getElementById('stb-theme');
+        const themeBtn = document.getElementById('tb-theme');
         themeBtn.addEventListener('click', () => {
             const cur = document.documentElement.getAttribute('data-theme') || 'dark';
             const next = cur === 'dark' ? 'light' : 'dark';
@@ -205,9 +228,10 @@
             themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
         });
 
-        const a11yBtn = document.getElementById('stb-a11y');
+        const a11yBtn = document.getElementById('tb-a11y');
         a11yBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            positionPanel();
             panel.classList.toggle('open');
         });
 
@@ -218,7 +242,7 @@
         });
 
         // Toggles
-        panel.querySelectorAll('.stb-toggle').forEach(btn => {
+        panel.querySelectorAll('.tb-tog').forEach(btn => {
             btn.addEventListener('click', () => {
                 btn.classList.toggle('on');
                 const key = btn.dataset.key;
@@ -234,9 +258,9 @@
         });
 
         // Size buttons
-        panel.querySelectorAll('.stb-size-btn').forEach(btn => {
+        panel.querySelectorAll('.tb-sz').forEach(btn => {
             btn.addEventListener('click', () => {
-                panel.querySelectorAll('.stb-size-btn').forEach(b => b.classList.remove('active'));
+                panel.querySelectorAll('.tb-sz').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const size = btn.dataset.size;
                 se('data-textsize', size);
