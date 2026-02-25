@@ -28,7 +28,7 @@
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
-                margin-left: 0.75rem;
+                margin-left: 0;
             }
             .tb-btn {
                 width: 36px; height: 36px;
@@ -157,13 +157,13 @@
         `;
 
         // Find topbar-nav or create floating container
-        const topbarNav = document.querySelector('.topbar-nav');
+        const topbar = document.querySelector('.topbar');
         let container;
-        if (topbarNav) {
+        if (topbar) {
             container = document.createElement('div');
             container.className = 'tb-inline';
             container.innerHTML = btnHTML;
-            topbarNav.appendChild(container);
+            topbar.appendChild(container);
         } else {
             container = document.createElement('div');
             container.className = 'tb-float';
