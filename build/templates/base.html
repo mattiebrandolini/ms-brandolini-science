@@ -24,8 +24,9 @@
 </head>
 <body{% block body_attrs %}{% endblock %}>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
     {% block body %}{% endblock %}
-    <div id="main-content"></div>
+    </main>
     {% for js in scripts %}
     <script src="{{ root }}{{ js }}?v={{ cache_version }}" defer></script>
     {% endfor %}

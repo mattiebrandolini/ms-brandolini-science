@@ -3,12 +3,11 @@
 {% block body_attrs %} class="cv-page"{% endblock %}
 
 {% block body %}
-<a href="#main-content" class="skip-link">Skip to main content</a>
 <nav class="cv-breadcrumb" aria-label="Breadcrumb">
     <a href="../../student/">Courses</a> <span aria-hidden="true">›</span> <span>{{ course.title }}</span>
 </nav>
 <a href="../../student/" class="cv-back">← Back to courses</a>
-<div id="cv-root" role="main">
+<div id="cv-root" >
     <div class="cv-loading" aria-live="polite">
         <div class="cv-spinner"></div>
         <p>Loading {{ course.title }} resources…</p>
