@@ -1,75 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 — Ms. Brandolini's Science</title>
-    <link rel="icon" type="image/svg+xml" href="/ms-brandolini-science/favicon.svg">
-    <meta property="og:title" content="Page Not Found — Ms. Brandolini's Science">
+    <link rel="icon" type="image/svg+xml" href="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.svg">
+    <link rel="icon" type="image/png" href="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.png">
+    <meta property="og:title" content="404 — Ms. Brandolini's Science">
+    <meta property="og:description" content="Page not found.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="Page not found.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/ms-brandolini-science/styles/main.css">
-    <style>
-        .four-oh-four {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            text-align: center;
-            padding: 2rem;
-        }
-        .four-oh-four .code {
-            font-size: clamp(5rem, 15vw, 10rem);
-            font-weight: 700;
-            font-family: 'Source Serif 4', serif;
-            background: linear-gradient(135deg, var(--accent-bio), var(--accent-chem));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .four-oh-four h1 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-        .four-oh-four p {
-            color: var(--text-secondary);
-            max-width: 400px;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        .four-oh-four .btn-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.15s;
-        }
-        .four-oh-four .btn-home:hover { transform: scale(1.04); }
-        .four-oh-four .molecule {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0.6;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
+    <link rel="stylesheet" href="https://mattiebrandolini.github.io/ms-brandolini-science/styles/main.css">
+<style>
+    .four-oh-four { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:80vh; text-align:center; padding:2rem; }
+    .four-oh-four .code { font-size:clamp(5rem,15vw,10rem); font-weight:700; font-family:'Source Serif 4', Georgia, serif; background:linear-gradient(135deg,var(--accent-bio),var(--accent-chem)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; margin-bottom:0.5rem; }
+    .four-oh-four h1 { font-size:1.5rem; color:var(--text-primary); margin-bottom:0.75rem; }
+    .four-oh-four p { color:var(--text-secondary); max-width:400px; margin-bottom:2rem; line-height:1.6; }
+    .four-oh-four .btn-home { display:inline-flex; align-items:center; gap:0.5rem; padding:0.75rem 1.5rem; background:var(--accent); color:white; border-radius:8px; text-decoration:none; font-weight:500; transition:transform 0.15s; }
+    .four-oh-four .btn-home:hover { transform:scale(1.04); }
+    .four-oh-four .molecule-icon { font-size:3rem; margin-bottom:1rem; opacity:0.6; }
+</style>
 </head>
 <body>
-    <div class="four-oh-four">
-        <div class="molecule">🧪</div>
-        <div class="code">404</div>
-        <h1>Experiment Not Found</h1>
-        <p>This page must have evaporated. Let's get you back to the lab.</p>
-        <a href="/ms-brandolini-science/" class="btn-home">← Back to Home</a>
-    </div>
-    <script src="/ms-brandolini-science/js/toolbar.js?v=2"></script>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="four-oh-four">
+    <div class="molecule-icon">🧪</div>
+    <div class="code">404</div>
+    <h1>Experiment Not Found</h1>
+    <p>This page must have evaporated. Let's get you back to the lab.</p>
+    <a href="https://mattiebrandolini.github.io/ms-brandolini-science/" class="btn-home">← Back to Home</a>
+</div>
+    <div id="main-content"></div>
+    <script src="https://mattiebrandolini.github.io/ms-brandolini-science/js/toolbar.js?v=3" defer></script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+<style>
+    .hero { text-align:center; padding:4rem 0 3rem; }
+    .hero h1 { font-family:{{ font_heading }}; font-size:clamp(2rem,5vw,3.2rem); font-weight:600; line-height:1.15; margin-bottom:0.75rem; }
+    .hero p { font-size:1.05rem; color:var(--text-secondary); font-weight:300; max-width:520px; margin:0 auto; line-height:1.6; }
+    .section-label { font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1.25rem; }
+    .courses-section { margin-bottom:3rem; }
+    .card--course { cursor:pointer; }
+    .card--course:hover .card-title { text-decoration:underline; text-underline-offset:3px; }
+    .quick-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:3rem; }
+    .quick-link { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:1.25rem 1.5rem; display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; font-weight:500; color:var(--text-secondary); transition:all 0.25s ease; cursor:pointer; text-decoration:none; }
+    .quick-link:hover { border-color:var(--border-hover); color:var(--text-primary); background:var(--bg-card-hover); }
+    .quick-link-icon { font-size:1.3rem; }
+    @media (max-width:640px) { .hero { padding:2.5rem 0 2rem; } .quick-links { grid-template-columns:1fr 1fr; } }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="bg-atmosphere"></div>
+<div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="../" class="topbar-brand">{{ site_title }}</a>
+        <div class="topbar-nav">
+            <a href="tools/" class="topbar-link">Tools</a>
+            <a href="../teacher/" class="topbar-link">Teacher View</a>
+            <span class="topbar-role topbar-role--student">Student</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero anim-fade anim-delay-1">
+            <div class="tag-label">Student Resources</div>
+            <h1>Pick Your <span class="text-gradient-bio">Course</span></h1>
+            <p>Videos, structured notes, interactive content, and review games — everything organized by topic.</p>
+        </div>
+        <div class="section-label anim-slide anim-delay-2">Quick Access</div>
+        <div class="quick-links anim-slide anim-delay-2">
+            <a href="#" class="quick-link"><span class="quick-link-icon">📺</span>All Videos</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">📝</span>Structured Notes</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">🎮</span>Review Games</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">🧪</span>MCAS Practice</a>
+        </div>
+        <div class="courses-section">
+            <div class="section-label anim-slide anim-delay-3">Courses</div>
+            <div class="card-grid">
+                {% for c in courses %}
+                <a href="{{ c.slug }}/{% if c.config_js %}resources.html{% endif %}" class="card card--{{ c.color_class }} card--course anim-slide anim-delay-{{ 3 + loop.index0 // 3 }}">
+                    <div class="card-icon">{{ c.icon }}</div>
+                    <div class="card-title card-title--{{ c.color_class }}">{{ c.title }}{% if c.status == 'wip' %} <span class="wip-badge">WIP</span>{% endif %}</div>
+                    <p class="card-desc">{{ c.student_desc }}</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--{{ c.color_class }}"></span>{% if c.topic_count %}{{ c.topic_count }} topics{% else %}Coming soon{% endif %}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

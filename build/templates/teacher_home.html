@@ -1,31 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching Companion — Ms. Brandolini's Science</title>
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/png" href="../favicon.png">
-    <meta property="og:title" content="Teaching Companion — Ms. Brandolini's Science">
-    <meta property="og:description" content="Pedagogical context, standards alignment, and implementation guides for science curriculum.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.png">
-    <meta name="twitter:card" content="summary">
-    <meta name="description" content="Pedagogical context, standards alignment, and implementation guides for science curriculum.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/print.css" media="print">
+{% extends "base.html" %}
+
+{% block head_extra %}
 <style>
     .hero { text-align:center; padding:4rem 0 3rem; }
-    .hero h1 { font-family:'Source Serif 4', Georgia, serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:600; line-height:1.15; margin-bottom:0.75rem; }
+    .hero h1 { font-family:{{ font_heading }}; font-size:clamp(2rem,5vw,3.2rem); font-weight:600; line-height:1.15; margin-bottom:0.75rem; }
     .hero p { font-size:1.05rem; color:var(--text-secondary); font-weight:300; max-width:560px; margin:0 auto; line-height:1.6; }
     .section-label { font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1.25rem; }
     .about-block { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:2rem 2.5rem; margin-bottom:3rem; border-left:3px solid var(--accent-warm); }
-    .about-block h2 { font-family:'Source Serif 4', Georgia, serif; font-size:1.3rem; font-weight:600; margin-bottom:0.75rem; color:var(--accent-warm); }
+    .about-block h2 { font-family:{{ font_heading }}; font-size:1.3rem; font-weight:600; margin-bottom:0.75rem; color:var(--accent-warm); }
     .about-block p { color:var(--text-secondary); font-size:0.95rem; line-height:1.7; font-weight:300; }
     .about-block p+p { margin-top:0.75rem; }
     .guide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-bottom:3rem; }
@@ -51,14 +33,14 @@
     .site-footer p { font-weight:300; }
     @media (max-width:640px) { .hero { padding:2.5rem 0 2rem; } .about-block { padding:1.5rem; } }
 </style>
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+{% endblock %}
+
+{% block body %}
 <div class="bg-atmosphere"></div>
 <div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
 <div class="page-wrap">
     <nav class="topbar anim-fade">
-        <a href="../" class="topbar-brand">Ms. Brandolini's Science</a>
+        <a href="../" class="topbar-brand">{{ site_title }}</a>
         <div class="topbar-nav">
             <a href="../student/" class="topbar-link">Student View</a>
             <span class="topbar-role topbar-role--teacher">Teacher</span>
@@ -78,78 +60,20 @@
         <div class="companion-section">
             <div class="section-label anim-slide anim-delay-3">Course Companions</div>
             <div class="companion-list">
-                <a href="biology/" class="companion-link anim-slide anim-delay-3">
-                    <span class="companion-dot companion-dot--bio"></span>
+                {% for c in courses %}
+                <a href="{{ c.slug }}/" class="companion-link anim-slide anim-delay-{{ 3 + loop.index0 // 3 }}">
+                    <span class="companion-dot companion-dot--{{ c.color_class }}"></span>
                     <div class="companion-info">
-                        <h4>Biology — Teacher Guide</h4>
-                        <p>86+ episodes · Standards mapping · Scaffolding notes</p>
+                        <h4>{{ c.title }} — Teacher Guide</h4>
+                        <p>{% if c.topic_count %}{{ c.topic_count }}+ episodes · {% endif %}Standards mapping · Scaffolding notes</p>
                     </div>
+                    {% if c.status == 'live' %}
                     <span class="companion-arrow">→</span>
-                </a>
-                <a href="environmental-biology/" class="companion-link anim-slide anim-delay-3">
-                    <span class="companion-dot companion-dot--env"></span>
-                    <div class="companion-info">
-                        <h4>Environmental Biology — Teacher Guide</h4>
-                        <p>96+ episodes · Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-arrow">→</span>
-                </a>
-                <a href="sheltered-chemistry/" class="companion-link anim-slide anim-delay-3">
-                    <span class="companion-dot companion-dot--chem"></span>
-                    <div class="companion-info">
-                        <h4>Sheltered Chemistry — Teacher Guide</h4>
-                        <p>120+ episodes · Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-arrow">→</span>
-                </a>
-                <a href="earth-science/" class="companion-link anim-slide anim-delay-4">
-                    <span class="companion-dot companion-dot--earth"></span>
-                    <div class="companion-info">
-                        <h4>Earth Science — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
+                    {% else %}
                     <span class="companion-status companion-status--soon">Soon</span>
+                    {% endif %}
                 </a>
-                <a href="anatomy-physiology/" class="companion-link anim-slide anim-delay-4">
-                    <span class="companion-dot companion-dot--anat"></span>
-                    <div class="companion-info">
-                        <h4>Anatomy & Physiology — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-status companion-status--soon">Soon</span>
-                </a>
-                <a href="criminology/" class="companion-link anim-slide anim-delay-4">
-                    <span class="companion-dot companion-dot--crim"></span>
-                    <div class="companion-info">
-                        <h4>Criminology — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-status companion-status--soon">Soon</span>
-                </a>
-                <a href="oceanography/" class="companion-link anim-slide anim-delay-5">
-                    <span class="companion-dot companion-dot--ocean"></span>
-                    <div class="companion-info">
-                        <h4>Oceanography — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-status companion-status--soon">Soon</span>
-                </a>
-                <a href="physics/" class="companion-link anim-slide anim-delay-5">
-                    <span class="companion-dot companion-dot--phys"></span>
-                    <div class="companion-info">
-                        <h4>Physics — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-status companion-status--soon">Soon</span>
-                </a>
-                <a href="astronomy/" class="companion-link anim-slide anim-delay-5">
-                    <span class="companion-dot companion-dot--astro"></span>
-                    <div class="companion-info">
-                        <h4>Astronomy — Teacher Guide</h4>
-                        <p>Standards mapping · Scaffolding notes</p>
-                    </div>
-                    <span class="companion-status companion-status--soon">Soon</span>
-                </a>
+                {% endfor %}
             </div>
         </div>
         <div class="section-label anim-slide anim-delay-4">Pedagogy &amp; Approach</div>
@@ -181,7 +105,4 @@
         </footer>
     </div>
 </div>
-    <div id="main-content"></div>
-    <script src="../js/toolbar.js?v=3" defer></script>
-</body>
-</html>
+{% endblock %}

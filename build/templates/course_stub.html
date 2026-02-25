@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+<style>
+    .wip-page { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:calc(100vh - 80px); text-align:center; padding:2rem; }
+    .wip-icon { font-size:4rem; margin-bottom:1.5rem; }
+    .wip-page h1 { font-family:{{ font_heading }}; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:600; margin-bottom:0.5rem; }
+    .wip-page .subtitle { color:var(--accent-warm); font-size:0.9rem; font-weight:600; letter-spacing:0.05em; margin-bottom:0.5rem; }
+    .wip-page .status { display:inline-flex; align-items:center; gap:0.5rem; margin:1.25rem 0 1.5rem; padding:0.5rem 1.25rem; border-radius:100px; font-size:0.85rem; font-weight:600; }
+    .status--wip { background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.25); color:var(--accent-warm); }
+    .status--live { background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.25); color:var(--accent-bio); }
+    .wip-page .desc { color:var(--text-secondary); font-size:1rem; font-weight:300; max-width:420px; line-height:1.6; margin-bottom:2rem; }
+    .wip-links { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .wip-link, .back-link { font-size:0.85rem; font-weight:500; color:var(--text-dim); padding:0.6rem 1.5rem; border:1px solid var(--border-subtle); border-radius:100px; transition:all 0.2s; text-decoration:none; }
+    .wip-link:hover, .back-link:hover { color:var(--text-primary); border-color:var(--border-hover); }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="bg-atmosphere"></div>
+<div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="../../" class="topbar-brand">{{ site_title }}</a>
+        <div class="topbar-nav">
+            {% if role == 'student' %}
+            <a href="../../teacher/{{ course.slug }}/" class="topbar-link">Teacher View</a>
+            <span class="topbar-role topbar-role--student">Student</span>
+            {% else %}
+            <a href="../../student/{{ course.slug }}/" class="topbar-link">Student View</a>
+            <span class="topbar-role topbar-role--teacher">Teacher</span>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="wip-page">
+        <div class="wip-icon anim-fade">{{ course.icon }}</div>
+        <h1 class="anim-fade anim-delay-1"><span class="card-title--{{ course.color_class }}">{{ course.title }}</span></h1>
+        {% if role == 'teacher' %}
+        <div class="subtitle anim-fade anim-delay-2">Teacher Companion</div>
+        {% endif %}
+        {% if course.status == 'live' %}
+        <div class="status status--live anim-fade anim-delay-2">✓ {{ course.topic_count }}+ episodes available</div>
+        {% else %}
+        <div class="status status--wip anim-fade anim-delay-2">🔨 Content in development</div>
+        {% endif %}
+        <p class="desc anim-fade anim-delay-3">{% if role == 'student' %}{{ course.student_desc }}{% else %}{{ course.teacher_desc }}{% endif %}</p>
+        {% if role == 'teacher' %}
+        <div class="wip-links anim-fade anim-delay-4">
+            <a href="../../student/{{ course.slug }}/" class="wip-link">View student materials →</a>
+            <a href="../" class="wip-link">← Back to teacher home</a>
+        </div>
+        {% else %}
+        <a href="../" class="back-link anim-fade anim-delay-4">← Back to all courses</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

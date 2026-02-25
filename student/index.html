@@ -3,138 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Resources — Ms. Brandolini's Science</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <meta property="og:title" content="Student Resources — Ms. Brandolini's Science">
     <meta property="og:description" content="Science courses, resources, and tools for students at Everett High School.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.svg">
-    <meta property="og:url" content="https://mattiebrandolini.github.io/ms-brandolini-science/">
-    <link rel="stylesheet" href="../styles/print.css" media="print">
-    <title>Student Resources — Ms. Brandolini's Science</title>
+    <meta property="og:image" content="https://mattiebrandolini.github.io/ms-brandolini-science/favicon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="description" content="Science courses, resources, and tools for students at Everett High School.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/main.css">
-    <style>
-        .hero { text-align: center; padding: 4rem 0 3rem; }
-        .hero h1 { font-family: 'Source Serif 4', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 0.75rem; }
-        .hero p { font-size: 1.05rem; color: var(--text-secondary); font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.6; }
-        .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.25rem; }
-        .courses-section { margin-bottom: 3rem; }
-        .card--course { cursor: pointer; }
-        .card--course:hover .card-title { text-decoration: underline; text-underline-offset: 3px; }
-        .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-        .quick-link { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; font-weight: 500; color: var(--text-secondary); transition: all 0.25s ease; cursor: pointer; }
-        .quick-link:hover { border-color: var(--border-hover); color: var(--text-primary); background: var(--bg-card-hover); }
-        .quick-link-icon { font-size: 1.3rem; }
-        @media (max-width: 640px) { .hero { padding: 2.5rem 0 2rem; } .quick-links { grid-template-columns: 1fr 1fr; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/print.css" media="print">
+<style>
+    .hero { text-align:center; padding:4rem 0 3rem; }
+    .hero h1 { font-family:'Source Serif 4', Georgia, serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:600; line-height:1.15; margin-bottom:0.75rem; }
+    .hero p { font-size:1.05rem; color:var(--text-secondary); font-weight:300; max-width:520px; margin:0 auto; line-height:1.6; }
+    .section-label { font-size:0.75rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:1.25rem; }
+    .courses-section { margin-bottom:3rem; }
+    .card--course { cursor:pointer; }
+    .card--course:hover .card-title { text-decoration:underline; text-underline-offset:3px; }
+    .quick-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:3rem; }
+    .quick-link { background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:1.25rem 1.5rem; display:flex; align-items:center; gap:0.75rem; font-size:0.95rem; font-weight:500; color:var(--text-secondary); transition:all 0.25s ease; cursor:pointer; text-decoration:none; }
+    .quick-link:hover { border-color:var(--border-hover); color:var(--text-primary); background:var(--bg-card-hover); }
+    .quick-link-icon { font-size:1.3rem; }
+    @media (max-width:640px) { .hero { padding:2.5rem 0 2rem; } .quick-links { grid-template-columns:1fr 1fr; } }
+</style>
 </head>
 <body>
-    <div class="bg-atmosphere"></div>
-    <div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
-
-    <div class="page-wrap">
-        <nav class="topbar anim-fade">
-            <a href="../" class="topbar-brand">Ms. Brandolini's Science</a>
-            <div class="topbar-nav">
-                <a href="tools/" class="topbar-link">Tools</a>
-                <a href="../teacher/" class="topbar-link">Teacher View</a>
-                <span class="topbar-role topbar-role--student">Student</span>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="bg-atmosphere"></div>
+<div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="../" class="topbar-brand">Ms. Brandolini's Science</a>
+        <div class="topbar-nav">
+            <a href="tools/" class="topbar-link">Tools</a>
+            <a href="../teacher/" class="topbar-link">Teacher View</a>
+            <span class="topbar-role topbar-role--student">Student</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero anim-fade anim-delay-1">
+            <div class="tag-label">Student Resources</div>
+            <h1>Pick Your <span class="text-gradient-bio">Course</span></h1>
+            <p>Videos, structured notes, interactive content, and review games — everything organized by topic.</p>
+        </div>
+        <div class="section-label anim-slide anim-delay-2">Quick Access</div>
+        <div class="quick-links anim-slide anim-delay-2">
+            <a href="#" class="quick-link"><span class="quick-link-icon">📺</span>All Videos</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">📝</span>Structured Notes</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">🎮</span>Review Games</a>
+            <a href="#" class="quick-link"><span class="quick-link-icon">🧪</span>MCAS Practice</a>
+        </div>
+        <div class="courses-section">
+            <div class="section-label anim-slide anim-delay-3">Courses</div>
+            <div class="card-grid">
+                <a href="biology/resources.html" class="card card--bio card--course anim-slide anim-delay-3">
+                    <div class="card-icon">🧬</div>
+                    <div class="card-title card-title--bio">Biology</div>
+                    <p class="card-desc">From cells to ecosystems — video episodes, structured notes, and interactive content to build your understanding of living systems.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--bio"></span>86 topics</div>
+                </a>
+                <a href="environmental-biology/resources.html" class="card card--env card--course anim-slide anim-delay-3">
+                    <div class="card-icon">🌍</div>
+                    <div class="card-title card-title--env">Environmental Biology</div>
+                    <p class="card-desc">How living systems interact with their environment — climate, biodiversity, human impact, and the science of sustainability.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--env"></span>96 topics</div>
+                </a>
+                <a href="sheltered-chemistry/resources.html" class="card card--chem card--course anim-slide anim-delay-3">
+                    <div class="card-icon">⚗️</div>
+                    <div class="card-title card-title--chem">Sheltered Chemistry</div>
+                    <p class="card-desc">Matter, reactions, and energy — built for multilingual learners with visual supports, cognates, and scaffolded content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--chem"></span>120 topics</div>
+                </a>
+                <a href="earth-science/" class="card card--earth card--course anim-slide anim-delay-4">
+                    <div class="card-icon">🌋</div>
+                    <div class="card-title card-title--earth">Earth Science <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--earth"></span>Coming soon</div>
+                </a>
+                <a href="anatomy-physiology/" class="card card--anat card--course anim-slide anim-delay-4">
+                    <div class="card-icon">🫀</div>
+                    <div class="card-title card-title--anat">Anatomy & Physiology <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--anat"></span>Coming soon</div>
+                </a>
+                <a href="criminology/" class="card card--crim card--course anim-slide anim-delay-4">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-title card-title--crim">Criminology <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--crim"></span>Coming soon</div>
+                </a>
+                <a href="oceanography/" class="card card--ocean card--course anim-slide anim-delay-5">
+                    <div class="card-icon">🌊</div>
+                    <div class="card-title card-title--ocean">Oceanography <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--ocean"></span>Coming soon</div>
+                </a>
+                <a href="physics/" class="card card--phys card--course anim-slide anim-delay-5">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title card-title--phys">Physics <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--phys"></span>Coming soon</div>
+                </a>
+                <a href="astronomy/" class="card card--astro card--course anim-slide anim-delay-5">
+                    <div class="card-icon">🔭</div>
+                    <div class="card-title card-title--astro">Astronomy <span class="wip-badge">WIP</span></div>
+                    <p class="card-desc">This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.</p>
+                    <div class="card-meta"><span class="card-meta-dot card-meta-dot--astro"></span>Coming soon</div>
+                </a>
             </div>
-        </nav>
-
-        <div class="container">
-            <div class="hero anim-fade anim-delay-1">
-                <div class="tag-label">Student Resources</div>
-                <h1>Pick Your <span class="text-gradient-bio">Course</span></h1>
-                <p>Videos, structured notes, interactive content, and review games — everything organized by topic.</p>
-            </div>
-
-            <div class="section-label anim-slide anim-delay-2">Quick Access</div>
-            <div class="quick-links anim-slide anim-delay-2">
-                <a href="#" class="quick-link"><span class="quick-link-icon">📺</span>All Videos</a>
-                <a href="#" class="quick-link"><span class="quick-link-icon">📝</span>Structured Notes</a>
-                <a href="#" class="quick-link"><span class="quick-link-icon">🎮</span>Review Games</a>
-                <a href="#" class="quick-link"><span class="quick-link-icon">🧪</span>MCAS Practice</a>
-            </div>
-
-            <div class="courses-section">
-                <div class="section-label anim-slide anim-delay-3">Courses</div>
-                <div class="card-grid">
-
-                    <a href="biology/resources.html" class="card card--bio card--course anim-slide anim-delay-3">
-                        <div class="card-icon">🧬</div>
-                        <div class="card-title card-title--bio">Biology</div>
-                        <p class="card-desc">From cells to ecosystems — video episodes, structured notes, and interactive content to build your understanding of living systems.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--bio"></span>86 topics</div>
-                    </a>
-
-                    <a href="environmental-biology/resources.html" class="card card--env card--course anim-slide anim-delay-3">
-                        <div class="card-icon">🌍</div>
-                        <div class="card-title card-title--env">Environmental Biology</div>
-                        <p class="card-desc">How living systems interact with their environment — climate, biodiversity, human impact, and the science of sustainability.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--env"></span>96 topics</div>
-                    </a>
-
-                    <a href="sheltered-chemistry/resources.html" class="card card--chem card--course anim-slide anim-delay-3">
-                        <div class="card-icon">⚗️</div>
-                        <div class="card-title card-title--chem">Sheltered Chemistry</div>
-                        <p class="card-desc">Chemistry fundamentals with scaffolded language support — designed for English Language Learners building science and English skills together.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--chem"></span>120 topics</div>
-                    </a>
-
-                    <a href="#" class="card card--earth card--course anim-slide anim-delay-4">
-                        <div class="card-icon">🪨</div>
-                        <div class="card-title card-title--earth">Earth Science <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">Minerals, plate tectonics, weather systems, and the forces that shape our planet — from the core to the atmosphere.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--earth"></span>Coming soon</div>
-                    </a>
-
-                    <a href="#" class="card card--anat card--course anim-slide anim-delay-4">
-                        <div class="card-icon">🫀</div>
-                        <div class="card-title card-title--anat">Anatomy &amp; Physiology <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">The structure and function of the human body — organ systems, tissues, and how everything works together to keep you alive.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--anat"></span>Coming soon</div>
-                    </a>
-
-                    <a href="#" class="card card--crim card--course anim-slide anim-delay-4">
-                        <div class="card-icon">🔍</div>
-                        <div class="card-title card-title--crim">Criminology <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">Forensic science, criminal behavior, evidence analysis, and the intersection of science with justice and society.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--crim"></span>Coming soon</div>
-                    </a>
-
-                    <a href="#" class="card card--ocean card--course anim-slide anim-delay-5">
-                        <div class="card-icon">🌊</div>
-                        <div class="card-title card-title--ocean">Oceanography <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">Ocean currents, marine ecosystems, deep sea geology, and the chemistry of saltwater — the science of Earth's largest biome.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--ocean"></span>Coming soon</div>
-                    </a>
-
-                    <a href="#" class="card card--phys card--course anim-slide anim-delay-5">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-title card-title--phys">Physics <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">Motion, forces, energy, waves, and electricity — the fundamental rules that govern how the universe works.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--phys"></span>Coming soon</div>
-                    </a>
-
-                    <a href="#" class="card card--astro card--course anim-slide anim-delay-5">
-                        <div class="card-icon">🔭</div>
-                        <div class="card-title card-title--astro">Astronomy <span class="wip-badge">WIP</span></div>
-                        <p class="card-desc">Stars, planets, galaxies, and the origins of the universe — from our solar system to the edge of the observable cosmos.</p>
-                        <div class="card-meta"><span class="card-meta-dot card-meta-dot--astro"></span>Coming soon</div>
-                    </a>
-
-                </div>
-            </div>
-
-            <footer class="site-footer anim-fade anim-delay-6">
-                <div class="hearts">🧡 💙</div>
-                <p>Built with care for students who deserve the best.</p>
-            </footer>
         </div>
     </div>
-    <script src="../js/toolbar.js?v=2"></script>
+</div>
+    <div id="main-content"></div>
+    <script src="../js/toolbar.js?v=3" defer></script>
 </body>
 </html>

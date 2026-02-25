@@ -35,7 +35,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: var(--bg-deep);
     color: var(--text-primary);
     min-height: 100vh;
@@ -490,7 +490,7 @@ a { color: inherit; text-decoration: none; }
     display: none; position: fixed; top: 56px; right: 0.75rem;
     width: 260px; background: var(--bg-card); border: 1px solid var(--border-subtle);
     border-radius: 10px; padding: 1rem; z-index: 60;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.4); font-family: 'Outfit', sans-serif;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4); font-family: 'DM Sans', sans-serif;
 }
 .a11y-panel.open { display: block; }
 .a11y-panel h3 {
@@ -525,7 +525,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Dyslexic font */
 [data-dyslexic="true"] body, [data-dyslexic="true"] input, [data-dyslexic="true"] button {
-    font-family: "OpenDyslexic", "Outfit", sans-serif !important;
+    font-family: "OpenDyslexic", "DM Sans", sans-serif !important;
 }
 [data-dyslexic="true"] h1, [data-dyslexic="true"] h2, [data-dyslexic="true"] .topbar-brand,
 [data-dyslexic="true"] .heading-display {
@@ -547,3 +547,22 @@ a { color: inherit; text-decoration: none; }
 
 /* Colorblind */
 [data-colorblind="true"] .card::before { height: 6px; }
+
+/* ---- Skip Link (accessibility) ---- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent, #818cf8);
+    color: white;
+    border-radius: 0 0 8px 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 99999;
+    transition: top 0.2s;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
+}

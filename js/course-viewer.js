@@ -76,6 +76,8 @@
             console.log(`Loaded ${parsed.length} resources from sheet`);
             return parsed;
         } catch (err) {
+            const root = document.getElementById('cv-root');
+            if (root) root.innerHTML = '<div class="cv-error"><h2>Could not load resources</h2><p>The resource sheet might be temporarily unavailable. Check your internet connection and try again.</p><button class="cv-retry" onclick="location.reload()">Retry</button></div>';
             console.error('Error fetching sheet:', err);
             return [];
         }
@@ -256,7 +258,7 @@
         html += `</div>`;
 
         // Topic list
-        html += `<div class="cv-topic-list" id="cv-topic-list"><div class="cv-loading">Loading resources...</div></div>`;
+        html += `<div class="cv-topic-list" id="cv-topic-list"><div class="cv-loading"><div class="cv-spinner"></div>Loading resources…</div></div>`;
         html += `<div class="cv-no-results hidden" id="cv-no-results">No topics match your search.</div>`;
 
         root.innerHTML = html;

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="../../" class="topbar-brand">{{ site_title }}</a>
+        <div class="topbar-nav">
+            <a href="../" class="topbar-link">← Courses</a>
+            <span class="topbar-role topbar-role--student">Tools</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero anim-fade anim-delay-1">
+            <h1 class="heading-display">Interactive Tools</h1>
+            <p class="hero-sub">Simulations, calculators, and practice apps.</p>
+        </div>
+        <div class="card-grid anim-slide anim-delay-2">
+            <div class="card">
+                <div class="card-icon">🔬</div>
+                <div class="card-title">Coming Soon</div>
+                <p class="card-desc">Interactive science tools are being developed. Check back soon!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
