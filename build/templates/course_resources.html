@@ -13,4 +13,9 @@
         <p>Loading {{ course.title }} resources…</p>
     </div>
 </div>
+<footer class="cv-footer">
+    <span>Last updated {{ build_date }}</span>
+    <span class="cv-footer-sep" aria-hidden="true">·</span>
+    <a href="https://github.com/mattiebrandolini/ms-brandolini-science/issues/new?title=Broken+link+in+{{ course.title | urlencode }}&labels=broken-link&body=Page:+{{ course.slug }}%2Fresources%0AWhich+link+is+broken%3F+" class="cv-footer-link">Report a broken link</a>
+</footer>
 {% endblock %}

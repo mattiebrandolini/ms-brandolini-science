@@ -48,6 +48,7 @@ BASE_CTX = {
     'font_heading': FONT_HEADING,
     'courses': COURSES,
     'year': datetime.date.today().year,
+    'build_date': datetime.date.today().strftime('%B %d, %Y'),
 }
 
 # Track generated files for sitemap

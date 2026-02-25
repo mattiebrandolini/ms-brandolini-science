@@ -392,3 +392,19 @@ body.cv-page {
     cursor: pointer;
     font-size: 0.85rem;
 }
+
+/* ---- Resource page footer ---- */
+.cv-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--cv-border, #e2e8f0);
+    font-size: 0.8rem;
+    color: var(--cv-text-muted, #718096);
+}
+.cv-footer-sep { margin: 0 0.4rem; }
+.cv-footer-link {
+    color: var(--cv-link, #2563eb);
+    text-decoration: none;
+}
+.cv-footer-link:hover { text-decoration: underline; }

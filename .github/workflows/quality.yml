@@ -1,0 +1,145 @@
+name: Site Quality Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-check:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install jinja2
+
+      - name: Run build script
+        run: cd build && python3 build.py
+
+      - name: Check for broken internal links
+        run: |
+          # Find all href/src references in generated HTML and verify targets exist
+          echo "Checking internal links..."
+          errors=0
+          for html_file in $(find . -name "*.html" -not -path "./.git/*" -not -path "./build/*"); do
+            dir=$(dirname "$html_file")
+            
+            # Extract relative href values (skip external, anchors, mailto, javascript)
+            grep -oP '(?:href|src)="(?!https?://|mailto:|javascript:|#|data:)\K[^"#?]+' "$html_file" 2>/dev/null | while read -r link; do
+              # Resolve relative path
+              if [[ "$link" == /* ]]; then
+                target=".${link}"
+              else
+                target="${dir}/${link}"
+              fi
+              
+              # Normalize path
+              target=$(realpath -m "$target" 2>/dev/null || echo "$target")
+              
+              # Check if file exists (try as-is, then with index.html)
+              if [ ! -f "$target" ] && [ ! -f "${target}/index.html" ] && [ ! -d "$target" ]; then
+                echo "  BROKEN: $html_file -> $link (resolved: $target)"
+                errors=$((errors + 1))
+              fi
+            done
+          done
+          
+          if [ $errors -gt 0 ]; then
+            echo ""
+            echo "Found $errors broken links!"
+            exit 1
+          else
+            echo "All internal links OK"
+          fi
+
+      - name: Check HTML structure
+        run: |
+          echo "Checking HTML structure..."
+          errors=0
+          for html_file in $(find . -name "*.html" -not -path "./.git/*" -not -path "./build/*"); do
+            # Check for <main> landmark
+            if ! grep -q '<main' "$html_file"; then
+              echo "  MISSING <main>: $html_file"
+              errors=$((errors + 1))
+            fi
+            
+            # Check for skip-link
+            if ! grep -q 'skip-link' "$html_file"; then
+              echo "  MISSING skip-link: $html_file"
+              errors=$((errors + 1))
+            fi
+            
+            # Check for meta description
+            if ! grep -q 'meta name="description"' "$html_file"; then
+              echo "  MISSING meta description: $html_file"
+              errors=$((errors + 1))
+            fi
+            
+            # Check for lang attribute
+            if ! grep -q '<html lang=' "$html_file"; then
+              echo "  MISSING lang attribute: $html_file"
+              errors=$((errors + 1))
+            fi
+
+            # Check for viewport meta
+            if ! grep -q 'viewport' "$html_file"; then
+              echo "  MISSING viewport meta: $html_file"
+              errors=$((errors + 1))
+            fi
+
+            # Check for favicon
+            if ! grep -q 'favicon' "$html_file"; then
+              echo "  MISSING favicon: $html_file"
+              errors=$((errors + 1))
+            fi
+
+            # Check for self-hosted fonts (no external font CDNs)
+            if grep -q 'fonts.googleapis.com\|fonts.cdnfonts.com' "$html_file"; then
+              echo "  EXTERNAL FONT CDN: $html_file (should be self-hosted)"
+              errors=$((errors + 1))
+            fi
+          done
+          
+          if [ $errors -gt 0 ]; then
+            echo ""
+            echo "Found $errors structural issues!"
+            exit 1
+          else
+            echo "All HTML structure checks passed"
+          fi
+
+      - name: Check accessibility attributes
+        run: |
+          echo "Checking accessibility data attributes are supported..."
+          
+          # Verify main.css has all required accessibility selectors
+          css_errors=0
+          for attr in 'data-dyslexic' 'data-colorblind' 'data-spacing' 'data-motion' 'data-textsize' 'data-theme="light"'; do
+            if ! grep -q "$attr" styles/main.css; then
+              echo "  MISSING CSS for [$attr] in main.css"
+              css_errors=$((css_errors + 1))
+            fi
+          done
+          
+          # Verify fonts are self-hosted
+          for font in "dm-sans-400.woff2" "source-serif-4-400.woff2" "opendyslexic-regular.woff"; do
+            if [ ! -f "static/fonts/$font" ]; then
+              echo "  MISSING font file: static/fonts/$font"
+              css_errors=$((css_errors + 1))
+            fi
+          done
+          
+          if [ $css_errors -gt 0 ]; then
+            echo "Found $css_errors accessibility issues!"
+            exit 1
+          else
+            echo "All accessibility checks passed"
+          fi
