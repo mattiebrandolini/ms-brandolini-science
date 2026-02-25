@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Biology — Teacher Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <style>
+        .wip-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            text-align: center;
+            padding: 2rem;
+        }
+        .wip-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+        .wip-page h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .wip-page .subtitle {
+            color: var(--accent-warm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .wip-page .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.25rem 0 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status--wip {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            color: var(--accent-warm);
+        }
+        .status--live {
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            color: var(--accent-bio);
+        }
+        .wip-page .desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+            max-width: 420px;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .wip-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .wip-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+        .wip-link:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-atmosphere"></div>
+    <div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div><div class="molecule"></div>
+    <div class="page-wrap">
+        <nav class="topbar anim-fade">
+            <a href="../../" class="topbar-brand">Ms. Brandolini's Science</a>
+            <div class="topbar-nav">
+                <a href="../../student/environmental-biology/" class="topbar-link">Student View</a>
+                <span class="topbar-role topbar-role--teacher">Teacher</span>
+            </div>
+        </nav>
+        <div class="wip-page">
+            <div class="wip-icon anim-fade">🌍</div>
+            <h1 class="anim-fade anim-delay-1"><span class="card-title--env">Environmental Biology</span></h1>
+            <div class="subtitle anim-fade anim-delay-2">Teacher Companion</div>
+            <div class="status status--live anim-fade anim-delay-2">✓ 56+ episodes available</div>
+            <p class="desc anim-fade anim-delay-3">Pedagogical notes, standards alignment, scaffolding strategies, and implementation guides for the Environmental Biology curriculum.</p>
+            <div class="wip-links anim-fade anim-delay-4">
+                <a href="../../student/environmental-biology/" class="wip-link">View student materials →</a>
+                <a href="../" class="wip-link">← Back to teacher home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

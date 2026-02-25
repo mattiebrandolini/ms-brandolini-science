@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css">
     <style>
-        /* ---- Teacher-specific ---- */
         .hero {
             text-align: center;
             padding: 4rem 0 3rem;
@@ -40,7 +39,6 @@
             margin-bottom: 1.25rem;
         }
 
-        /* About block */
         .about-block {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -69,7 +67,6 @@
             margin-top: 0.75rem;
         }
 
-        /* Teacher guide cards */
         .guide-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -111,7 +108,6 @@
             font-weight: 300;
         }
 
-        /* Course companion links */
         .companion-section {
             margin-bottom: 3rem;
         }
@@ -146,10 +142,6 @@
             flex-shrink: 0;
         }
 
-        .companion-dot--bio { background: var(--accent-bio); }
-        .companion-dot--env { background: var(--accent-env); }
-        .companion-dot--chem { background: var(--accent-chem); }
-
         .companion-info {
             flex: 1;
         }
@@ -164,6 +156,23 @@
             font-size: 0.85rem;
             color: var(--text-dim);
             font-weight: 300;
+        }
+
+        .companion-status {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            border: 1px solid var(--border-subtle);
+            white-space: nowrap;
+        }
+
+        .companion-status--soon {
+            color: var(--accent-warm);
+            border-color: rgba(251, 191, 36, 0.25);
         }
 
         .companion-arrow {
@@ -191,7 +200,6 @@
     <div class="molecule"></div>
 
     <div class="page-wrap">
-        <!-- Top bar -->
         <nav class="topbar anim-fade">
             <a href="../" class="topbar-brand">Ms. Brandolini's Science</a>
             <div class="topbar-nav">
@@ -201,14 +209,12 @@
         </nav>
 
         <div class="container container--narrow">
-            <!-- Hero -->
             <div class="hero anim-fade anim-delay-1">
                 <div class="tag-label">Teacher Resources</div>
                 <h1>Teaching <span class="text-gradient-warm">Companion</span></h1>
                 <p>Pedagogical context, standards alignment, and implementation guides for every piece of student-facing content.</p>
             </div>
 
-            <!-- About this resource -->
             <div class="about-block anim-slide anim-delay-2">
                 <h2>How This Works</h2>
                 <p>Everything here is built around the student materials. Each course has a teacher companion that walks through the pedagogical reasoning, suggests scaffolding strategies, maps to standards, and offers ideas for classroom implementation.</p>
@@ -219,6 +225,7 @@
             <div class="companion-section">
                 <div class="section-label anim-slide anim-delay-3">Course Companions</div>
                 <div class="companion-list">
+
                     <a href="#" class="companion-link anim-slide anim-delay-3">
                         <span class="companion-dot companion-dot--bio"></span>
                         <div class="companion-info">
@@ -228,7 +235,52 @@
                         <span class="companion-arrow">→</span>
                     </a>
 
+                    <a href="#" class="companion-link anim-slide anim-delay-3">
+                        <span class="companion-dot companion-dot--earth"></span>
+                        <div class="companion-info">
+                            <h4>Earth Science — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
+                    <a href="#" class="companion-link anim-slide anim-delay-3">
+                        <span class="companion-dot companion-dot--anat"></span>
+                        <div class="companion-info">
+                            <h4>Anatomy &amp; Physiology — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
                     <a href="#" class="companion-link anim-slide anim-delay-4">
+                        <span class="companion-dot companion-dot--crim"></span>
+                        <div class="companion-info">
+                            <h4>Criminology — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
+                    <a href="#" class="companion-link anim-slide anim-delay-4">
+                        <span class="companion-dot companion-dot--ocean"></span>
+                        <div class="companion-info">
+                            <h4>Oceanography — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
+                    <a href="#" class="companion-link anim-slide anim-delay-4">
+                        <span class="companion-dot companion-dot--phys"></span>
+                        <div class="companion-info">
+                            <h4>Physics — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
+                    <a href="#" class="companion-link anim-slide anim-delay-5">
                         <span class="companion-dot companion-dot--env"></span>
                         <div class="companion-info">
                             <h4>Environmental Biology — Teacher Guide</h4>
@@ -238,13 +290,23 @@
                     </a>
 
                     <a href="#" class="companion-link anim-slide anim-delay-5">
+                        <span class="companion-dot companion-dot--astro"></span>
+                        <div class="companion-info">
+                            <h4>Astronomy — Teacher Guide</h4>
+                            <p>Standards mapping · Scaffolding notes</p>
+                        </div>
+                        <span class="companion-status companion-status--soon">Soon</span>
+                    </a>
+
+                    <a href="#" class="companion-link anim-slide anim-delay-5">
                         <span class="companion-dot companion-dot--chem"></span>
                         <div class="companion-info">
                             <h4>Sheltered Chemistry — Teacher Guide</h4>
-                            <p>Coming soon</p>
+                            <p>Standards mapping · Scaffolding notes</p>
                         </div>
-                        <span class="companion-arrow">→</span>
+                        <span class="companion-status companion-status--soon">Soon</span>
                     </a>
+
                 </div>
             </div>
 
@@ -276,7 +338,6 @@
                 </a>
             </div>
 
-            <!-- Footer -->
             <footer class="site-footer anim-fade anim-delay-6">
                 <div class="hearts">🧡 💙</div>
                 <p>Built with care for students who deserve the best.</p>

@@ -7,9 +7,21 @@
     --bg-card: #111827;
     --bg-card-hover: #1a2234;
     --accent-bio: #34d399;
+    --accent-earth: #d97706;
+    --accent-anat: #f87171;
+    --accent-crim: #a78bfa;
+    --accent-ocean: #22d3ee;
+    --accent-phys: #fb923c;
     --accent-env: #60a5fa;
+    --accent-astro: #818cf8;
     --accent-chem: #f472b6;
     --accent-warm: #fbbf24;
+    --accent-earth: #d97706;
+    --accent-anat: #f87171;
+    --accent-crim: #a78bfa;
+    --accent-ocean: #22d3ee;
+    --accent-phys: #facc15;
+    --accent-astro: #c084fc;
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-dim: #64748b;
@@ -212,9 +224,15 @@ a { color: inherit; text-decoration: none; }
     height: 3px;
 }
 
-.card--bio::before { background: linear-gradient(90deg, var(--accent-bio), transparent); }
-.card--env::before { background: linear-gradient(90deg, var(--accent-env), transparent); }
-.card--chem::before { background: linear-gradient(90deg, var(--accent-chem), transparent); }
+.card--bio::before    { background: linear-gradient(90deg, var(--accent-bio), transparent); }
+.card--earth::before  { background: linear-gradient(90deg, var(--accent-earth), transparent); }
+.card--anat::before   { background: linear-gradient(90deg, var(--accent-anat), transparent); }
+.card--crim::before   { background: linear-gradient(90deg, var(--accent-crim), transparent); }
+.card--ocean::before  { background: linear-gradient(90deg, var(--accent-ocean), transparent); }
+.card--phys::before   { background: linear-gradient(90deg, var(--accent-phys), transparent); }
+.card--env::before    { background: linear-gradient(90deg, var(--accent-env), transparent); }
+.card--astro::before  { background: linear-gradient(90deg, var(--accent-astro), transparent); }
+.card--chem::before   { background: linear-gradient(90deg, var(--accent-chem), transparent); }
 
 .card-icon {
     font-size: 2rem;
@@ -227,9 +245,15 @@ a { color: inherit; text-decoration: none; }
     margin-bottom: 0.5rem;
 }
 
-.card-title--bio { color: var(--accent-bio); }
-.card-title--env { color: var(--accent-env); }
-.card-title--chem { color: var(--accent-chem); }
+.card-title--bio    { color: var(--accent-bio); }
+.card-title--earth  { color: var(--accent-earth); }
+.card-title--anat   { color: var(--accent-anat); }
+.card-title--crim   { color: var(--accent-crim); }
+.card-title--ocean  { color: var(--accent-ocean); }
+.card-title--phys   { color: var(--accent-phys); }
+.card-title--env    { color: var(--accent-env); }
+.card-title--astro  { color: var(--accent-astro); }
+.card-title--chem   { color: var(--accent-chem); }
 
 .card-desc {
     color: var(--text-secondary);
@@ -255,9 +279,26 @@ a { color: inherit; text-decoration: none; }
     border-radius: 50%;
 }
 
-.card-meta-dot--bio { background: var(--accent-bio); }
-.card-meta-dot--env { background: var(--accent-env); }
-.card-meta-dot--chem { background: var(--accent-chem); }
+.card-meta-dot--bio    { background: var(--accent-bio); }
+.card-meta-dot--earth  { background: var(--accent-earth); }
+.card-meta-dot--anat   { background: var(--accent-anat); }
+.card-meta-dot--crim   { background: var(--accent-crim); }
+.card-meta-dot--ocean  { background: var(--accent-ocean); }
+.card-meta-dot--phys   { background: var(--accent-phys); }
+.card-meta-dot--env    { background: var(--accent-env); }
+.card-meta-dot--astro  { background: var(--accent-astro); }
+.card-meta-dot--chem   { background: var(--accent-chem); }
+
+/* ---- Companion links (teacher) ---- */
+.companion-dot--bio    { background: var(--accent-bio); }
+.companion-dot--earth  { background: var(--accent-earth); }
+.companion-dot--anat   { background: var(--accent-anat); }
+.companion-dot--crim   { background: var(--accent-crim); }
+.companion-dot--ocean  { background: var(--accent-ocean); }
+.companion-dot--phys   { background: var(--accent-phys); }
+.companion-dot--env    { background: var(--accent-env); }
+.companion-dot--astro  { background: var(--accent-astro); }
+.companion-dot--chem   { background: var(--accent-chem); }
 
 /* ---- Footer ---- */
 .site-footer {
@@ -319,8 +360,8 @@ a { color: inherit; text-decoration: none; }
 .molecule:nth-child(1) { top: 15%; left: 8%; background: var(--accent-bio); }
 .molecule:nth-child(2) { top: 25%; right: 12%; background: var(--accent-env); animation-delay: 2s; }
 .molecule:nth-child(3) { top: 60%; left: 5%; background: var(--accent-chem); animation-delay: 4s; }
-.molecule:nth-child(4) { top: 70%; right: 8%; background: var(--accent-bio); animation-delay: 1s; }
-.molecule:nth-child(5) { top: 45%; left: 15%; background: var(--accent-env); animation-delay: 3s; }
+.molecule:nth-child(4) { top: 70%; right: 8%; background: var(--accent-astro); animation-delay: 1s; }
+.molecule:nth-child(5) { top: 45%; left: 15%; background: var(--accent-ocean); animation-delay: 3s; }
 
 /* ---- Mobile ---- */
 @media (max-width: 640px) {
@@ -329,3 +370,49 @@ a { color: inherit; text-decoration: none; }
     .topbar-nav { gap: 0.75rem; }
     .card-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ---- Additional course card colors ---- */
+.card--earth::before { background: linear-gradient(90deg, var(--accent-earth), transparent); }
+.card--anat::before { background: linear-gradient(90deg, var(--accent-anat), transparent); }
+.card--crim::before { background: linear-gradient(90deg, var(--accent-crim), transparent); }
+.card--ocean::before { background: linear-gradient(90deg, var(--accent-ocean), transparent); }
+.card--phys::before { background: linear-gradient(90deg, var(--accent-phys), transparent); }
+.card--astro::before { background: linear-gradient(90deg, var(--accent-astro), transparent); }
+
+.card-title--earth { color: var(--accent-earth); }
+.card-title--anat { color: var(--accent-anat); }
+.card-title--crim { color: var(--accent-crim); }
+.card-title--ocean { color: var(--accent-ocean); }
+.card-title--phys { color: var(--accent-phys); }
+.card-title--astro { color: var(--accent-astro); }
+
+.card-meta-dot--earth { background: var(--accent-earth); }
+.card-meta-dot--anat { background: var(--accent-anat); }
+.card-meta-dot--crim { background: var(--accent-crim); }
+.card-meta-dot--ocean { background: var(--accent-ocean); }
+.card-meta-dot--phys { background: var(--accent-phys); }
+.card-meta-dot--astro { background: var(--accent-astro); }
+
+/* WIP badge */
+.wip-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg-deep);
+    background: var(--accent-warm);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Teacher companion dots */
+.companion-dot--earth { background: var(--accent-earth); }
+.companion-dot--anat { background: var(--accent-anat); }
+.companion-dot--crim { background: var(--accent-crim); }
+.companion-dot--ocean { background: var(--accent-ocean); }
+.companion-dot--phys { background: var(--accent-phys); }
+.companion-dot--astro { background: var(--accent-astro); }
