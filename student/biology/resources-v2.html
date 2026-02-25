@@ -6,6 +6,7 @@
     <title>Biology — Ms. Brandolini's Science</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Fraunces:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
     <style>
 :root, [data-theme="dark"] {
     --bg: #0b0f1a; --bg-raised: #121929; --bg-hover: #1a2338;
@@ -228,6 +229,90 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .resource-notes-line { margin-left: calc(80px + 0.75rem); }
     .resource-item { gap: 0.5rem; }
 }
+
+/* ACCESSIBILITY */
+.a11y-btn {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg);
+    font-size: 0.95rem; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; flex-shrink: 0; position: relative;
+}
+.a11y-btn:hover { transform: scale(1.1); }
+.a11y-panel {
+    display: none; position: fixed; top: var(--topbar-h); right: 0.75rem;
+    width: 260px; background: var(--bg-raised); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem; z-index: 60;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.a11y-panel.open { display: block; }
+.a11y-panel h3 {
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 0.75rem;
+}
+.a11y-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+}
+.a11y-row:last-child { border-bottom: none; }
+.a11y-label { font-size: 0.85rem; font-weight: 500; }
+.a11y-toggle {
+    width: 40px; height: 22px; border-radius: 11px; border: none;
+    background: var(--border); position: relative; cursor: pointer;
+    transition: background 0.2s;
+}
+.a11y-toggle::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--text); transition: transform 0.2s;
+}
+.a11y-toggle.on { background: var(--accent); }
+.a11y-toggle.on::after { transform: translateX(18px); }
+.a11y-size-btns { display: flex; gap: 0.3rem; }
+.a11y-size-btn {
+    padding: 0.25rem 0.55rem; border-radius: 4px; font-weight: 600;
+    border: 1px solid var(--border); background: var(--bg);
+    color: var(--text-secondary); font-size: 0.8rem; cursor: pointer;
+    transition: all 0.15s;
+}
+.a11y-size-btn.active { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
+
+/* Dyslexic font */
+[data-dyslexic="true"] body,
+[data-dyslexic="true"] input,
+[data-dyslexic="true"] button {
+    font-family: "OpenDyslexic", "DM Sans", sans-serif !important;
+}
+[data-dyslexic="true"] .topbar-title,
+[data-dyslexic="true"] .unit-header h2 {
+    font-family: "OpenDyslexic", "Fraunces", serif !important;
+}
+
+/* Text sizes */
+[data-textsize="small"] body { font-size: 14px; }
+[data-textsize="medium"] body { font-size: 16px; }
+[data-textsize="large"] body { font-size: 19px; }
+
+/* Increased spacing */
+[data-spacing="true"] body { line-height: 1.9; letter-spacing: 0.03em; word-spacing: 0.12em; }
+[data-spacing="true"] .topic-name { line-height: 1.7; }
+[data-spacing="true"] .resource-title-link,
+[data-spacing="true"] .resource-title-plain { line-height: 1.6; white-space: normal; }
+
+/* Reduced motion */
+[data-motion="reduced"] *, [data-motion="reduced"] *::before, [data-motion="reduced"] *::after {
+    animation: none !important; transition: none !important;
+}
+
+/* Colorblind mode: replace dots with shapes */
+[data-colorblind="true"] .topic-dot,
+[data-colorblind="true"] .sidebar-unit-dot {
+    border-radius: 0; width: 10px; height: 10px;
+    background: var(--text-dim) !important;
+    border: 2px solid var(--text-secondary);
+}
+[data-colorblind="true"] .rtag-wida { border: 1px solid currentColor; }
+[data-colorblind="true"] .rtag-pace { border: 1px solid currentColor; }
+[data-colorblind="true"] .rtag-visuals { border: 1px solid currentColor; }
     </style>
 </head>
 <body>
@@ -238,9 +323,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="topbar-spacer"></div>
         <div id="type-filters" style="display:flex;gap:0.35rem;flex-shrink:0;"></div>
         <input type="text" class="topbar-search" id="search" placeholder="Search topics...">
+        <button class="a11y-btn" id="a11y-btn" title="Accessibility">♿</button>
         <button class="theme-btn" id="theme-toggle"></button>
     </div>
     <nav class="sidebar" id="sidebar"></nav>
+    <div class="a11y-panel" id="a11y-panel">
+        <h3>♿ Accessibility</h3>
+        <div class="a11y-row"><span class="a11y-label">Dyslexia-friendly font</span><button class="a11y-toggle" id="a11y-dyslexic"></button></div>
+        <div class="a11y-row"><span class="a11y-label">Colorblind-friendly</span><button class="a11y-toggle" id="a11y-colorblind"></button></div>
+        <div class="a11y-row"><span class="a11y-label">Extra spacing</span><button class="a11y-toggle" id="a11y-spacing"></button></div>
+        <div class="a11y-row"><span class="a11y-label">Reduce motion</span><button class="a11y-toggle" id="a11y-motion"></button></div>
+        <div class="a11y-row"><span class="a11y-label">Text size</span><div class="a11y-size-btns"><button class="a11y-size-btn" data-size="small" style="font-size:0.7rem">A</button><button class="a11y-size-btn" data-size="medium" style="font-size:0.85rem">A</button><button class="a11y-size-btn" data-size="large" style="font-size:1.05rem">A</button></div></div>
+    </div>
     <main class="main" id="main"></main>
 
     <script src="../../js/config-biology.js"></script>
@@ -444,6 +538,45 @@ applyTheme(localStorage.getItem('theme') || 'dark');
 
 document.getElementById('sidebar-toggle').addEventListener('click', () => {
     document.getElementById('sidebar').classList.toggle('open');
+});
+
+// ---- Accessibility ----
+const a11yPanel = document.getElementById("a11y-panel");
+document.getElementById("a11y-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    a11yPanel.classList.toggle("open");
+});
+document.addEventListener("click", (e) => {
+    if (!a11yPanel.contains(e.target) && e.target.id !== "a11y-btn")
+        a11yPanel.classList.remove("open");
+});
+
+function a11yToggle(id, attr) {
+    const btn = document.getElementById(id);
+    const saved = localStorage.getItem(attr);
+    if (saved === "true") { document.documentElement.setAttribute(attr, "true"); btn.classList.add("on"); }
+    btn.addEventListener("click", () => {
+        const on = btn.classList.toggle("on");
+        document.documentElement.setAttribute(attr, on ? "true" : "false");
+        localStorage.setItem(attr, on);
+    });
+}
+a11yToggle("a11y-dyslexic", "data-dyslexic");
+a11yToggle("a11y-colorblind", "data-colorblind");
+a11yToggle("a11y-spacing", "data-spacing");
+a11yToggle("a11y-motion", "data-motion");
+
+// Text size
+const savedSize = localStorage.getItem("data-textsize") || "medium";
+document.documentElement.setAttribute("data-textsize", savedSize);
+document.querySelectorAll(".a11y-size-btn").forEach(btn => {
+    if (btn.dataset.size === savedSize) btn.classList.add("active");
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".a11y-size-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.documentElement.setAttribute("data-textsize", btn.dataset.size);
+        localStorage.setItem("data-textsize", btn.dataset.size);
+    });
 });
 
 async function init() {
