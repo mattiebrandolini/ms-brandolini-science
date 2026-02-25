@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 4
+CACHE_VERSION = 5
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
@@ -36,6 +36,7 @@ COURSES = [
         "teacher_desc": "Pedagogical notes, standards alignment, scaffolding strategies, and implementation guides for the Biology curriculum.",
         "og_desc": "Biology resources — video episodes, structured notes, and interactive tools for understanding living systems.",
         "config_js": "config-biology.js",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTlnCCm8pU2GqY7wem-2Q6LyjLBFzFGBAB_mrDV0zZYotofEtvNfb1iSORE7WnOi0k9Gqlb8htIeC3m/pub?output=csv",
     },
     {
         "slug": "environmental-biology",
@@ -48,6 +49,7 @@ COURSES = [
         "teacher_desc": "Implementation guides, standards alignment, and scaffolding strategies for the Environmental Biology curriculum.",
         "og_desc": "Environmental Biology resources — climate, biodiversity, human impact, and sustainability science.",
         "config_js": "config-envbio.js",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vReEbbwpIWoOi1L6pOOR_u_HowMLyZusBbe3F6g32fmi6EY7wXa-72eDs11HTB_H5t_BBFt14VF5I3b/pub?output=csv",
     },
     {
         "slug": "sheltered-chemistry",
@@ -60,6 +62,7 @@ COURSES = [
         "teacher_desc": "Sheltering strategies, language scaffolds, and implementation guides for the Chemistry curriculum.",
         "og_desc": "Sheltered Chemistry resources — scaffolded content for multilingual learners exploring matter, reactions, and energy.",
         "config_js": "config-chemistry.js",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTLyv_NuYlNUtzbQxqa_bdBXnS2_IYLqWvRvsCsPzIm4hkne8wglDZBJ57zfZxhOgOF9qE0pqwmwr2N/pub?output=csv",
     },
     {
         "slug": "earth-science",

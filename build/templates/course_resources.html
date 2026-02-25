@@ -12,6 +12,13 @@
         <div class="cv-spinner"></div>
         <p>Loading {{ course.title }} resources…</p>
     </div>
+    <noscript>
+        <div class="cv-error">
+            <h2>{{ course.title }} Resources</h2>
+            <p>This page needs JavaScript to display resources interactively. You can access the full resource list directly:</p>
+            <p><a href="{{ course.sheet_url }}" class="cv-retry" style="text-decoration:none;display:inline-block">Open resource list →</a></p>
+        </div>
+    </noscript>
 </div>
 <footer class="cv-footer">
     <span>Last updated {{ build_date }}</span>

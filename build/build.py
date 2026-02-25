@@ -75,6 +75,36 @@ def write_page(rel_path, template_name, extra_ctx=None):
     return rel_path
 
 
+
+def snapshot_csvs():
+    """Fetch CSV snapshots from Google Sheets at build time.
+    These serve as fallbacks when live fetch is blocked or slow."""
+    import urllib.request
+    
+    data_dir = SITE_ROOT / 'static' / 'data'
+    data_dir.mkdir(parents=True, exist_ok=True)
+    
+    for c in COURSES:
+        url = c.get('sheet_url')
+        if not url:
+            continue
+        
+        out_file = data_dir / f'{c["slug"]}.csv'
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = resp.read()
+                out_file.write_bytes(data)
+                lines = data.decode('utf-8', errors='replace').strip().split('\n')
+                print(f'  ✓ {c["slug"]}.csv ({len(lines)-1} resources)')
+        except Exception as e:
+            if out_file.exists():
+                print(f'  ⚠ {c["slug"]}.csv (fetch failed, keeping previous snapshot: {e})')
+            else:
+                print(f'  ✗ {c["slug"]}.csv (fetch failed, no previous snapshot: {e})')
+
+
+
 def build_all():
     print(f"Building {SITE_TITLE}...")
     print(f"  Cache version: {CACHE_VERSION}")
@@ -135,7 +165,7 @@ def build_all():
                 'og_desc': c['og_desc'],
                 'course': c,
                 'stylesheets': ['styles/course-viewer.css', 'styles/print.css'],
-                'scripts': [f'js/{c["config_js"]}', 'js/course-viewer.js', 'js/toolbar.js'],
+                'scripts': ['js/lib/fuse.min.js', f'js/{c["config_js"]}', 'js/course-viewer.js', 'js/toolbar.js'],
             })
 
     # --- 7. Tools hub ---
@@ -161,7 +191,13 @@ def build_all():
     (SITE_ROOT / '404.html').write_text(html, encoding='utf-8')
     generated.append('404.html')
 
-    # --- 9. Generate sitemap ---
+    # --- 9. Snapshot CSVs ---
+    print()
+    print("Snapshotting CSV data...")
+    snapshot_csvs()
+    print()
+
+    # --- 10. Generate sitemap ---
     sitemap_entries = []
     for rel in sorted(generated):
         if rel == '404.html':

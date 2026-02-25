@@ -10,9 +10,14 @@
     var saved = function(key) { return localStorage.getItem(key); };
     var se = function(k,v) { document.documentElement.setAttribute(k,v); };
 
-    ['data-dyslexic','data-colorblind','data-spacing','data-motion'].forEach(function(a) {
+    ['data-dyslexic','data-colorblind','data-spacing'].forEach(function(a) {
         if (saved(a) === 'true') se(a, 'true');
     });
+    // Reduced motion: respect OS preference unless user explicitly toggled
+    if (saved('data-motion') === 'true' || 
+        (saved('data-motion') === null && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        se('data-motion', 'true');
+    }
     se('data-textsize', saved('data-textsize') || 'medium');
     se('data-theme', saved('theme') || 'dark');
 
@@ -69,7 +74,7 @@
         var dyOn = saved('data-dyslexic') === 'true';
         var cbOn = saved('data-colorblind') === 'true';
         var spOn = saved('data-spacing') === 'true';
-        var moOn = saved('data-motion') === 'true';
+        var moOn = saved('data-motion') === 'true' || (saved('data-motion') === null && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var sz = saved('data-textsize') || 'medium';
 
         var panel = document.createElement('div');

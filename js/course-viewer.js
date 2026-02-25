@@ -33,6 +33,7 @@
     let resources = [];
     let currentTab = 'all';
     let searchQuery = '';
+    let fuseIndex = null;
 
     // ---- CSV Parsing ----
     function parseCSVLine(line) {
@@ -68,17 +69,45 @@
     // ---- Fetch Resources ----
     async function fetchResources() {
         if (!CONFIG.sheetUrl) return [];
+        
+        // Try live fetch first
         try {
-            const resp = await fetch(CONFIG.sheetUrl);
-            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 8000);
+            const resp = await fetch(CONFIG.sheetUrl, { signal: controller.signal });
+            clearTimeout(timeout);
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
             const text = await resp.text();
             const parsed = parseCSV(text);
-            console.log(`Loaded ${parsed.length} resources from sheet`);
+            console.log('Loaded ' + parsed.length + ' resources (live)');
             return parsed;
-        } catch (err) {
-            const root = document.getElementById('cv-root');
-            if (root) root.innerHTML = '<div class="cv-error"><h2>Could not load resources</h2><p>The resource sheet might be temporarily unavailable. Check your internet connection and try again.</p><button class="cv-retry" onclick="location.reload()">Retry</button></div>';
-            console.error('Error fetching sheet:', err);
+        } catch (liveErr) {
+            console.warn('Live fetch failed, trying snapshot:', liveErr.message);
+        }
+        
+        // Fallback to build-time snapshot
+        var snapshotUrl = CONFIG.snapshotUrl || ('../../static/data/' + (CONFIG.slug || 'unknown') + '.csv');
+        try {
+            var resp = await fetch(snapshotUrl);
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            var text = await resp.text();
+            var parsed = parseCSV(text);
+            console.log('Loaded ' + parsed.length + ' resources (snapshot fallback)');
+            
+            // Show subtle banner
+            var root = document.getElementById('cv-root');
+            if (root) {
+                var banner = document.createElement('div');
+                banner.className = 'cv-fallback-banner';
+                banner.setAttribute('role', 'status');
+                banner.textContent = 'Using offline copy — some links may be out of date';
+                root.parentNode.insertBefore(banner, root);
+            }
+            return parsed;
+        } catch (snapErr) {
+            console.error('Snapshot also failed:', snapErr);
+            var root = document.getElementById('cv-root');
+            if (root) root.innerHTML = '<div class="cv-error"><h2>Could not load resources</h2><p>The resource list is temporarily unavailable. Try refreshing, or <a href="' + CONFIG.sheetUrl + '">open the resource list directly</a>.</p><button class="cv-retry" onclick="location.reload()">Retry</button></div>';
             return [];
         }
     }
@@ -105,7 +134,7 @@
     // ---- Render Single Resource ----
     function renderResource(r) {
         const qrHtml = r.url
-            ? `<div class="cv-resource-qr"><img src="${qrUrl(r.url)}" alt="QR" loading="lazy"></div>`
+            ? `<div class="cv-resource-qr"><img src="${qrUrl(r.url)}" alt="QR code" loading="lazy" onerror="this.style.display='none'"></div>`
             : '';
 
         const titleHtml = r.url
@@ -195,14 +224,20 @@
         const container = document.getElementById('cv-topic-list');
         const noResults = document.getElementById('cv-no-results');
 
-        const filtered = CONFIG.topics.filter(t => {
-            if (currentTab !== 'all' && t.tab !== currentTab) return false;
-            if (searchQuery) {
-                const q = searchQuery.toLowerCase();
-                return t.code.toLowerCase().includes(q) || t.name.toLowerCase().includes(q);
-            }
-            return true;
-        });
+        let filtered;
+        if (searchQuery && fuseIndex) {
+            const fuseResults = fuseIndex.search(searchQuery);
+            const matchCodes = new Set(fuseResults.map(r => r.item.code));
+            filtered = CONFIG.topics.filter(t => {
+                if (currentTab !== 'all' && t.tab !== currentTab) return false;
+                return matchCodes.has(t.code);
+            });
+        } else {
+            filtered = CONFIG.topics.filter(t => {
+                if (currentTab !== 'all' && t.tab !== currentTab) return false;
+                return true;
+            });
+        }
 
         if (!filtered.length) {
             container.innerHTML = '';
@@ -284,6 +319,17 @@
     async function init() {
         buildUI();
         resources = await fetchResources();
+        
+        // Build fuzzy search index
+        if (typeof Fuse !== 'undefined' && CONFIG.topics) {
+            fuseIndex = new Fuse(CONFIG.topics, {
+                keys: ['code', 'name'],
+                threshold: 0.4,
+                distance: 100,
+                ignoreLocation: true,
+            });
+        }
+        
         renderTopics();
     }
 

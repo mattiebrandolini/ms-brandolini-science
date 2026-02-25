@@ -408,3 +408,18 @@ body.cv-page {
     text-decoration: none;
 }
 .cv-footer-link:hover { text-decoration: underline; }
+
+/* ---- Fallback banner ---- */
+.cv-fallback-banner {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+[data-theme="dark"] .cv-fallback-banner {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}

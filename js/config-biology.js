@@ -1,4 +1,5 @@
 window.COURSE_CONFIG = {
+    slug: "biology",
     title: "Biology Study Resources",
     subtitle: "Click a topic to see videos and readings. Scan QR codes with your phone!",
     icon: "🧬",
