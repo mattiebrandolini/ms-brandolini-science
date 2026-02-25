@@ -112,7 +112,7 @@ def build_all():
             'og_desc': c['og_desc'],
             'course': c,
             'role': 'student',
-            'stylesheets': ['styles/main.css'],
+            'stylesheets': ['styles/main.css', 'styles/print.css'],
             'scripts': ['js/toolbar.js'],
         })
 
@@ -123,7 +123,7 @@ def build_all():
             'og_desc': c['og_desc'],
             'course': c,
             'role': 'teacher',
-            'stylesheets': ['styles/main.css'],
+            'stylesheets': ['styles/main.css', 'styles/print.css'],
             'scripts': ['js/toolbar.js'],
         })
 
@@ -134,7 +134,7 @@ def build_all():
                 'title': f'{c["title"]} Resources — {SITE_TITLE}',
                 'og_desc': c['og_desc'],
                 'course': c,
-                'stylesheets': ['styles/course-viewer.css'],
+                'stylesheets': ['styles/course-viewer.css', 'styles/print.css'],
                 'scripts': [f'js/{c["config_js"]}', 'js/course-viewer.js', 'js/toolbar.js'],
             })
 
@@ -142,7 +142,7 @@ def build_all():
     write_page('student/tools/index.html', 'tools_hub.html', {
         'title': f'Interactive Tools — {SITE_TITLE}',
         'og_desc': 'Interactive science tools and simulations for students.',
-        'stylesheets': ['styles/main.css'],
+        'stylesheets': ['styles/main.css', 'styles/print.css'],
         'scripts': ['js/toolbar.js'],
     })
 
@@ -153,7 +153,7 @@ def build_all():
         'title': f'404 — {SITE_TITLE}',
         'og_desc': 'Page not found.',
         'root': f'{SITE_URL.rstrip("/")}/',
-        'stylesheets': ['styles/main.css'],
+        'stylesheets': ['styles/main.css', 'styles/print.css'],
         'scripts': ['js/toolbar.js'],
     }
     tmpl = env.get_template('404.html')
