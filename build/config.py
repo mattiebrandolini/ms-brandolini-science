@@ -10,12 +10,14 @@ SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everet
 CACHE_VERSION = 3
 
 # Font stack — ONE system, used everywhere
-FONT_LINK = "https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
+# Fonts are self-hosted — no external CDN dependencies
+FONT_CSS = "static/fonts/fonts.css"
 FONT_BODY = "'DM Sans', system-ui, sans-serif"
 FONT_HEADING = "'Source Serif 4', Georgia, serif"
 
 # OpenDyslexic CDN
-OPENDYSLEXIC_LINK = "https://fonts.cdnfonts.com/css/opendyslexic"
+# OpenDyslexic is included in fonts.css (self-hosted)
+OPENDYSLEXIC_LINK = None  # bundled in FONT_CSS
 
 # All courses — single source of truth
 # status: "live" or "wip"

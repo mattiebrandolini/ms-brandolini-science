@@ -26,8 +26,8 @@ sys.path.insert(0, str(BUILD_DIR))
 from jinja2 import Environment, FileSystemLoader
 from config import (
     SITE_URL, SITE_TITLE, SITE_DESCRIPTION, CACHE_VERSION,
-    FONT_LINK, FONT_BODY, FONT_HEADING,
-    OPENDYSLEXIC_LINK, COURSES,
+    FONT_CSS, FONT_BODY, FONT_HEADING,
+    COURSES,
 )
 
 # --- Setup Jinja2 ---
@@ -43,10 +43,9 @@ BASE_CTX = {
     'site_title': SITE_TITLE,
     'site_description': SITE_DESCRIPTION,
     'cache_version': CACHE_VERSION,
-    'font_link': FONT_LINK,
+    'font_css': FONT_CSS,
     'font_body': FONT_BODY,
     'font_heading': FONT_HEADING,
-    'opendyslexic_link': OPENDYSLEXIC_LINK,
     'courses': COURSES,
     'year': datetime.date.today().year,
 }
