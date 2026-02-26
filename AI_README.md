@@ -99,6 +99,37 @@ The definition appears on hover or keyboard focus. Works on any page that loads 
 2. Check if a school network is blocking something → all fonts/JS should be self-hosted; if a Google Sheets CSV is blocked, the snapshot fallback should kick in.
 3. Check CI results at the repo's Actions tab.
 
+
+## Add a new checkpoint page
+
+1. Create content file: `build/content/checkpoints/{course-slug}/{checkpoint-slug}.html`
+   - Use `ck-*` classes from `styles/checkpoint.css` (no inline styles)
+   - Reference the Cell Structure checkpoint as a model: `build/content/checkpoints/biology/cell-structure.html`
+2. Add entry to `CHECKPOINTS` list in `build/config.py`:
+   ```python
+   {"course": "biology", "slug": "water-properties", "title": "...", "description": "..."}
+   ```
+3. Run build: `cd build && python3 build.py`
+4. Output appears at `student/{course}/checkpoints/{slug}/index.html`
+
+### Checkpoint component classes (ck-* prefix)
+| Class | Purpose |
+|-------|---------|
+| `ck-banner ck-banner--blue` | Gradient header (colors: blue, water, green, teal, purple, red, orange, warm) |
+| `ck-part ck-part--blue` | Section divider (colors: blue, purple, teal, orange, red, green, final) |
+| `ck-callout ck-callout--error` | Left-bordered box (types: error, warning, success, info, def, skip, quiz, key) |
+| `ck-content` | Reading passage block |
+| `ck-steps` + `ck-step-body--teal` | Numbered steps with colored circles |
+| `ck-figure ck-figure--blue` | Image with caption (colors: blue, purple, green, teal, orange) |
+| `ck-details ck-details--purple` | Expandable section (colors: blue, purple, green, teal, orange, red, muted) |
+| `ck-vocab` | Multilingual vocabulary table |
+| `ck-compare` | Comparison table (plant vs animal style) |
+| `ck-check` | Practice questions block |
+| `ck-video-list` | Video resource list |
+| `ck-resources` | 3-column resource cards |
+| `ck-highlight--green` | Centered key point box |
+| `ck-yes` / `ck-no` | Green/red text for comparison tables |
+
 ## Architecture Overview
 
 ```
