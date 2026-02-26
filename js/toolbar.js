@@ -55,9 +55,10 @@
         var btnHTML = '<button class="tb-btn" id="tb-theme" title="Toggle dark/light">' + (theme==='dark'?'☀️':'🌙') + '</button>' +
             '<button class="tb-btn" id="tb-a11y" title="Accessibility">⚙️</button>';
 
-        // Inject into topbar-nav, cv-topbar, or float
+        // Inject into topbar-nav, cv-topbar, ck-topbar, or float
         var topbarNav = document.querySelector('.topbar-nav');
         var cvTopbar = document.querySelector('.cv-topbar');
+        var ckTopbar = document.querySelector('.ck-topbar');
         var container;
         if (topbarNav) {
             container = document.createElement('div');
@@ -71,6 +72,13 @@
             container.style.marginLeft = '0.5rem';
             container.innerHTML = btnHTML;
             cvTopbar.appendChild(container);
+        } else if (ckTopbar) {
+            container = document.createElement('div');
+            container.className = 'tb-group';
+            container.style.borderLeft = 'none';
+            container.style.marginLeft = '0.5rem';
+            container.innerHTML = btnHTML;
+            ckTopbar.appendChild(container);
         } else {
             container = document.createElement('div');
             container.className = 'tb-float';

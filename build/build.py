@@ -169,14 +169,7 @@ def build_all():
             })
 
     # --- 6b. Checkpoint pages ---
-    content_dir = BUILD_DIR / 'content' / 'checkpoints'
     for ck in CHECKPOINTS:
-        content_file = content_dir / ck['course'] / f'{ck["slug"]}.html'
-        if not content_file.exists():
-            print(f'  ⚠ Checkpoint content missing: {content_file}')
-            continue
-        ck_content = content_file.read_text(encoding='utf-8')
-        # Find the course object for metadata
         course = next((c for c in COURSES if c['slug'] == ck['course']), None)
         write_page(
             f'student/{ck["course"]}/checkpoints/{ck["slug"]}/index.html',
@@ -186,9 +179,8 @@ def build_all():
                 'og_desc': ck.get('description', ck['title']),
                 'course': course,
                 'checkpoint': ck,
-                'content': ck_content,
                 'stylesheets': ['styles/main.css', 'styles/checkpoint.css', 'styles/print.css'],
-                'scripts': ['js/toolbar.js'],
+                'scripts': [f'js/{ck["config_js"]}', 'js/checkpoint.js', 'js/toolbar.js'],
             },
         )
 

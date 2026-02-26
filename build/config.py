@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 8
+CACHE_VERSION = 9
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
@@ -133,14 +133,15 @@ COURSES = [
 ]
 
 # ---- Checkpoints ----
-# Each checkpoint is a content HTML file that gets wrapped in the checkpoint template.
-# Content files live in build/content/checkpoints/{course_slug}/{filename}.html
-# Output goes to student/{course_slug}/checkpoints/{filename}.html
 CHECKPOINTS = [
     {
         "course": "biology",
         "slug": "cell-structure",
         "title": "Checkpoint 11: Cell Structure",
+        "short_title": "Cell Structure",
+        "icon": "🔬",
+        "banner_class": "ck-entry-banner--bio",
+        "config_js": "checkpoints/ck11-cell-structure.js",
         "description": "Prokaryotes vs Eukaryotes, Endomembrane System, Energy Organelles, Plant vs Animal Cells",
     },
 ]
