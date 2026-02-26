@@ -19,11 +19,17 @@
 <body class="cv-page">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <main id="main-content">
-<nav class="cv-breadcrumb" aria-label="Breadcrumb">
-    <a href="../../student/">Courses</a> <span aria-hidden="true">›</span> <span>Biology</span>
-</nav>
-<a href="../../student/" class="cv-back">← Back to courses</a>
-<div id="cv-root" >
+<div class="cv-topbar">
+    <button class="cv-sidebar-toggle" id="cv-sidebar-toggle">☰</button>
+    <a href="../../student/" class="cv-topbar-back">← Courses</a>
+    <span class="cv-topbar-title">🧬 Biology</span>
+    <div class="cv-topbar-spacer"></div>
+    <div class="cv-topbar-filters"></div>
+    <input type="text" class="cv-topbar-search" placeholder="Search topics..." aria-label="Search topics">
+    <span id="cv-cc-container" style="display:none"><button id="cv-cc-filter" class="cv-cc-btn" title="Show only captioned resources">CC</button></span>
+</div>
+<nav class="cv-sidebar" aria-label="Unit navigation"></nav>
+<div class="cv-main">
     <div class="cv-loading" aria-live="polite">
         <div class="cv-spinner"></div>
         <p>Loading Biology resources…</p>
@@ -37,14 +43,14 @@
     </noscript>
 </div>
 <footer class="cv-footer">
-    <span>Last updated February 25, 2026</span>
+    <span>Last updated February 26, 2026</span>
     <span class="cv-footer-sep" aria-hidden="true">·</span>
     <a href="https://github.com/mattiebrandolini/ms-brandolini-science/issues/new?title=Broken+link+in+Biology&labels=broken-link&body=Page:+biology%2Fresources%0AWhich+link+is+broken%3F+" class="cv-footer-link">Report a broken link</a>
 </footer>
     </main>
-    <script src="../../js/lib/fuse.min.js?v=6" defer></script>
-    <script src="../../js/config-biology.js?v=6" defer></script>
-    <script src="../../js/course-viewer.js?v=6" defer></script>
-    <script src="../../js/toolbar.js?v=6" defer></script>
+    <script src="../../js/lib/fuse.min.js?v=7" defer></script>
+    <script src="../../js/config-biology.js?v=7" defer></script>
+    <script src="../../js/course-viewer.js?v=7" defer></script>
+    <script src="../../js/toolbar.js?v=7" defer></script>
 </body>
 </html>

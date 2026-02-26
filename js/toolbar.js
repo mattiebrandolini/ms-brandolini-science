@@ -55,14 +55,22 @@
         var btnHTML = '<button class="tb-btn" id="tb-theme" title="Toggle dark/light">' + (theme==='dark'?'☀️':'🌙') + '</button>' +
             '<button class="tb-btn" id="tb-a11y" title="Accessibility">⚙️</button>';
 
-        // Try to inject into topbar-nav, else float
+        // Inject into topbar-nav, cv-topbar, or float
         var topbarNav = document.querySelector('.topbar-nav');
+        var cvTopbar = document.querySelector('.cv-topbar');
         var container;
         if (topbarNav) {
             container = document.createElement('div');
             container.className = 'tb-group';
             container.innerHTML = btnHTML;
             topbarNav.appendChild(container);
+        } else if (cvTopbar) {
+            container = document.createElement('div');
+            container.className = 'tb-group';
+            container.style.borderLeft = 'none';
+            container.style.marginLeft = '0.5rem';
+            container.innerHTML = btnHTML;
+            cvTopbar.appendChild(container);
         } else {
             container = document.createElement('div');
             container.className = 'tb-float';
