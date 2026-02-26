@@ -27,7 +27,7 @@ from jinja2 import Environment, FileSystemLoader
 from config import (
     SITE_URL, SITE_TITLE, SITE_DESCRIPTION, CACHE_VERSION,
     FONT_CSS, FONT_BODY, FONT_HEADING,
-    COURSES,
+    COURSES, CHECKPOINTS,
 )
 
 # --- Setup Jinja2 ---
@@ -167,6 +167,30 @@ def build_all():
                 'stylesheets': ['styles/course-viewer.css', 'styles/print.css'],
                 'scripts': ['js/lib/fuse.min.js', f'js/{c["config_js"]}', 'js/course-viewer.js', 'js/toolbar.js'],
             })
+
+    # --- 6b. Checkpoint pages ---
+    content_dir = BUILD_DIR / 'content' / 'checkpoints'
+    for ck in CHECKPOINTS:
+        content_file = content_dir / ck['course'] / f'{ck["slug"]}.html'
+        if not content_file.exists():
+            print(f'  ⚠ Checkpoint content missing: {content_file}')
+            continue
+        ck_content = content_file.read_text(encoding='utf-8')
+        # Find the course object for metadata
+        course = next((c for c in COURSES if c['slug'] == ck['course']), None)
+        write_page(
+            f'student/{ck["course"]}/checkpoints/{ck["slug"]}/index.html',
+            'checkpoint.html',
+            {
+                'title': f'{ck["title"]} — {SITE_TITLE}',
+                'og_desc': ck.get('description', ck['title']),
+                'course': course,
+                'checkpoint': ck,
+                'content': ck_content,
+                'stylesheets': ['styles/main.css', 'styles/checkpoint.css', 'styles/print.css'],
+                'scripts': ['js/toolbar.js'],
+            },
+        )
 
     # --- 7. Tools hub ---
     write_page('student/tools/index.html', 'tools_hub.html', {
