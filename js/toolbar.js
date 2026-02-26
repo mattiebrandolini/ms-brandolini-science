@@ -89,7 +89,8 @@
             '<button class="tb-sz ' + (sz==='small'?'active':'') + '" data-size="small">A</button>' +
             '<button class="tb-sz ' + (sz==='medium'?'active':'') + '" data-size="medium">A</button>' +
             '<button class="tb-sz ' + (sz==='large'?'active':'') + '" data-size="large">A</button>' +
-            '</div></div>';
+            '</div></div>' +
+            '<div class="tb-row" style="border:none;padding-top:0.6rem"><a href="' + (document.documentElement.dataset.root || '') + 'accessibility.html" style="font-size:0.75rem;color:var(--accent,#818cf8);text-decoration:none">Accessibility statement</a></div>';
         document.body.appendChild(panel);
 
         function positionPanel() {

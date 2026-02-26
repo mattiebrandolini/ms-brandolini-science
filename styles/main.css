@@ -569,3 +569,33 @@ a { color: inherit; text-decoration: none; }
 .skip-link:focus {
     top: 0;
 }
+
+/* ---- Glossary definitions ---- */
+dfn[data-def] {
+    border-bottom: 1.5px dotted var(--text-dim);
+    cursor: help;
+    position: relative;
+    font-style: normal;
+}
+dfn[data-def]:hover::after,
+dfn[data-def]:focus::after {
+    content: attr(data-def);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-hover);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    width: max-content;
+    max-width: 260px;
+    z-index: 100;
+    pointer-events: none;
+    white-space: normal;
+}
+dfn[data-def]:focus { outline: 2px solid var(--accent-bio); outline-offset: 2px; border-radius: 2px; }

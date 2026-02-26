@@ -85,6 +85,14 @@ Run `cd build && python3 build.py` — it fetches fresh CSVs automatically.
 2. For page-specific changes, edit the relevant template in `build/templates/`.
 3. Rebuild.
 
+### Add a glossary term (in any HTML or template)
+
+Use the `<dfn>` element with a `data-def` attribute:
+```html
+<dfn data-def="The process plants use to make food from sunlight" tabindex="0">Photosynthesis</dfn>
+```
+The definition appears on hover or keyboard focus. Works on any page that loads `main.css`.
+
 ### Debug "it works locally but not on the site"
 
 1. Check if GitHub Pages is caching old files → bump `CACHE_VERSION` and rebuild.
@@ -148,3 +156,4 @@ Each Google Sheet must have these columns (order doesn't matter, names are case-
 | `provider` | No | Source name (e.g., "Amoeba Sisters", "PhET") |
 | `video_id` | No | YouTube video ID (for thumbnail generation) |
 | `notes` | No | Teacher/student notes |
+| `captions` | No | "yes" if resource has captions/subtitles (enables CC filter + badge) |

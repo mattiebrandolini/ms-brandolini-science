@@ -191,6 +191,14 @@ def build_all():
     (SITE_ROOT / '404.html').write_text(html, encoding='utf-8')
     generated.append('404.html')
 
+    # --- Accessibility statement ---
+    write_page('accessibility.html', 'accessibility.html', {
+        'title': f'Accessibility — {SITE_TITLE}',
+        'og_desc': 'Accessibility features and commitment for Ms. Brandolini\'s Science website.',
+        'stylesheets': ['styles/main.css', 'styles/print.css'],
+        'scripts': ['js/toolbar.js'],
+    })
+
     # --- 9. Snapshot CSVs ---
     print()
     print("Snapshotting CSV data...")

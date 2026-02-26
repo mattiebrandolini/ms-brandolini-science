@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="{{ root }}" class="topbar-brand">{{ site_title }}</a>
+        <div class="topbar-nav">
+            <a href="{{ root }}student/" class="topbar-link">Student Home</a>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width:720px;margin:0 auto;padding:3rem 1.5rem;">
+        <h1 style="font-family:'Source Serif 4',serif;font-size:1.8rem;margin-bottom:0.5rem;">Accessibility</h1>
+        <p style="color:var(--text-secondary);margin-bottom:2rem;">How this site is built to work for everyone.</p>
+
+        <h2 style="font-size:1.1rem;margin-top:2rem;">Our commitment</h2>
+        <p>This site serves students with varying levels of English proficiency, different learning needs, and different devices. Accessibility is not an afterthought — it's built into every page. We target <strong>WCAG 2.2 Level AA</strong> conformance.</p>
+
+        <h2 style="font-size:1.1rem;margin-top:2rem;">Built-in features</h2>
+        <p>Use the <strong>⚙️ button</strong> in the top navigation bar to access these settings. All choices are saved automatically.</p>
+        <ul style="line-height:1.8;color:var(--text-secondary);">
+            <li><strong>Dark / light theme</strong> — choose whichever is easier on your eyes</li>
+            <li><strong>Dyslexia-friendly font</strong> — switches all text to OpenDyslexic</li>
+            <li><strong>Colorblind-friendly mode</strong> — replaces color-only indicators with shapes and borders</li>
+            <li><strong>Extra spacing</strong> — increases line height, letter spacing, and word spacing</li>
+            <li><strong>Reduced motion</strong> — disables all animations (also auto-detects your device setting)</li>
+            <li><strong>Text size</strong> — small, medium, or large base font</li>
+        </ul>
+
+        <h2 style="font-size:1.1rem;margin-top:2rem;">Technical details</h2>
+        <ul style="line-height:1.8;color:var(--text-secondary);">
+            <li>All pages have a skip-to-content link for keyboard and screen reader users</li>
+            <li>All pages use semantic HTML with proper landmarks (<code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>)</li>
+            <li>All fonts are self-hosted — no external requests that could be blocked by school networks</li>
+            <li>Resource pages have QR codes so students can access content on their phones when Chromebook filters block links</li>
+            <li>Resource data has an offline fallback — pages work even when the internet is slow or filtered</li>
+            <li>A print stylesheet is included on every page for clean paper output</li>
+        </ul>
+
+        <h2 style="font-size:1.1rem;margin-top:2rem;">Known limitations</h2>
+        <ul style="line-height:1.8;color:var(--text-secondary);">
+            <li>Some linked resources (YouTube videos, external simulations) are hosted by third parties and may not meet accessibility standards</li>
+            <li>School content filters may block specific resources unpredictably — QR codes and the "Report a broken link" feature help work around this</li>
+            <li>The resource viewer requires JavaScript to display interactively (a direct link to the data is provided when JS is unavailable)</li>
+        </ul>
+
+        <h2 style="font-size:1.1rem;margin-top:2rem;">Report a barrier</h2>
+        <p>If something on this site doesn't work for you, please let us know:</p>
+        <ul style="line-height:1.8;color:var(--text-secondary);">
+            <li><a href="https://github.com/mattiebrandolini/ms-brandolini-science/issues/new?title=Accessibility+issue&labels=accessibility" style="color:var(--accent-bio);">Report an accessibility issue on GitHub</a></li>
+            <li>Or tell Ms. Brandolini directly — in person, by email, or through your teacher</li>
+        </ul>
+        <p style="margin-top:1rem;color:var(--text-dim);font-size:0.85rem;">This statement was last reviewed {{ build_date }}.</p>
+    </div>
+</div>
+{% endblock %}

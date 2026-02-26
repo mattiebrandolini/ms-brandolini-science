@@ -34,6 +34,8 @@
     let currentTab = 'all';
     let searchQuery = '';
     let fuseIndex = null;
+    let captionsOnly = false;
+    let hasCaptionsData = false;
 
     // ---- CSV Parsing ----
     function parseCSVLine(line) {
@@ -137,6 +139,9 @@
             ? `<div class="cv-resource-qr"><img src="${qrUrl(r.url)}" alt="QR code" loading="lazy" onerror="this.style.display='none'"></div>`
             : '';
 
+        const ccBadge = (r.captions && r.captions.trim().toLowerCase() === 'yes')
+            ? '<span class="cv-cc-badge" title="Has captions">CC</span>' : '';
+
         const titleHtml = r.url
             ? `<span class="link-icon">🔗</span><a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>`
             : (r.title || 'Untitled');
@@ -166,7 +171,7 @@
             : '';
 
         return `<div class="cv-resource">${qrHtml}<div class="cv-resource-info">
-            <div class="cv-resource-title">${titleHtml}</div>
+            <div class="cv-resource-title">${titleHtml}${ccBadge}</div>
             <div class="cv-resource-meta">${provider}${duration}</div>
             ${t1Html}${t2Html}${notesHtml}
         </div></div>`;
@@ -238,6 +243,15 @@
                 return true;
             });
         }
+        
+        // CC filter: keep only topics that have at least one captioned resource
+        if (captionsOnly) {
+            filtered = filtered.filter(function(t) {
+                return resources.some(function(r) {
+                    return r.topic_code === t.code && r.captions && r.captions.trim().toLowerCase() === 'yes';
+                });
+            });
+        }
 
         if (!filtered.length) {
             container.innerHTML = '';
@@ -283,6 +297,9 @@
 
         // Search
         html += `<input type="text" id="cv-search" class="cv-search" placeholder="Type to filter topics...">`;
+        if (hasCaptionsData) {
+            html += '<button id="cv-cc-filter" class="cv-cc-btn" title="Show only captioned resources">CC</button>';
+        }
 
         // Tabs
         html += `<div class="cv-tabs">`;
@@ -308,6 +325,16 @@
             });
         });
 
+        // CC filter event
+        var ccBtn = document.getElementById('cv-cc-filter');
+        if (ccBtn) {
+            ccBtn.addEventListener('click', function() {
+                captionsOnly = !captionsOnly;
+                this.classList.toggle('active', captionsOnly);
+                renderTopics();
+            });
+        }
+        
         // Search event
         document.getElementById('cv-search').addEventListener('input', e => {
             searchQuery = e.target.value;
@@ -319,6 +346,9 @@
     async function init() {
         buildUI();
         resources = await fetchResources();
+        
+        // Check if any resources have captions data
+        hasCaptionsData = resources.some(function(r) { return r.captions && r.captions.trim() !== ''; });
         
         // Build fuzzy search index
         if (typeof Fuse !== 'undefined' && CONFIG.topics) {

@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 5
+CACHE_VERSION = 6
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
