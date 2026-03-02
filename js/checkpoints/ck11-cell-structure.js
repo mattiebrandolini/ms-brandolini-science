@@ -146,7 +146,7 @@ window.CHECKPOINT_CONFIG = {
         { q: 'A plant cell and an animal cell are both placed in a very dry environment. Predict what happens to each cell. Which one will change shape? Why?', hint: 'Think about the cell wall and turgor pressure.' },
         { q: 'Your muscle cells have MORE mitochondria than your skin cells. Why?' },
         { q: 'If chloroplasts make glucose and mitochondria use glucose for energy, why do plant cells need BOTH organelles?' },
-    ],,
+    ],
 
     // ============ STRUCTURED NOTES ============
     notesQuestions: {
