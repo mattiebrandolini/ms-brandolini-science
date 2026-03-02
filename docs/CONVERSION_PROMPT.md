@@ -171,6 +171,15 @@ After pushing, give me a summary:
 
 ---
 
+## Critical Warnings (learned the hard way)
+
+- **NEVER use Python's `yaml.dump()` to write YAML files.** It mangles URLs (strips double slashes to single), re-wraps strings unpredictably, and destroys intentional formatting. Write YAML files by hand using `back up hands:write_file` or string concatenation in Python. Read the exemplar YAML to match its style.
+- **All build/git commands run on Mattie's PC** via `back up hands:shell`, NOT in Claude's container. The repo lives at `~/ms-brandolini-science/`.
+- **Always validate before pushing**: run `content_build.py --check` then `build.py`. The build includes a JS syntax check that will catch errors before they reach production.
+- **Check that URLs have `://`** in the generated JS config after building. This is the most common YAML-related bug.
+- **Don't create empty checkpoint directories** for courses that don't have content yet. The build handles missing directories gracefully.
+- **The YAML `reading:` field uses `|` block scalar syntax** — every line must be indented consistently under it. HTML goes directly in this field, no extra escaping needed except for YAML-special characters in strings.
+
 ## Ready? Paste your Canvas HTML below and tell me:
 1. Which course this is for
 2. What checkpoint number/ID to use (or I'll suggest one)

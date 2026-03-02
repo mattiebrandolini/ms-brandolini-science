@@ -126,7 +126,7 @@ function buildDOM() {
         var vHtml = '<div class="ck-vocab-scroll"><table class="ck-vocab-table">';
         vHtml += '<thead><tr><th>English</th><th>Español</th><th>Português</th><th>Français</th><th>Tiếng Việt</th><th>Kreyòl</th></tr></thead><tbody>';
         CFG.vocabTable.forEach(function(row) {
-            vHtml += '<tr><td><strong>' + row.en + '</strong></td><td>' + row.es + '</td><td>' + row.pt + '</td><td>' + row.fr + '</td><td>' + row.vi + '</td><td>' + row.ht + '</td></tr>';
+            vHtml += '<tr><td data-label="English"><strong>' + row.en + '</strong></td><td data-label="Español">' + row.es + '</td><td data-label="Português">' + row.pt + '</td><td data-label="Français">' + row.fr + '</td><td data-label="Tiếng Việt">' + row.vi + '</td><td data-label="Kreyòl">' + row.ht + '</td></tr>';
         });
         vHtml += '</tbody></table></div>';
         vocabBody.innerHTML = vHtml;

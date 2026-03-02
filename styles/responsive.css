@@ -1,0 +1,209 @@
+/* ============================================================
+   RESPONSIVE — Mobile-first overrides for all screen sizes
+   Breakpoints: 480px (phone), 768px (tablet), 1024px (laptop)
+   ============================================================ */
+
+/* ---- Global: minimum touch targets ---- */
+button, .ck-mode-card, .ck-lang-btn, .ck-done-btn, .ck-nav-item,
+.quick-link, .card--course, a[class*="companion"] {
+    min-height: 44px;
+}
+
+/* ============================================================
+   PHONE (≤480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+    /* -- Topbar -- */
+    .topbar { padding: 0.75rem; gap: 0.5rem; flex-wrap: wrap; }
+    .topbar-brand { font-size: 0.85rem; }
+    .topbar-nav { gap: 0.5rem; font-size: 0.8rem; }
+    .topbar-role { display: none; }
+
+    /* -- Student hub -- */
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.92rem; }
+    .section-label { font-size: 0.7rem; }
+
+    /* -- Checkpoint entry -- */
+    .ck-entry { padding: 1rem 0.75rem; }
+    .ck-entry-banner { padding: 1.25rem; border-radius: 12px; }
+    .ck-entry-banner h1 { font-size: 1.15em; }
+    .ck-mode-cards { grid-template-columns: 1fr; gap: 0.75rem; }
+    .ck-mode-card { padding: 1.25rem 1rem; }
+    .ck-mode-icon { font-size: 2rem; }
+    .ck-mode-title { font-size: 1.05rem; }
+    .ck-mode-desc { font-size: 0.82rem; }
+
+    /* -- Language selector pills: wrap and center -- */
+    .ck-lang-pills { 
+        display: flex; flex-wrap: wrap; justify-content: center; 
+        gap: 0.4rem; 
+    }
+    .ck-lang-btn { 
+        padding: 0.5rem 0.75rem; 
+        font-size: 0.82rem; 
+        min-height: 44px;
+        display: inline-flex; align-items: center;
+    }
+
+    /* -- Checkpoint study content -- */
+    .ck-content { padding: 0.75rem 0.65rem 4rem; }
+    .ck-topbar { padding: 0.5rem 0.65rem; }
+    .ck-ch-reading { font-size: 0.92em; line-height: 1.7; }
+    .ck-ch-reading p { margin-bottom: 0.75rem; }
+    .ck-ch-figure { margin: 1rem -0.65rem; }
+    .ck-ch-figure img { border-radius: 0; }
+    .ck-ch-terms { padding: 0.75rem; font-size: 0.88em; }
+
+    /* -- Video -- */
+    .ck-video-wrap { padding: 0.5rem; }
+    .ck-video-link { padding: 0.65rem; gap: 0.5rem; font-size: 0.82em; }
+    .ck-vthumb { width: 56px; height: 32px; }
+    .ck-video-bridge { font-size: 0.78em; }
+
+    /* -- Done button: full width -- */
+    .ck-done-row { padding: 0.75rem 0; }
+    .ck-done-btn { width: 100%; justify-content: center; padding: 0.75rem; }
+    .ck-next-btn { width: 100%; justify-content: center; padding: 0.75rem; }
+
+    /* -- Vocab table: card layout instead of table -- */
+    .ck-vocab-scroll { overflow-x: visible; }
+    .ck-vocab-table { min-width: unset; display: block; }
+    .ck-vocab-table thead { display: none; }
+    .ck-vocab-table tbody { display: block; }
+    .ck-vocab-table tr {
+        display: block;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+    .ck-vocab-table td {
+        display: block;
+        padding: 0.15rem 0;
+        border: none;
+        font-size: 0.88em;
+    }
+    .ck-vocab-table td:first-child {
+        font-size: 1em;
+        padding-bottom: 0.25rem;
+        color: var(--accent-bio);
+    }
+    .ck-vocab-table td::before {
+        content: attr(data-label);
+        font-size: 0.7em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-dim);
+        display: block;
+    }
+    .ck-vocab-table td:first-child::before { display: none; }
+
+    /* -- Notes tables: horizontal scroll -- */
+    .ck-notes-table {
+        display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        font-size: 0.82em;
+    }
+
+    /* -- Practice questions -- */
+    .ck-practice-q { padding: 0.75rem; margin-bottom: 0.5rem; }
+    .ck-practice-q p { font-size: 0.9em; }
+
+    /* -- Resources grid -- */
+    .ck-resources-grid { grid-template-columns: 1fr; }
+
+    /* -- Quiz info -- */
+    .ck-qi-block { padding: 0.75rem; }
+    .ck-qi-block p { font-size: 0.88em; }
+    .ck-qi-ready { padding: 0.4rem 0; font-size: 0.88em; }
+
+    /* -- Structured notes -- */
+    .ck-notes-part { padding: 0.75rem 0; }
+    .ck-notes-q { padding: 0.6rem 0; }
+
+    /* -- Course viewer -- */
+    .cv-topbar { padding: 0.5rem 0.65rem; }
+    .cv-main { padding: 0.75rem 0.5rem 3rem; }
+}
+
+
+/* ============================================================
+   TABLET (≤768px) — mostly handled by existing CSS,
+   fill gaps here
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* -- Student hub cards: 2 columns max on tablet -- */
+    .card-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+    /* -- Checkpoint entry: tighter padding -- */
+    .ck-entry { padding: 1.25rem 1rem; }
+
+    /* -- Vocab table: slightly smaller -- */
+    .ck-vocab-table { font-size: 0.78em; min-width: 580px; }
+
+    /* -- Terms tooltip: prevent overflow -- */
+    .term-tooltip {
+        max-width: calc(100vw - 24px);
+        left: 12px !important;
+        font-size: 0.88em;
+    }
+
+    /* -- Practice resources: 2 columns -- */
+    .ck-resources-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    
+    /* -- Companion links (teacher hub) -- */
+    .companion-link { padding: 0.75rem; }
+    .companion-info h4 { font-size: 0.92em; }
+    .companion-info p { font-size: 0.8em; }
+}
+
+
+/* ============================================================
+   SMALL LAPTOP / LARGE TABLET (≤1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+    /* -- Checkpoint sidebar: narrower -- */
+    .ck-sidebar { width: 220px; }
+    .ck-content { margin-left: 220px; }
+    
+    /* -- Course viewer sidebar: narrower -- */
+    .cv-sidebar { width: 240px; }
+    .cv-main { margin-left: 240px; }
+}
+
+
+/* ============================================================
+   LANDSCAPE PHONE (short + wide)
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .ck-entry { padding: 0.75rem; }
+    .ck-entry-banner { padding: 1rem; }
+    .hero { padding: 1.5rem 0 1rem; }
+    .ck-mode-cards { grid-template-columns: 1fr 1fr; }
+}
+
+
+/* ============================================================
+   REDUCED MOTION — respect accessibility preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .molecule { display: none; }
+}
+
+
+/* ============================================================
+   HIGH CONTRAST — enhance for visibility
+   ============================================================ */
+@media (prefers-contrast: high) {
+    .ck-ch-terms { border-left-width: 4px; }
+    .ck-qi-warning { border-left-width: 4px; }
+    .ck-done-btn { border-width: 2px; }
+    .ck-nav-item { border-bottom: 1px solid var(--border-subtle); }
+    .term-annotated { text-decoration-thickness: 2px; }
+}

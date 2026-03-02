@@ -160,7 +160,7 @@ def build_all():
     write_page('index.html', 'splitter.html', {
         'title': SITE_TITLE,
         'og_desc': SITE_DESCRIPTION,
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     })
 
@@ -168,7 +168,7 @@ def build_all():
     write_page('student/index.html', 'student_home.html', {
         'title': f'Student Resources — {SITE_TITLE}',
         'og_desc': 'Science courses, resources, and tools for students at Everett High School.',
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     })
 
@@ -176,7 +176,7 @@ def build_all():
     write_page('teacher/index.html', 'teacher_home.html', {
         'title': f'Teaching Companion — {SITE_TITLE}',
         'og_desc': 'Pedagogical context, standards alignment, and implementation guides for science curriculum.',
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     })
 
@@ -187,7 +187,7 @@ def build_all():
             'og_desc': c['og_desc'],
             'course': c,
             'role': 'student',
-            'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+            'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
             'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
         })
 
@@ -198,7 +198,7 @@ def build_all():
             'og_desc': c['og_desc'],
             'course': c,
             'role': 'teacher',
-            'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+            'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
             'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
         })
 
@@ -209,7 +209,7 @@ def build_all():
                 'title': f'{c["title"]} Resources — {SITE_TITLE}',
                 'og_desc': c['og_desc'],
                 'course': c,
-                'stylesheets': ['styles/course-viewer.css', 'styles/terms.css', 'styles/print.css'],
+                'stylesheets': ['styles/course-viewer.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
                 'scripts': ['js/lib/fuse.min.js', f'js/{c["config_js"]}', 'js/course-viewer.js', 'js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
             })
 
@@ -224,7 +224,7 @@ def build_all():
                 'og_desc': ck.get('description', ck['title']),
                 'course': course,
                 'checkpoint': ck,
-                'stylesheets': ['styles/main.css', 'styles/checkpoint.css', 'styles/terms.css', 'styles/print.css'],
+                'stylesheets': ['styles/main.css', 'styles/checkpoint.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
                 'scripts': [f'js/{ck["config_js"]}', 'js/checkpoint.js', 'js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
             },
         )
@@ -233,7 +233,7 @@ def build_all():
     write_page('student/tools/index.html', 'tools_hub.html', {
         'title': f'Interactive Tools — {SITE_TITLE}',
         'og_desc': 'Interactive science tools and simulations for students.',
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     })
 
@@ -244,7 +244,7 @@ def build_all():
         'title': f'404 — {SITE_TITLE}',
         'og_desc': 'Page not found.',
         'root': f'{SITE_URL.rstrip("/")}/',
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     }
     tmpl = env.get_template('404.html')
@@ -256,7 +256,7 @@ def build_all():
     write_page('accessibility.html', 'accessibility.html', {
         'title': f'Accessibility — {SITE_TITLE}',
         'og_desc': 'Accessibility features and commitment for Ms. Brandolini\'s Science website.',
-        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/print.css'],
+        'stylesheets': ['styles/main.css', 'styles/terms.css', 'styles/responsive.css', 'styles/print.css'],
         'scripts': ['js/terms-db.js', 'js/term-system.js', 'js/image-monitor.js', 'js/toolbar.js'],
     })
 
