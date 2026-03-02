@@ -72,6 +72,9 @@ function buildDOM() {
     if (notesBody && CFG.notesQuestions) {
         var nq = CFG.notesQuestions;
         var nHtml = '<div class="ck-notes-intro">' + nq.intro + '</div>';
+        if (nq.foundation) {
+            nHtml += '<div class="ck-notes-foundation">' + nq.foundation + '</div>';
+        }
         nq.parts.forEach(function(part) {
             nHtml += '<div class="ck-notes-part"><div class="ck-notes-part-title">' + part.icon + ' ' + part.title + '</div>';
             part.questions.forEach(function(q, i) {

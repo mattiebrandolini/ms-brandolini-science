@@ -485,3 +485,11 @@
 .ck-optional-list {
     padding: 0.5rem 0;
 }
+
+/* ---- Notes Foundation Message ---- */
+.ck-notes-foundation {
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    border-radius: var(--ck-radius); padding: 0.85rem 1.1rem;
+    font-size: 0.88em; line-height: 1.5; color: var(--text-secondary);
+    margin-bottom: 1.5rem; font-style: italic;
+}

@@ -151,6 +151,7 @@ window.CHECKPOINT_CONFIG = {
     // ============ STRUCTURED NOTES ============
     notesQuestions: {
         intro: 'HUGE HINT: Answer these questions while you study each section. They become your open notes on quiz day!',
+        foundation: 'These questions cover the essentials — but don\'t stop here. Add anything that helps YOU understand. Drawings, examples, connections, translations. The more you write, the better your notes will be.',
         parts: [
             {
                 title: 'Part A: Two Types of Cells',
