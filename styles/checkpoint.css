@@ -246,6 +246,13 @@
     margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;
 }
 .ck-ch-terms p { margin: 0.25rem 0; font-size: 0.9em; }
+.ck-ch-terms .term-annotated {
+    font-weight: 700;
+}
+.ck-ch-terms .term-annotated .term-icon {
+    width: 18px !important; height: 18px !important;
+}
+.ck-ch-term-entry { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.15em; }
 
 /* Figure */
 .ck-ch-figure {

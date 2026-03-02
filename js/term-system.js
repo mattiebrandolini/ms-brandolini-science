@@ -133,7 +133,7 @@ tooltip.addEventListener('mouseleave', function() { hideTooltip(); });
 
 // ============ ANNOTATE ============
 var SKIP_TAGS = { SCRIPT:1, STYLE:1, TEXTAREA:1, INPUT:1, SELECT:1, OPTION:1, SVG:1, CODE:1, PRE:1 };
-var SKIP_CLASSES = ['term-annotated', 'term-tooltip', 'ck-nav-name', 'ck-nav-label'];
+var SKIP_CLASSES = ['term-annotated', 'term-tooltip', 'ck-nav-name', 'ck-nav-label', 'ck-ch-terms'];
 
 function shouldSkip(node) {
     if (!node || !node.parentElement) return true;
@@ -186,10 +186,6 @@ function annotateTextNode(textNode) {
         span.dataset.termKey = termKey;
         span.innerHTML = getIconHTML(entry) + '<span class="term-text">' + matchedText + '</span>';
 
-        span.addEventListener('mouseenter', function() { showTooltip(this); });
-        span.addEventListener('mouseleave', function() { hideTooltip(); });
-        span.addEventListener('focus', function() { showTooltip(this); });
-        span.addEventListener('blur', function() { hideTooltip(); });
         span.setAttribute('tabindex', '0');
 
         frag.appendChild(span);
@@ -259,12 +255,35 @@ function upgradeDfns() {
         span.innerHTML = getIconHTML(entry) + '<span class="term-text">' + dfn.textContent + '</span>';
         span.setAttribute('tabindex', '0');
 
-        span.addEventListener('mouseenter', function() { showTooltip(this); });
-        span.addEventListener('mouseleave', function() { hideTooltip(); });
-        span.addEventListener('focus', function() { showTooltip(this); });
-        span.addEventListener('blur', function() { hideTooltip(); });
-
         dfn.parentNode.replaceChild(span, dfn);
+    });
+}
+
+// ============ UPGRADE KEY TERMS BOXES ============
+// checkpoint.js renders key terms with data-term-name attributes.
+// We upgrade them here with icons + tooltip support.
+function upgradeKeyTerms() {
+    var items = document.querySelectorAll('[data-term-name]');
+    items.forEach(function(p) {
+        var name = p.getAttribute('data-term-name');
+        var termKey = lookup[name.toLowerCase()];
+        if (!termKey) return;
+        var entry = DB[termKey];
+        if (!entry) return;
+
+        // Find the <strong> element and replace it with an annotated span
+        var strong = p.querySelector('strong');
+        if (!strong) return;
+
+        var span = document.createElement('span');
+        span.className = 'term-annotated term-key';
+        span.dataset.termKey = termKey;
+        span.setAttribute('tabindex', '0');
+        span.innerHTML = getIconHTML(entry) + '<span class="term-text">' + strong.textContent + '</span>';
+
+        strong.parentNode.replaceChild(span, strong);
+        p.removeAttribute('data-term-name'); // mark as processed
+        p.classList.add('ck-ch-term-entry');
     });
 }
 
@@ -273,7 +292,10 @@ function upgradeDfns() {
 var CONTENT_SELECTORS = ['.ck-content', '.ck-reading', '.page-content', 'main', '.content-body', 'article'];
 
 function init() {
-    // First upgrade existing <dfn> tags
+    // Upgrade key terms boxes (checkpoint.js renders these with data-term-name)
+    upgradeKeyTerms();
+
+    // Upgrade existing <dfn> tags
     upgradeDfns();
 
     // Then scan content areas
@@ -296,11 +318,34 @@ if (document.readyState === 'loading') {
     setTimeout(init, 100);
 }
 
+// ============ EVENT DELEGATION ============
+// Tooltips work for ANY .term-annotated element, no matter who created it
+document.addEventListener('mouseover', function(e) {
+    var el = e.target.closest('.term-annotated');
+    if (el) showTooltip(el);
+});
+document.addEventListener('mouseout', function(e) {
+    var el = e.target.closest('.term-annotated');
+    if (el) hideTooltip();
+});
+document.addEventListener('focusin', function(e) {
+    var el = e.target.closest('.term-annotated');
+    if (el) showTooltip(el);
+});
+document.addEventListener('focusout', function(e) {
+    var el = e.target.closest('.term-annotated');
+    if (el) hideTooltip();
+});
+
 // Re-annotate when checkpoint chapters render (dynamic content)
 var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(m) {
         m.addedNodes.forEach(function(node) {
             if (node.nodeType === 1 && !node.classList.contains('term-tooltip')) {
+                // Upgrade any key terms boxes in the new content
+                if (node.querySelector && node.querySelector('[data-term-name]')) {
+                    upgradeKeyTerms();
+                }
                 walkAndAnnotate(node);
             }
         });
@@ -310,5 +355,13 @@ var contentEl = document.getElementById('ck-content') || document.querySelector(
 if (contentEl) {
     observer.observe(contentEl, { childList: true, subtree: true });
 }
+
+// ============ EXPOSE FOR OTHER SCRIPTS ============
+// checkpoint.js uses these to render rich key terms
+window.TermSystem = {
+    getIconHTML: getIconHTML,
+    DB: DB,
+    lookup: lookup
+};
 
 })();

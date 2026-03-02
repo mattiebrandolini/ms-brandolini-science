@@ -188,7 +188,9 @@ function buildDOM() {
 
             if (ch.terms && ch.terms.length) {
                 chapHtml += '<div class="ck-ch-terms"><div class="ck-ch-terms-label">\ud83d\udcd6 Key Terms</div>';
-                ch.terms.forEach(function(t) { chapHtml += '<p><strong>' + t[0] + '</strong> \u2014 ' + t[1] + '</p>'; });
+                ch.terms.forEach(function(t) {
+                    chapHtml += '<p data-term-name="' + t[0] + '"><strong>' + t[0] + '</strong> \u2014 ' + t[1] + '</p>';
+                });
                 chapHtml += '</div>';
             }
 
