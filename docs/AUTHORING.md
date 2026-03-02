@@ -107,6 +107,9 @@ chapters:
       src: https://url-to-image.png
       alt: Description for screen readers
       caption: "What to look for in this image."
+      source: Wikimedia Commons          # attribution (optional but recommended)
+      source_url: https://commons...     # link to original (optional)
+      license: CC BY-SA 4.0             # license info (optional)
     optional_videos:                   # bonus "Want More?" section
       - { id: YOUTUBE_ID, title: "...", channel: "...", time: "..." }
 
@@ -254,6 +257,37 @@ To add a new language (e.g., Arabic):
 4. **Language pills:** Add the pill button in `build/templates/checkpoint.html`
 5. **Engine:** Add to `LANG_NAMES` and `LANG_FLAGS` in `js/checkpoint.js`
 6. **RTL support:** For Arabic, add `dir="rtl"` styling to the vocab column
+
+---
+
+## Image Management
+
+### Checking for broken images
+
+```bash
+# Build-time check — fetches all image URLs and reports broken ones
+python3 build/content_build.py --check-images
+```
+
+This generates `content/broken-images.csv` with columns: checkpoint, chapter, broken_url, alt, replacement_url. Fill in the replacement_url column and update the YAML files.
+
+### Runtime monitoring
+
+Every page loads `js/image-monitor.js` which:
+- Replaces broken images with a styled placeholder
+- Logs broken URLs to the browser console
+
+For a full report, add `?debug=images` to any page URL. This shows a floating panel listing all broken images with a copy button for the replacement list.
+
+### Attribution
+
+All figure images should include `source`, `source_url`, and `license` fields. These render as a subtle attribution line in the figcaption. For Wikimedia Commons images, link to the file page (not the raw image URL).
+
+### Long-term image strategy
+
+1. **Now:** Use Wikimedia Commons with attribution + monitor for breakage
+2. **Soon:** Self-host critical images in `static/images/` to avoid external dependencies
+3. **Eventually:** Create original diagrams/illustrations for full ownership
 
 ---
 

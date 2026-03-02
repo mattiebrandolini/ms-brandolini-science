@@ -23,6 +23,8 @@
 | Term database source | `content/terms.csv` |
 | SVG icon library | `content/icons.py` |
 | Content compiler | `build/content_build.py` |
+| Image monitor | `js/image-monitor.js` (site-wide, debug: `?debug=images`) |
+| Check image URLs | `python3 build/content_build.py --check-images` |
 
 ## Critical Rules
 
