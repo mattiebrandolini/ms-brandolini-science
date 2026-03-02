@@ -1,0 +1,190 @@
+/* ============================================
+   Term Annotation System — Styles
+   
+   Annotated terms: inline icon + hover trigger
+   Tooltips: viewport-clamped, always on top
+   ============================================ */
+
+/* ---- Annotated Terms ---- */
+.term-annotated {
+    display: inline;
+    position: relative;
+    cursor: help;
+    border-bottom: 1.5px dotted rgba(52,211,153,0.5);
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+    white-space: nowrap;
+}
+.term-annotated:hover,
+.term-annotated:focus {
+    border-bottom-color: var(--accent-bio);
+    outline: none;
+}
+.term-key {
+    border-bottom-style: solid;
+    border-bottom-color: rgba(52,211,153,0.6);
+}
+
+/* Icon (inline SVG) */
+.term-icon {
+    display: inline-block;
+    vertical-align: -0.15em;
+    margin-right: 0.15em;
+    color: var(--accent-bio);
+    flex-shrink: 0;
+}
+.term-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Emoji fallback */
+.term-emoji {
+    font-size: 0.85em;
+    margin-right: 0.1em;
+}
+
+/* Text within annotation */
+.term-text {
+    /* inherits parent font styling */
+}
+
+/* Upgraded from <dfn> — keep the bold/italic styling */
+.term-from-dfn .term-text {
+    font-style: normal;
+}
+
+/* ---- Tooltip ---- */
+.term-tooltip {
+    position: absolute;
+    z-index: 99999;
+    max-width: 320px;
+    min-width: 200px;
+    padding: 0.85rem 1rem;
+    background: var(--bg-card, #1a1a2e);
+    border: 1.5px solid var(--accent-bio, #34d399);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(52,211,153,0.15);
+    pointer-events: auto;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-primary, #e2e8f0);
+    opacity: 0;
+    transform: translateY(4px);
+    animation: termTooltipIn 0.15s ease forwards;
+}
+
+@keyframes termTooltipIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Arrow */
+.term-tooltip::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--bg-card, #1a1a2e);
+    border: 1.5px solid var(--accent-bio, #34d399);
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%) rotate(45deg);
+}
+.term-tooltip--above::after {
+    bottom: -6px;
+    border-top: none;
+    border-left: none;
+}
+.term-tooltip--below::after {
+    top: -6px;
+    border-bottom: none;
+    border-right: none;
+}
+
+/* Tooltip inner layout */
+.term-tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+.term-tooltip-term {
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--accent-bio, #34d399);
+}
+.term-tooltip-def {
+    font-size: 0.88em;
+    color: var(--text-secondary, #94a3b8);
+    line-height: 1.5;
+}
+
+/* Large icon in tooltip */
+.term-tooltip-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--accent-bio, #34d399);
+}
+.term-tooltip-icon svg {
+    width: 100%;
+    height: 100%;
+}
+.term-tooltip-emoji {
+    font-size: 1.8em;
+    flex-shrink: 0;
+}
+.term-tooltip-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* ---- Light theme overrides ---- */
+[data-theme="light"] .term-tooltip {
+    background: #ffffff;
+    color: #1e293b;
+    border-color: #059669;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(5,150,105,0.1);
+}
+[data-theme="light"] .term-tooltip::after {
+    background: #ffffff;
+    border-color: #059669;
+}
+[data-theme="light"] .term-tooltip-term {
+    color: #059669;
+}
+[data-theme="light"] .term-tooltip-def {
+    color: #475569;
+}
+[data-theme="light"] .term-annotated {
+    border-bottom-color: rgba(5,150,105,0.4);
+}
+[data-theme="light"] .term-key {
+    border-bottom-color: rgba(5,150,105,0.6);
+}
+[data-theme="light"] .term-icon {
+    color: #059669;
+}
+[data-theme="light"] .term-tooltip-icon {
+    color: #059669;
+}
+
+/* ---- Mobile: tap instead of hover ---- */
+@media (max-width: 768px) {
+    .term-tooltip {
+        max-width: calc(100vw - 24px);
+        left: 12px !important;
+        right: 12px;
+    }
+}
+
+/* ---- Print: hide icons, show terms normally ---- */
+@media print {
+    .term-icon, .term-emoji { display: none; }
+    .term-annotated { border: none; cursor: default; }
+    .term-tooltip { display: none !important; }
+}
