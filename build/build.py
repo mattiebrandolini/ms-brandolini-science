@@ -106,6 +106,16 @@ def snapshot_csvs():
 
 
 def build_all():
+    # --- 0. Compile content (YAML → JS, CSV → JS) ---
+    import subprocess
+    content_build = os.path.join(os.path.dirname(__file__), 'content_build.py')
+    if os.path.exists(content_build):
+        result = subprocess.run([sys.executable, content_build], capture_output=True, text=True)
+        print(result.stdout)
+        if result.returncode != 0:
+            print(result.stderr)
+            print("⚠ Content compilation had warnings (continuing build)")
+
     print(f"Building {SITE_TITLE}...")
     print(f"  Cache version: {CACHE_VERSION}")
     print(f"  Courses: {len(COURSES)}")

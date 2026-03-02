@@ -1,0 +1,30 @@
+term,def,emoji,courses,key,aliases,icon_type
+cell,"The basic unit of life — all living things are made of cells",🔬,biology,true,"cells",cell
+prokaryotic,"A cell with NO nucleus and NO membrane-bound organelles. Example: bacteria.",🦠,biology,true,"prokaryotic cells|prokaryote|prokaryotes",prokaryotic
+eukaryotic,"A cell WITH a nucleus and WITH membrane-bound organelles. Example: plant and animal cells.",🧫,biology,true,"eukaryotic cells|eukaryote|eukaryotes",eukaryotic
+organelle,"A small structure inside a cell that has a specific job — means ""little organ""",⚙️,biology,true,"organelles",organelle
+nucleus,"The control center of the cell — holds DNA and sends instructions",🎯,biology,true,"",nucleus
+dna,"The molecule that carries genetic instructions for life — shaped like a twisted ladder (double helix)",🧬,biology,true,"",dna
+chromatin,"DNA in its spread-out, tangled form — like a messy pile of yarn",🧶,biology,true,"",chromatin
+chromosome,"DNA coiled up tightly into a compact X or rod shape — happens when a cell is ready to divide",✖️,biology,true,"chromosomes",chromosome
+ribosome,"A tiny machine that builds proteins — made in the nucleolus",🔩,biology,true,"ribosomes",ribosome
+cell membrane,"The flexible outer boundary of ALL cells — controls what enters and leaves",🛡️,biology,true,"",cell_membrane
+cytoplasm,"The jelly-like fluid filling the cell — everything between the membrane and the nucleus",💧,biology,true,"",cytoplasm
+endomembrane system,"The network of organelles that builds, processes, and ships proteins — includes ER, Golgi, and vesicles",🏭,biology,true,"",endomembrane
+rough er,"Network of folded membranes covered in ribosomes — folds and transports proteins (the ""highway"")",🛣️,biology,true,"rough endoplasmic reticulum|endoplasmic reticulum",rough_er
+golgi apparatus,"Stacked membranes that modify, package, and sort proteins for delivery — the ""packaging center""",📦,biology,true,"golgi|golgi body",golgi
+vesicle,"A small membrane bubble that carries materials between organelles",🫧,biology,true,"vesicles",vesicle
+lysosome,"Organelle that breaks down waste, damaged parts, and foreign invaders — the ""garbage collector""",🗑️,biology,true,"lysosomes",lysosome
+mitochondria,"Organelle that converts glucose into ATP energy — the ""engine"" or ""powerhouse"" of the cell",🔋,biology,true,"mitochondrion",mitochondria
+chloroplast,"Organelle that captures sunlight to make glucose through photosynthesis — only in plant cells",☀️,biology,true,"chloroplasts",chloroplast
+atp,"The energy molecule cells use to do work — like a rechargeable battery",⚡,biology,true,"",atp
+chlorophyll,"The green pigment inside chloroplasts that absorbs sunlight energy",🌿,biology,true,"",chlorophyll
+cell wall,"A thick, rigid outer layer made of cellulose — gives plant cells their square shape",🧱,biology,true,"",cell_wall
+central vacuole,"One very large water storage compartment in plant cells — keeps the plant firm when full",💧,biology,true,"vacuole|vacuoles",central_vacuole
+turgor pressure,"The pressure of water inside the central vacuole pushing against the cell wall — keeps plants firm",💪,biology,true,"",turgor
+cellulose,"The material that makes plant cell walls rigid — gives plants structural support",🌾,biology,true,"",cellulose
+centrioles,"Small structures in animal cells that help organize cell division",🎯,biology,true,"centriole",centrioles
+photosynthesis,"The process by which plants use sunlight to convert CO₂ and water into glucose and oxygen",☀️,biology,true,"",photosynthesis
+cellular respiration,"The process by which cells break down glucose to release ATP energy — happens in mitochondria",🔥,biology,true,"",cellular_respiration
+nucleolus,"A small, dense area inside the nucleus where ribosomes are made",⚫,biology,true,"",nucleolus
+nuclear envelope,"The double membrane surrounding the nucleus — has pores that let messages in and out",🔲,biology,true,"",nuclear_envelope
