@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 16
+CACHE_VERSION = 17
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
@@ -27,6 +27,7 @@ OPENDYSLEXIC_LINK = None  # bundled in FONT_CSS
 COURSES = [
     {
         "slug": "biology",
+        "level": "cp",
         "title": "Biology",
         "icon": "🧬",
         "color_class": "bio",
@@ -40,6 +41,7 @@ COURSES = [
     },
     {
         "slug": "environmental-biology",
+        "level": "cp",
         "title": "Environmental Biology",
         "icon": "🌍",
         "color_class": "env",
@@ -53,6 +55,7 @@ COURSES = [
     },
     {
         "slug": "sheltered-chemistry",
+        "level": "cp",
         "title": "Sheltered Chemistry",
         "icon": "⚗️",
         "color_class": "chem",
@@ -66,6 +69,7 @@ COURSES = [
     },
     {
         "slug": "earth-science",
+        "level": "cp",
         "title": "Earth Science",
         "icon": "🌋",
         "color_class": "earth",
@@ -77,6 +81,7 @@ COURSES = [
     },
     {
         "slug": "anatomy-physiology",
+        "level": "cp",
         "title": "Anatomy & Physiology",
         "icon": "🫀",
         "color_class": "anat",
@@ -88,6 +93,7 @@ COURSES = [
     },
     {
         "slug": "criminology",
+        "level": "elective",
         "title": "Criminology",
         "icon": "🔍",
         "color_class": "crim",
@@ -99,6 +105,7 @@ COURSES = [
     },
     {
         "slug": "oceanography",
+        "level": "elective",
         "title": "Oceanography",
         "icon": "🌊",
         "color_class": "ocean",
@@ -110,6 +117,7 @@ COURSES = [
     },
     {
         "slug": "physics",
+        "level": "cp",
         "title": "Physics",
         "icon": "⚡",
         "color_class": "phys",
@@ -121,6 +129,7 @@ COURSES = [
     },
     {
         "slug": "astronomy",
+        "level": "elective",
         "title": "Astronomy",
         "icon": "🔭",
         "color_class": "astro",
@@ -129,6 +138,126 @@ COURSES = [
         "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
         "teacher_desc": "Teacher companion materials for Astronomy are in development.",
         "og_desc": "Astronomy resources — coming soon.",
+    },
+    {
+        "slug": "forensic-science",
+        "level": "elective",
+        "title": "Forensic Science",
+        "icon": "🧪",
+        "color_class": "crim",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for Forensic Science are in development.",
+        "og_desc": "Forensic Science resources — coming soon.",
+    },
+    {
+        "slug": "honors-biology",
+        "level": "honors",
+        "title": "Honors Biology",
+        "icon": "🧬",
+        "color_class": "bio",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for Honors Biology are in development.",
+        "og_desc": "Honors Biology resources — coming soon.",
+    },
+    {
+        "slug": "honors-chemistry",
+        "level": "honors",
+        "title": "Honors Chemistry",
+        "icon": "⚗️",
+        "color_class": "chem",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for Honors Chemistry are in development.",
+        "og_desc": "Honors Chemistry resources — coming soon.",
+    },
+    {
+        "slug": "honors-physics",
+        "level": "honors",
+        "title": "Honors Physics",
+        "icon": "⚡",
+        "color_class": "phys",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for Honors Physics are in development.",
+        "og_desc": "Honors Physics resources — coming soon.",
+    },
+    {
+        "slug": "ap-biology",
+        "level": "ap",
+        "title": "AP Biology",
+        "icon": "🧬",
+        "color_class": "bio",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Biology are in development.",
+        "og_desc": "AP Biology resources — coming soon.",
+    },
+    {
+        "slug": "ap-chemistry",
+        "level": "ap",
+        "title": "AP Chemistry",
+        "icon": "⚗️",
+        "color_class": "chem",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Chemistry are in development.",
+        "og_desc": "AP Chemistry resources — coming soon.",
+    },
+    {
+        "slug": "ap-environmental-science",
+        "level": "ap",
+        "title": "AP Environmental Science",
+        "icon": "🌍",
+        "color_class": "env",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Environmental Science are in development.",
+        "og_desc": "AP Environmental Science resources — coming soon.",
+    },
+    {
+        "slug": "ap-physics-1",
+        "level": "ap",
+        "title": "AP Physics 1",
+        "icon": "⚡",
+        "color_class": "phys",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Physics 1 are in development.",
+        "og_desc": "AP Physics 1 resources — coming soon.",
+    },
+    {
+        "slug": "ap-physics-2",
+        "level": "ap",
+        "title": "AP Physics 2",
+        "icon": "⚡",
+        "color_class": "phys",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Physics 2 are in development.",
+        "og_desc": "AP Physics 2 resources — coming soon.",
+    },
+    {
+        "slug": "ap-physics-c",
+        "level": "ap",
+        "title": "AP Physics C",
+        "icon": "⚡",
+        "color_class": "phys",
+        "status": "wip",
+        "topic_count": 0,
+        "student_desc": "This course is currently being developed. Check back soon for episodes, structured notes, and interactive content.",
+        "teacher_desc": "Teacher companion materials for AP Physics C are in development.",
+        "og_desc": "AP Physics C resources — coming soon.",
     },
 ]
 

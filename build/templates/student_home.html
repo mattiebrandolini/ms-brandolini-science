@@ -42,11 +42,12 @@
             <a href="#" class="quick-link"><span class="quick-link-icon">🎮</span>Review Games</a>
             <a href="#" class="quick-link"><span class="quick-link-icon">🧪</span>MCAS Practice</a>
         </div>
+        {% for group in course_groups %}
         <div class="courses-section">
-            <div class="section-label anim-slide anim-delay-3">Courses</div>
+            <div class="section-label anim-slide anim-delay-3">{{ group.label }}</div>
             <div class="card-grid">
-                {% for c in courses %}
-                <a href="{{ c.slug }}/{% if c.config_js %}resources.html{% endif %}" class="card card--{{ c.color_class }} card--course anim-slide anim-delay-{{ 3 + loop.index0 // 3 }}">
+                {% for c in group.courses %}
+                <a href="{{ c.slug }}/{% if c.config_js %}resources.html{% endif %}" class="card card--{{ c.color_class }} card--course anim-slide">
                     <div class="card-icon">{{ c.icon }}</div>
                     <div class="card-title card-title--{{ c.color_class }}">{{ c.title }}{% if c.status == 'wip' %} <span class="wip-badge">WIP</span>{% endif %}</div>
                     <p class="card-desc">{{ c.student_desc }}</p>
@@ -55,6 +56,7 @@
                 {% endfor %}
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

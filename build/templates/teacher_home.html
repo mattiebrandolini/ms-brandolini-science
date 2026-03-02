@@ -57,11 +57,12 @@
             <p>Everything here is built around the student materials. Each course has a teacher companion that walks through the pedagogical reasoning, suggests scaffolding strategies, maps to standards, and offers ideas for classroom implementation.</p>
             <p>These resources are designed for high-needs classrooms, particularly with English Language Learners. The student materials are multimodal by design — video, audio, structured notes, and interactive content — so every learner has multiple access points.</p>
         </div>
+        {% for group in course_groups %}
         <div class="companion-section">
-            <div class="section-label anim-slide anim-delay-3">Course Companions</div>
+            <div class="section-label anim-slide anim-delay-3">{{ group.label }}</div>
             <div class="companion-list">
-                {% for c in courses %}
-                <a href="{{ c.slug }}/" class="companion-link anim-slide anim-delay-{{ 3 + loop.index0 // 3 }}">
+                {% for c in group.courses %}
+                <a href="{{ c.slug }}/" class="companion-link anim-slide">
                     <span class="companion-dot companion-dot--{{ c.color_class }}"></span>
                     <div class="companion-info">
                         <h4>{{ c.title }} — Teacher Guide</h4>
@@ -76,6 +77,7 @@
                 {% endfor %}
             </div>
         </div>
+        {% endfor %}
         <div class="section-label anim-slide anim-delay-4">Pedagogy &amp; Approach</div>
         <div class="guide-grid anim-slide anim-delay-5">
             <a href="#" class="guide-card">

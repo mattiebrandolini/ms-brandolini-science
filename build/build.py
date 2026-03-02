@@ -47,6 +47,12 @@ BASE_CTX = {
     'font_body': FONT_BODY,
     'font_heading': FONT_HEADING,
     'courses': COURSES,
+    'course_groups': [
+        {'key': 'cp', 'label': 'Core Sciences', 'courses': [c for c in COURSES if c.get('level') == 'cp']},
+        {'key': 'elective', 'label': 'Electives', 'courses': [c for c in COURSES if c.get('level') == 'elective']},
+        {'key': 'honors', 'label': 'Honors', 'courses': [c for c in COURSES if c.get('level') == 'honors']},
+        {'key': 'ap', 'label': 'Advanced Placement', 'courses': [c for c in COURSES if c.get('level') == 'ap']},
+    ],
     'year': datetime.date.today().year,
     'build_date': datetime.date.today().strftime('%B %d, %Y'),
 }
