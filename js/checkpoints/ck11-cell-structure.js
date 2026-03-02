@@ -65,7 +65,10 @@ window.CHECKPOINT_CONFIG = {
             "figure": {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Celltypes.svg/960px-Celltypes.svg.png",
                 "alt": "Prokaryotic cell vs eukaryotic cell comparison diagram",
-                "caption": "The prokaryotic cell (left) has NO nucleus — DNA floats freely. The eukaryotic cell (right) has a nucleus and organized compartments."
+                "caption": "The prokaryotic cell (left) has NO nucleus — DNA floats freely. The eukaryotic cell (right) has a nucleus and organized compartments.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Celltypes.svg",
+                "license": "CC BY-SA 3.0"
             },
             "optionalVideos": [
                 {
@@ -139,7 +142,10 @@ window.CHECKPOINT_CONFIG = {
             "figure": {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Cell-organelles-labeled.png/960px-Cell-organelles-labeled.png",
                 "alt": "Animal cell with labeled organelles",
-                "caption": "Find the nucleus — the large round structure near the center. Can you also spot the ER, Golgi, and mitochondria?"
+                "caption": "Find the nucleus — the large round structure near the center. Can you also spot the ER, Golgi, and mitochondria?",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Cell-organelles-labeled.png",
+                "license": "CC BY-SA 4.0"
             }
         },
         "ch3": {
@@ -203,7 +209,10 @@ window.CHECKPOINT_CONFIG = {
             "figure": {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Endomembrane_system_diagram_en.svg/960px-Endomembrane_system_diagram_en.svg.png",
                 "alt": "Endomembrane system diagram",
-                "caption": "Follow the arrows: Ribosome → Rough ER → Vesicle → Golgi → Vesicle → Destination. This is the pathway you need to know."
+                "caption": "Follow the arrows: Ribosome → Rough ER → Vesicle → Golgi → Vesicle → Destination. This is the pathway you need to know.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Endomembrane_system_diagram_en.svg",
+                "license": "CC BY-SA 3.0"
             },
             "optionalVideos": [
                 {
@@ -277,7 +286,10 @@ window.CHECKPOINT_CONFIG = {
             "figure": {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mitochondrion_mini_diagram_en.svg/960px-Mitochondrion_mini_diagram_en.svg.png",
                 "alt": "Mitochondrion cross-section",
-                "caption": "The mitochondrion has a DOUBLE membrane. The inner folds (cristae) are where ATP is made. More folds = more energy production."
+                "caption": "The mitochondrion has a DOUBLE membrane. The inner folds (cristae) are where ATP is made. More folds = more energy production.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Mitochondrion_mini_diagram_en.svg",
+                "license": "CC BY-SA 3.0"
             },
             "optionalVideos": [
                 {
@@ -351,7 +363,10 @@ window.CHECKPOINT_CONFIG = {
             "figure": {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Differences_between_simple_animal_and_plant_cells_%28en%29.svg/960px-Differences_between_simple_animal_and_plant_cells_%28en%29.svg.png",
                 "alt": "Plant cell vs animal cell comparison",
-                "caption": "Plant cell (left) has a rigid cell wall, green chloroplasts, and a large central vacuole. Animal cell (right) is round and flexible."
+                "caption": "Plant cell (left) has a rigid cell wall, green chloroplasts, and a large central vacuole. Animal cell (right) is round and flexible.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Differences_between_simple_animal_and_plant_cells_(en).svg",
+                "license": "CC BY-SA 4.0"
             }
         }
     },

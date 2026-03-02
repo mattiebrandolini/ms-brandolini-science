@@ -14,6 +14,7 @@ Usage:
   python3 build/content_build.py              # compile everything
   python3 build/content_build.py --check      # validate without writing
   python3 build/content_build.py --stats      # show content statistics
+  python3 build/content_build.py --check-images # check all image URLs
 """
 
 import csv
@@ -262,9 +263,88 @@ def show_stats():
 
 # ============ MAIN ============
 
+
+def check_images():
+    """Fetch all image URLs from checkpoint YAMLs and report broken ones."""
+    import urllib.request
+    import urllib.error
+    
+    print("\nChecking image URLs...\n")
+    
+    all_images = []
+    yaml_dir = os.path.join(ROOT, 'content', 'checkpoints')
+    for yf in glob.glob(os.path.join(yaml_dir, '**', '*.yaml'), recursive=True):
+        with open(yf) as f:
+            data = yaml.safe_load(f)
+        ck_id = data.get('id', os.path.basename(yf))
+        for ch in data.get('chapters', []):
+            fig = ch.get('figure')
+            if fig and fig.get('src'):
+                all_images.append({
+                    'url': fig['src'],
+                    'checkpoint': ck_id,
+                    'chapter': ch.get('id', '?'),
+                    'alt': fig.get('alt', ''),
+                })
+            # Also check any images in reading HTML
+            reading = ch.get('reading', '')
+            if reading:
+                import re
+                for m in re.finditer(r'<img[^>]+src="([^"]+)"', reading):
+                    all_images.append({
+                        'url': m.group(1),
+                        'checkpoint': ck_id,
+                        'chapter': ch.get('id', '?') + ' (reading)',
+                        'alt': '',
+                    })
+    
+    if not all_images:
+        print("No images found in checkpoints.")
+        return
+    
+    print(f"Found {len(all_images)} images to check...\n")
+    
+    broken = []
+    ok = 0
+    for img in all_images:
+        url = img['url']
+        try:
+            req = urllib.request.Request(url, method='HEAD')
+            req.add_header('User-Agent', 'Mozilla/5.0 (image-check)')
+            resp = urllib.request.urlopen(req, timeout=10)
+            status = resp.getcode()
+            if status < 400:
+                print(f"  ✓ {img['checkpoint']}/{img['chapter']}")
+                ok += 1
+            else:
+                print(f"  ✗ {img['checkpoint']}/{img['chapter']} — HTTP {status}")
+                broken.append(img)
+        except Exception as e:
+            print(f"  ✗ {img['checkpoint']}/{img['chapter']} — {e}")
+            img['error'] = str(e)
+            broken.append(img)
+    
+    print(f"\nResults: {ok} ok, {len(broken)} broken")
+    
+    if broken:
+        # Write replacement list
+        out_path = os.path.join(ROOT, 'content', 'broken-images.csv')
+        with open(out_path, 'w') as f:
+            f.write('checkpoint,chapter,broken_url,alt,replacement_url\n')
+            for b in broken:
+                f.write(f'"{b["checkpoint"]}","{b["chapter"]}","{b["url"]}","{b["alt"]}",""\n')
+        print(f"\n→ Replacement list written to content/broken-images.csv")
+        print("  Fill in the replacement_url column, then run a migration script to update YAMLs.")
+
+
 def main():
     check_only = '--check' in sys.argv
     stats_only = '--stats' in sys.argv
+    images_only = '--check-images' in sys.argv
+
+    if images_only:
+        check_images()
+        return
 
     if stats_only:
         show_stats()
