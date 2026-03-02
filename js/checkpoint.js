@@ -196,15 +196,10 @@ function buildDOM() {
 
             if (ch.figure) {
                 chapHtml += '<figure class="ck-ch-figure">'
-                    + '<img src="' + ch.figure.src + '" alt="' + ch.figure.alt + '" loading="lazy"'
-                    + ' onerror="this.parentElement.classList.add('ck-figure-broken');'
-                    + 'this.insertAdjacentHTML('afterend','<div class=ck-figure-error>'
-                    + '<span class=ck-figure-error-icon>🖼️</span>'
-                    + '<span>Image not loading — <a href=\'' + ch.figure.src + '\' target=_blank>view source</a></span>'
-                    + '</div>');this.style.display='none'">'
+                    + '<img src="' + ch.figure.src + '" alt="' + ch.figure.alt + '" loading="lazy">'
                     + '<figcaption>' + ch.figure.caption;
                 if (ch.figure.source) {
-                    chapHtml += '<span class="ck-figure-attr"> · '
+                    chapHtml += '<span class="ck-figure-attr"> \u00b7 '
                         + (ch.figure.source_url
                             ? '<a href="' + ch.figure.source_url + '" target="_blank" rel="noopener">' + ch.figure.source + '</a>'
                             : ch.figure.source);

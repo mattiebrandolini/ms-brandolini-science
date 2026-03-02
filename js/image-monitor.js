@@ -32,8 +32,18 @@ function onImgError(img) {
 
     broken.push({ src: src, alt: alt, context: context, element: img });
 
-    // Visual placeholder (unless inside a figure that handles its own errors)
-    if (!img.closest('.ck-ch-figure')) {
+    // Visual placeholder
+    var figure = img.closest('.ck-ch-figure');
+    if (figure) {
+        // Checkpoint figure — add error state and show source link
+        figure.classList.add('ck-figure-broken');
+        var errDiv = document.createElement('div');
+        errDiv.className = 'ck-figure-error';
+        errDiv.innerHTML = '<span class="ck-figure-error-icon">\ud83d\uddbc\ufe0f</span>'
+            + '<span>Image not loading \u2014 <a href="' + src + '" target="_blank">view source</a></span>';
+        img.parentNode.insertBefore(errDiv, img.nextSibling);
+        img.style.display = 'none';
+    } else {
         var ph = document.createElement('div');
         ph.className = 'img-broken-ph';
         ph.innerHTML = '<span class="img-broken-icon">\ud83d\uddbc\ufe0f</span>'
