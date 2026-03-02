@@ -18,6 +18,11 @@
 | Self-hosted fonts | `static/fonts/` |
 | CSV snapshots (build-time) | `static/data/` |
 | CI workflow | `.github/workflows/quality.yml` |
+| **Content pipeline docs** | **`docs/AUTHORING.md`** |
+| Checkpoint YAML sources | `content/checkpoints/**/*.yaml` |
+| Term database source | `content/terms.csv` |
+| SVG icon library | `content/icons.py` |
+| Content compiler | `build/content_build.py` |
 
 ## Critical Rules
 
@@ -100,17 +105,27 @@ The definition appears on hover or keyboard focus. Works on any page that loads 
 3. Check CI results at the repo's Actions tab.
 
 
-## Add a new checkpoint page
+## Add or Edit Checkpoints (YAML Pipeline)
 
-1. Create content file: `build/content/checkpoints/{course-slug}/{checkpoint-slug}.html`
-   - Use `ck-*` classes from `styles/checkpoint.css` (no inline styles)
-   - Reference the Cell Structure checkpoint as a model: `build/content/checkpoints/biology/cell-structure.html`
-2. Add entry to `CHECKPOINTS` list in `build/config.py`:
-   ```python
-   {"course": "biology", "slug": "water-properties", "title": "...", "description": "..."}
-   ```
-3. Run build: `cd build && python3 build.py`
-4. Output appears at `student/{course}/checkpoints/{slug}/index.html`
+> **IMPORTANT:** Checkpoints are authored as YAML files, compiled to JS by the build pipeline.
+> Never edit `js/checkpoints/*.js` or `js/terms-db.js` directly — they are auto-generated.
+> Full documentation: `docs/AUTHORING.md`
+
+### Quick version:
+
+1. Create/edit a YAML file in `content/checkpoints/{course}/`
+2. Add terms to `content/terms.csv` if needed
+3. Add SVG icons to `content/icons.py` if needed
+4. Register the checkpoint in `build/build.py` (in the checkpoints list)
+5. Run `python3 build/build.py` (this calls content_build.py automatically)
+6. Commit and push
+
+### Reference files:
+- **Exemplar YAML:** `content/checkpoints/biology/ck11-cell-structure.yaml`
+- **Full schema docs:** `docs/AUTHORING.md`
+- **YAML→JS compiler:** `build/content_build.py`
+- **Validate without building:** `python3 build/content_build.py --check`
+- **Content statistics:** `python3 build/content_build.py --stats`
 
 ### Checkpoint component classes (ck-* prefix)
 | Class | Purpose |
