@@ -116,6 +116,35 @@ def build_all():
             print(result.stderr)
             print("⚠ Content compilation had warnings (continuing build)")
 
+    # --- 0.5. Syntax-check all JS files ---
+    import shutil
+    if shutil.which('node'):
+        js_dir = str(SITE_ROOT / 'js')
+        js_errors = []
+        for dirpath, _, filenames in os.walk(js_dir):
+            for fn in filenames:
+                if fn.endswith('.js'):
+                    fp = os.path.join(dirpath, fn)
+                    result = subprocess.run(
+                        ['node', '-e', f'new Function(require("fs").readFileSync("{fp}","utf8"))'],
+                        capture_output=True, text=True
+                    )
+                    if result.returncode != 0:
+                        rel = os.path.relpath(fp, str(SITE_ROOT))
+                        # Extract just the error message
+                        err = result.stderr.strip().split('\n')
+                        msg = next((l for l in err if 'Error' in l or 'Unexpected' in l), err[-1] if err else 'unknown error')
+                        js_errors.append((rel, msg))
+        if js_errors:
+            print("\n❌ JavaScript syntax errors — aborting build:\n")
+            for path, msg in js_errors:
+                print(f"  {path}: {msg}")
+            print("\nFix these before building. The site will be broken if deployed with syntax errors.")
+            return
+        print(f"  JS syntax: ✓ all files valid")
+    else:
+        print("  JS syntax: skipped (node not found)")
+
     print(f"Building {SITE_TITLE}...")
     print(f"  Cache version: {CACHE_VERSION}")
     print(f"  Courses: {len(COURSES)}")
