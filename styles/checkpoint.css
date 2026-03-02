@@ -211,20 +211,27 @@
 
 /* Secondary block */
 .ck-ch-secondary {
-    margin-bottom: 1rem; border: 1px solid var(--border-subtle);
+    margin-bottom: 1rem; border: 2px solid var(--accent-bio);
     border-radius: var(--ck-radius); overflow: hidden;
+    background: linear-gradient(135deg, rgba(52,211,153,0.06), rgba(59,130,246,0.06));
+    box-shadow: 0 2px 8px rgba(52,211,153,0.1);
+    transition: all 0.2s ease;
+}
+.ck-ch-secondary:hover {
+    box-shadow: 0 4px 16px rgba(52,211,153,0.18);
+    transform: translateY(-1px);
 }
 .ck-ch-secondary summary {
-    padding: 0.65rem 1rem; font-size: 0.85em; font-weight: 500;
-    cursor: pointer; color: var(--text-secondary); background: var(--bg-card);
-    list-style: none;
+    padding: 0.85rem 1.15rem; font-size: 0.95em; font-weight: 700;
+    cursor: pointer; color: var(--accent-bio);
+    list-style: none; transition: all 0.15s;
 }
 .ck-ch-secondary summary::-webkit-details-marker { display: none; }
-.ck-ch-secondary summary::before { content: "▸ "; }
-.ck-ch-secondary[open] summary::before { content: "▾ "; }
-.ck-ch-secondary summary:hover { background: var(--bg-card-hover); }
+.ck-ch-secondary summary::before { content: "👉 "; font-size: 1.1em; }
+.ck-ch-secondary[open] summary::before { content: "👇 "; font-size: 1.1em; }
+.ck-ch-secondary summary:hover { color: var(--text-primary); }
 .ck-ch-secondary > div {
-    border-top: 1px solid var(--border-subtle); background: var(--bg-card);
+    border-top: 1px solid rgba(52,211,153,0.2); background: var(--bg-card);
 }
 
 /* Key terms */
