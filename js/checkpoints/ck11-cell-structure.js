@@ -146,5 +146,95 @@ window.CHECKPOINT_CONFIG = {
         { q: 'A plant cell and an animal cell are both placed in a very dry environment. Predict what happens to each cell. Which one will change shape? Why?', hint: 'Think about the cell wall and turgor pressure.' },
         { q: 'Your muscle cells have MORE mitochondria than your skin cells. Why?' },
         { q: 'If chloroplasts make glucose and mitochondria use glucose for energy, why do plant cells need BOTH organelles?' },
+    ],,
+
+    // ============ STRUCTURED NOTES ============
+    notesQuestions: {
+        intro: 'HUGE HINT: Answer these questions while you study each section. They become your open notes on quiz day!',
+        parts: [
+            {
+                title: 'Part A: Two Types of Cells',
+                icon: '🔬',
+                questions: [
+                    { id: 'n1', q: 'Fill in the table:\n\n| Feature | Prokaryotic | Eukaryotic |\n|---|---|---|\n| Nucleus? | ___ | ___ |\n| Membrane-bound organelles? | ___ | ___ |\n| Example organisms | ___ | ___ |', type: 'table' },
+                    { id: 'n2', q: 'What memory trick helps you remember which type has NO nucleus?', type: 'short' },
+                    { id: 'n3', q: 'Name three things ALL cells have in common (prokaryotic AND eukaryotic).', type: 'short' },
+                    { id: 'n4', q: 'Where is DNA located in a eukaryotic cell? Where is it in a prokaryotic cell?', type: 'short' },
+                ],
+            },
+            {
+                title: 'Part B: Protein Delivery System',
+                icon: '📦',
+                questions: [
+                    { id: 'n5', q: 'Trace the protein pathway. Fill in the blanks:\n\n___ builds the protein → ___ folds it → ___ carries it → ___ packages it → ___ delivers it', type: 'fill' },
+                    { id: 'n6', q: 'What is the job of the rough ER? Why is it called "rough"?', type: 'short' },
+                    { id: 'n7', q: 'What does the Golgi apparatus do to proteins?', type: 'short' },
+                    { id: 'n8', q: 'What is a vesicle? What is its role in the protein pathway?', type: 'short' },
+                    { id: 'n9', q: 'What organelle is the "garbage collector"? What does it break down?', type: 'short' },
+                ],
+            },
+            {
+                title: 'Part C: Energy Organelles',
+                icon: '⚡',
+                questions: [
+                    { id: 'n10', q: 'Fill in the table:\n\n| Feature | Mitochondria | Chloroplast |\n|---|---|---|\n| What it does | ___ | ___ |\n| Process name | ___ | ___ |\n| Found in which cells? | ___ | ___ |\n| Input (fuel) | ___ | ___ |\n| Output (product) | ___ | ___ |', type: 'table' },
+                    { id: 'n11', q: 'Why do muscle cells have MORE mitochondria than skin cells?', type: 'short' },
+                    { id: 'n12', q: 'Name 3 structures that plant cells have but animal cells do NOT.', type: 'short' },
+                    { id: 'n13', q: 'A plant is wilting. Which organelle lost water? What is the name of the pressure that keeps plants firm?', type: 'short' },
+                ],
+            },
+        ],
+    },
+
+    // ============ LANGUAGE BRIDGE ============
+    languageBridge: {
+        title: 'Language Bridge Strategy',
+        steps: [
+            { icon: '1️⃣', text: 'Watch the video in YOUR language first — focus on understanding the science' },
+            { icon: '2️⃣', text: 'Watch the English video — now you already know the ideas, focus on the English vocabulary' },
+            { icon: '3️⃣', text: 'Practice explaining in English using the reading passage and your notes' },
+        ],
+        note: 'The quiz is in English. Your notes can be in any language.',
+    },
+
+    // ============ VOCAB TABLE ============
+    vocabTable: [
+        { en: 'Cell', es: 'Célula', pt: 'Célula', fr: 'Cellule', vi: 'Tế bào', ht: 'Selil' },
+        { en: 'Prokaryotic', es: 'Procariota', pt: 'Procariótico', fr: 'Procaryote', vi: 'Nhân sơ', ht: 'Pwokaryòt' },
+        { en: 'Eukaryotic', es: 'Eucariota', pt: 'Eucariótico', fr: 'Eucaryote', vi: 'Nhân thực', ht: 'Ekaryòt' },
+        { en: 'Nucleus', es: 'Núcleo', pt: 'Núcleo', fr: 'Noyau', vi: 'Nhân', ht: 'Nwayo' },
+        { en: 'Organelle', es: 'Orgánulo', pt: 'Organela', fr: 'Organite', vi: 'Bào quan', ht: 'Òganèl' },
+        { en: 'Ribosome', es: 'Ribosoma', pt: 'Ribossomo', fr: 'Ribosome', vi: 'Ribosome', ht: 'Ribozòm' },
+        { en: 'Rough ER', es: 'RE rugoso', pt: 'RE rugoso', fr: 'RE rugueux', vi: 'Lưới nội chất hạt', ht: 'RE rig' },
+        { en: 'Golgi apparatus', es: 'Aparato de Golgi', pt: 'Complexo de Golgi', fr: 'Appareil de Golgi', vi: 'Bộ máy Golgi', ht: 'Aparèy Golgi' },
+        { en: 'Vesicle', es: 'Vesícula', pt: 'Vesícula', fr: 'Vésicule', vi: 'Túi tiết', ht: 'Vezikil' },
+        { en: 'Lysosome', es: 'Lisosoma', pt: 'Lisossomo', fr: 'Lysosome', vi: 'Thể tiêu hủy', ht: 'Lizozòm' },
+        { en: 'Mitochondria', es: 'Mitocondria', pt: 'Mitocôndria', fr: 'Mitochondrie', vi: 'Ti thể', ht: 'Mitokondri' },
+        { en: 'Chloroplast', es: 'Cloroplasto', pt: 'Cloroplasto', fr: 'Chloroplaste', vi: 'Lục lạp', ht: 'Kloroplast' },
+        { en: 'ATP', es: 'ATP', pt: 'ATP', fr: 'ATP', vi: 'ATP', ht: 'ATP' },
+        { en: 'Chlorophyll', es: 'Clorofila', pt: 'Clorofila', fr: 'Chlorophylle', vi: 'Chất diệp lục', ht: 'Klorofil' },
+        { en: 'Cell wall', es: 'Pared celular', pt: 'Parede celular', fr: 'Paroi cellulaire', vi: 'Thành tế bào', ht: 'Mi selil' },
+        { en: 'Central vacuole', es: 'Vacuola central', pt: 'Vacúolo central', fr: 'Vacuole centrale', vi: 'Không bào trung tâm', ht: 'Vakwòl santral' },
+        { en: 'Turgor pressure', es: 'Presión de turgencia', pt: 'Pressão de turgor', fr: 'Pression de turgescence', vi: 'Áp suất trương', ht: 'Presyon turgescence' },
+        { en: 'Cell membrane', es: 'Membrana celular', pt: 'Membrana celular', fr: 'Membrane cellulaire', vi: 'Màng tế bào', ht: 'Manbràn selil' },
+        { en: 'Cytoplasm', es: 'Citoplasma', pt: 'Citoplasma', fr: 'Cytoplasme', vi: 'Tế bào chất', ht: 'Sitoplasm' },
+        { en: 'Photosynthesis', es: 'Fotosíntesis', pt: 'Fotossíntese', fr: 'Photosynthèse', vi: 'Quang hợp', ht: 'Fotosintèz' },
+        { en: 'Cellular respiration', es: 'Respiración celular', pt: 'Respiração celular', fr: 'Respiration cellulaire', vi: 'Hô hấp tế bào', ht: 'Respirasyon selilè' },
     ],
+
+    // ============ PRACTICE RESOURCES ============
+    practiceResources: [
+        { title: 'Cell Explorer', desc: 'Interactive cell size & scale tool', url: 'https://learn.genetics.utah.edu/content/cells/scale/', source: 'Learn.Genetics' },
+        { title: 'Cell Structure', desc: 'Practice questions and diagrams', url: 'https://www.khanacademy.org/science/biology/structure-of-a-cell', source: 'Khan Academy' },
+        { title: 'Cell Structures', desc: 'Interactive textbook with diagrams', url: 'https://flexbooks.ck12.org/cbook/ck-12-biology-flexbook-2.0/section/2.4/primary/lesson/cell-structures/', source: 'CK-12' },
+    ],
+
+    // ============ TEXTBOOK PACKETS ============
+    textbookPackets: [
+        { title: 'Endomembrane System', pages: 'pp. 24-26, 105, 279-281', url: '#' },
+        { title: 'Energy Organelles', pages: 'pp. 26, 28, 116-138', url: '#' },
+        { title: 'Plant vs. Animal Cells', pages: 'pp. 24-29, 79', url: '#' },
+        { title: 'Prokaryotes vs. Eukaryotes', pages: 'pp. 24-28, 226, 230-231, 239, 288-292', url: '#' },
+    ],
+
 };

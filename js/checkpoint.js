@@ -62,8 +62,96 @@ function buildDOM() {
     }
 
     // Set first chapter as next from quiz-info
-    var firstNext = document.querySelector('.ck-next-btn[data-next=""]');
-    if (firstNext && CFG.chapterOrder.length) firstNext.dataset.next = CFG.chapterOrder[0];
+    var emptyNextBtns = document.querySelectorAll('.ck-next-btn[data-next=""]');
+    emptyNextBtns.forEach(function(btn) {
+        if (CFG.chapterOrder.length) btn.dataset.next = CFG.chapterOrder[0];
+    });
+
+    // ============ STRUCTURED NOTES ============
+    var notesBody = document.getElementById('ck-notes-body');
+    if (notesBody && CFG.notesQuestions) {
+        var nq = CFG.notesQuestions;
+        var nHtml = '<div class="ck-notes-intro">' + nq.intro + '</div>';
+        nq.parts.forEach(function(part) {
+            nHtml += '<div class="ck-notes-part"><div class="ck-notes-part-title">' + part.icon + ' ' + part.title + '</div>';
+            part.questions.forEach(function(q, i) {
+                var qText = q.q.replace(/\n/g, '<br>');
+                // Convert markdown-style tables to HTML
+                if (q.type === 'table' || q.type === 'fill') {
+                    var lines = q.q.split('\n');
+                    var tableLines = lines.filter(function(l) { return l.trim().indexOf('|') === 0; });
+                    var nonTable = lines.filter(function(l) { return l.trim().indexOf('|') !== 0; });
+                    if (tableLines.length >= 2) {
+                        var tHtml = '<p>' + nonTable.filter(function(l){return l.trim();}).join(' ') + '</p>';
+                        tHtml += '<table class="ck-notes-table">';
+                        tableLines.forEach(function(row, ri) {
+                            if (row.indexOf('---') > -1) return; // skip separator
+                            var cells = row.split('|').filter(function(c) { return c.trim() !== ''; });
+                            tHtml += '<tr>';
+                            cells.forEach(function(c) {
+                                var tag = ri === 0 ? 'th' : 'td';
+                                tHtml += '<' + tag + '>' + c.trim() + '</' + tag + '>';
+                            });
+                            tHtml += '</tr>';
+                        });
+                        tHtml += '</table>';
+                        qText = tHtml;
+                    }
+                }
+                nHtml += '<div class="ck-notes-q"><span class="ck-notes-q-num">' + q.id.toUpperCase().replace('N','Q') + '</span> ' + qText + '</div>';
+            });
+            nHtml += '</div>';
+        });
+        notesBody.innerHTML = nHtml;
+    }
+
+    // ============ LANGUAGE BRIDGE (entry screen) ============
+    var bridgeEl = document.getElementById('ck-lang-bridge');
+    if (bridgeEl && CFG.languageBridge) {
+        var lb = CFG.languageBridge;
+        var bHtml = '<div class="ck-bridge-title">🌉 ' + lb.title + '</div>';
+        lb.steps.forEach(function(s) {
+            bHtml += '<div class="ck-bridge-step"><span class="ck-bridge-icon">' + s.icon + '</span> ' + s.text + '</div>';
+        });
+        bHtml += '<div class="ck-bridge-note">' + lb.note + '</div>';
+        bridgeEl.innerHTML = bHtml;
+    }
+
+    // ============ VOCAB TABLE ============
+    var vocabBody = document.getElementById('ck-vocab-body');
+    if (vocabBody && CFG.vocabTable) {
+        var vHtml = '<div class="ck-vocab-scroll"><table class="ck-vocab-table">';
+        vHtml += '<thead><tr><th>English</th><th>Español</th><th>Português</th><th>Français</th><th>Tiếng Việt</th><th>Kreyòl</th></tr></thead><tbody>';
+        CFG.vocabTable.forEach(function(row) {
+            vHtml += '<tr><td><strong>' + row.en + '</strong></td><td>' + row.es + '</td><td>' + row.pt + '</td><td>' + row.fr + '</td><td>' + row.vi + '</td><td>' + row.ht + '</td></tr>';
+        });
+        vHtml += '</tbody></table></div>';
+        vocabBody.innerHTML = vHtml;
+    }
+
+    // ============ PRACTICE RESOURCES ============
+    var resBody = document.getElementById('ck-resources-body');
+    if (resBody && CFG.practiceResources) {
+        var rHtml = '<div class="ck-resources-grid">';
+        CFG.practiceResources.forEach(function(r) {
+            rHtml += '<a class="ck-resource-card" href="' + r.url + '" target="_blank" rel="noopener">';
+            rHtml += '<div class="ck-resource-title">' + r.title + '</div>';
+            rHtml += '<div class="ck-resource-desc">' + r.desc + '</div>';
+            rHtml += '<div class="ck-resource-source">' + r.source + ' ↗</div>';
+            rHtml += '</a>';
+        });
+        rHtml += '</div>';
+        // Textbook packets
+        if (CFG.textbookPackets) {
+            rHtml += '<details class="ck-textbook-packets"><summary>📚 Textbook Packets (optional)</summary>';
+            rHtml += '<p class="ck-textbook-note">The reading passages above cover the same content in simpler language.</p>';
+            CFG.textbookPackets.forEach(function(p) {
+                rHtml += '<a class="ck-packet-link" href="' + p.url + '" target="_blank">' + p.title + ' <span class="ck-packet-pages">' + p.pages + '</span></a>';
+            });
+            rHtml += '</details>';
+        }
+        resBody.innerHTML = rHtml;
+    }
 
     // Nav items
     var navContainer = document.getElementById('ck-nav-chapters');
@@ -86,8 +174,8 @@ function buildDOM() {
         CFG.chapterOrder.forEach(function(id, i) {
             var ch = CFG.chapters[id];
             if (!ch) return;
-            var nextId = CFG.chapterOrder[i+1] || 'practice';
-            var nextLabel = nextId === 'practice' ? 'Go to practice \u2192' : 'Next chapter \u2192';
+            var nextId = CFG.chapterOrder[i+1] || 'vocab';
+            var nextLabel = nextId === 'vocab' ? 'Vocabulary table \u2192' : 'Next chapter \u2192';
 
             chapHtml += '<div class="ck-chapter" data-ch="' + id + '">';
             chapHtml += '<h2 class="ck-ch-title">' + ch.title + '</h2>';
@@ -104,6 +192,13 @@ function buildDOM() {
             if (ch.figure) {
                 chapHtml += '<figure class="ck-ch-figure"><img src="' + ch.figure.src + '" alt="' + ch.figure.alt + '" loading="lazy">';
                 chapHtml += '<figcaption>' + ch.figure.caption + '</figcaption></figure>';
+            }
+
+                        // Optional videos
+            if (ch.optionalVideos && ch.optionalVideos.length) {
+                chapHtml += '<details class="ck-ch-optional"><summary>🎬 Want more? (' + ch.optionalVideos.length + ' bonus videos)</summary><div class="ck-optional-list">';
+                ch.optionalVideos.forEach(function(v) { chapHtml += videoLink(v); });
+                chapHtml += '</div></details>';
             }
 
             chapHtml += '<div class="ck-done-row">';

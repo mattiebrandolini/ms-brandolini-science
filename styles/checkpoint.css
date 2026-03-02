@@ -344,3 +344,144 @@
     .ck-entry { display: none; }
     .ck-study { display: block !important; }
 }
+
+/* ============================================
+   New Sections: Notes, Vocab, Resources, Bridge
+   ============================================ */
+
+/* ---- Language Bridge (Entry Screen) ---- */
+.ck-lang-bridge {
+    max-width: 520px; margin: 1.5rem auto 0; padding: 1.25rem;
+    background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.2);
+    border-radius: var(--ck-radius);
+}
+.ck-bridge-title {
+    font-weight: 700; font-size: 1em; margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+.ck-bridge-step {
+    display: flex; align-items: flex-start; gap: 0.5rem;
+    padding: 0.4rem 0; font-size: 0.9em; line-height: 1.45;
+}
+.ck-bridge-icon { flex-shrink: 0; font-size: 1.1em; }
+.ck-bridge-note {
+    margin-top: 0.75rem; padding-top: 0.75rem;
+    border-top: 1px solid rgba(52,211,153,0.15);
+    font-size: 0.85em; font-weight: 600; color: var(--accent-bio);
+}
+
+/* ---- Structured Notes ---- */
+.ck-notes-intro {
+    background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,146,60,0.08));
+    border: 1px solid rgba(251,191,36,0.3); border-radius: var(--ck-radius);
+    padding: 1rem 1.25rem; font-weight: 700; font-size: 0.95em;
+    margin-bottom: 1.5rem; color: var(--text-primary);
+}
+.ck-notes-part {
+    margin-bottom: 1.5rem; padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.ck-notes-part:last-child { border-bottom: none; }
+.ck-notes-part-title {
+    font-weight: 700; font-size: 1.05em; margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+.ck-notes-q {
+    padding: 0.75rem 0; margin-left: 0.25rem;
+    font-size: 0.92em; line-height: 1.55;
+    border-bottom: 1px dashed var(--border-subtle);
+}
+.ck-notes-q:last-child { border-bottom: none; }
+.ck-notes-q-num {
+    display: inline-block; font-weight: 700; color: var(--accent-bio);
+    min-width: 2.2em; font-size: 0.85em;
+}
+.ck-notes-table {
+    width: 100%; border-collapse: collapse; margin: 0.5rem 0;
+    font-size: 0.88em;
+}
+.ck-notes-table th, .ck-notes-table td {
+    border: 1px solid var(--border-subtle); padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+.ck-notes-table th {
+    background: var(--bg-card); font-weight: 700;
+    font-size: 0.9em;
+}
+.ck-notes-table td {
+    min-width: 100px;
+}
+
+/* ---- Vocab Table ---- */
+.ck-vocab-scroll {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    margin: 0 -0.5rem; padding: 0 0.5rem;
+}
+.ck-vocab-table {
+    width: 100%; border-collapse: collapse; font-size: 0.82em;
+    min-width: 700px;
+}
+.ck-vocab-table th {
+    position: sticky; top: 0; background: var(--bg-card);
+    font-weight: 700; font-size: 0.9em; padding: 0.6rem 0.5rem;
+    border-bottom: 2px solid var(--accent-bio); text-align: left;
+    white-space: nowrap;
+}
+.ck-vocab-table td {
+    padding: 0.5rem; border-bottom: 1px solid var(--border-subtle);
+    vertical-align: top;
+}
+.ck-vocab-table tr:hover td { background: rgba(52,211,153,0.04); }
+.ck-vocab-table td:first-child { font-weight: 600; }
+
+/* ---- Practice Resources ---- */
+.ck-resources-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem; margin-bottom: 1.5rem;
+}
+.ck-resource-card {
+    display: block; padding: 1rem; border-radius: var(--ck-radius);
+    border: 1px solid var(--border-subtle); background: var(--bg-card);
+    text-decoration: none; color: inherit; transition: all 0.15s;
+}
+.ck-resource-card:hover {
+    border-color: var(--accent-bio); transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.ck-resource-title { font-weight: 700; font-size: 0.95em; margin-bottom: 0.25rem; }
+.ck-resource-desc { font-size: 0.82em; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.ck-resource-source { font-size: 0.75em; font-weight: 600; color: var(--accent-bio); }
+
+/* ---- Textbook Packets ---- */
+.ck-textbook-packets {
+    margin-top: 0.5rem; font-size: 0.9em;
+}
+.ck-textbook-packets summary {
+    cursor: pointer; font-weight: 600; padding: 0.5rem 0;
+    color: var(--text-secondary);
+}
+.ck-textbook-note {
+    font-size: 0.85em; color: var(--text-dim); margin: 0.5rem 0 0.75rem;
+    font-style: italic;
+}
+.ck-packet-link {
+    display: block; padding: 0.5rem 0.75rem; margin: 0.25rem 0;
+    border-radius: 6px; border: 1px solid var(--border-subtle);
+    text-decoration: none; color: var(--text-primary);
+    font-weight: 500; font-size: 0.9em; transition: all 0.15s;
+}
+.ck-packet-link:hover { border-color: var(--accent-bio); background: rgba(52,211,153,0.04); }
+.ck-packet-pages { float: right; font-size: 0.85em; color: var(--text-dim); font-weight: 400; }
+
+/* ---- Optional Videos (per chapter) ---- */
+.ck-ch-optional {
+    margin-top: 1rem; font-size: 0.9em;
+}
+.ck-ch-optional summary {
+    cursor: pointer; font-weight: 600; padding: 0.5rem 0;
+    color: var(--text-secondary);
+}
+.ck-ch-optional summary:hover { color: var(--accent-bio); }
+.ck-optional-list {
+    padding: 0.5rem 0;
+}
