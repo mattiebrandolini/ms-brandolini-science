@@ -170,6 +170,11 @@ function annotateTextNode(textNode) {
         if (!termKey) continue;
         var entry = DB[termKey];
 
+        // Only annotate first mention per section
+        if (!isFirstMention(termKey, textNode)) {
+            continue;
+        }
+
         // Add text before match
         if (match.index > lastIndex) {
             frag.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
@@ -199,8 +204,30 @@ function annotateTextNode(textNode) {
     textNode.parentNode.replaceChild(frag, textNode);
 }
 
+// Track which terms have been annotated per section
+var sectionSeen = {};
+var currentSectionId = '__global__';
+
+function getSectionId(node) {
+    var el = node.parentElement || node;
+    while (el && el !== document.body) {
+        // Checkpoint chapters, or any section/article
+        if (el.classList && el.classList.contains('ck-chapter')) return 'ck-' + (el.dataset.ch || el.id || 'unknown');
+        if (el.tagName === 'SECTION' || el.tagName === 'ARTICLE') return el.id || el.tagName + '-' + el.querySelector('h1,h2,h3,h4')?.textContent?.substring(0,20) || 'section';
+        el = el.parentElement;
+    }
+    return '__page__';
+}
+
+function isFirstMention(termKey, node) {
+    var secId = getSectionId(node);
+    if (!sectionSeen[secId]) sectionSeen[secId] = {};
+    if (sectionSeen[secId][termKey]) return false;
+    sectionSeen[secId][termKey] = true;
+    return true;
+}
+
 function walkAndAnnotate(root) {
-    // Collect text nodes first (avoid live NodeList mutation issues)
     var textNodes = [];
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
     while (walker.nextNode()) {
@@ -220,6 +247,11 @@ function upgradeDfns() {
         var termKey = lookup[text];
         if (!termKey) return;
         var entry = DB[termKey];
+
+        // Mark this as seen for the section it's in
+        var dfnSecId = getSectionId(dfn);
+        if (!sectionSeen[dfnSecId]) sectionSeen[dfnSecId] = {};
+        sectionSeen[dfnSecId][termKey] = true;
 
         var span = document.createElement('span');
         span.className = 'term-annotated term-key term-from-dfn';
