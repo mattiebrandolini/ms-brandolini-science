@@ -44,3 +44,53 @@ glycocalyx,"The sugar-coated outer surface of a cell made of glycoproteins and g
 channel protein,"A membrane protein that forms a tunnel (pore) for specific ions or small molecules to pass through",🚇,biology,true,"channel proteins",channel_protein
 carrier protein,"A membrane protein that grabs a molecule, changes shape, and releases it on the other side of the membrane",🔄,biology,true,"carrier proteins|pump protein|pump proteins",carrier_protein
 receptor protein,"A membrane protein that receives chemical signals from outside the cell and triggers a response inside",📡,biology,true,"receptor proteins|receptors",receptor_protein
+chemical reaction,"A process where atoms rearrange — bonds break and new bonds form, turning reactants into products",⚗️,biology,true,"chemical reactions|reactions",chemical_reaction
+reactant,"A starting substance in a chemical reaction — what you begin with",📥,biology,true,"reactants|reactivos",reactant
+product,"A new substance formed at the end of a chemical reaction",📤,biology,true,"products|productos",product
+activation energy,"The minimum energy needed to start a chemical reaction — like pushing a boulder up a hill",⛰️,biology,true,"energia de activacion",activation_energy
+catalyst,"A substance that speeds up a chemical reaction by lowering activation energy, without being used up",🚀,biology,true,"catalysts|catalizador",catalyst
+enzyme,"A protein that acts as a biological catalyst — speeds up reactions by lowering activation energy",🧬,biology,true,"enzymes|enzima",enzyme
+active site,"The specific pocket or groove on an enzyme where the substrate fits and the reaction happens",🔑,biology,true,"",active_site
+substrate,"The molecule that fits into an enzyme's active site and gets changed by the reaction",🧩,biology,true,"substrates|sustrato",substrate
+denaturation,"When a protein loses its 3D shape and stops working — like bending a key so it no longer fits",🥚,biology,true,"denature|denatured|desnaturalizacion",denaturation
+optimal temperature,"The temperature at which an enzyme works best — for human enzymes, around 37°C",🌡️,biology,true,"",optimal_temperature
+optimal ph,"The pH at which an enzyme works best — different enzymes have different optimal pH values",⚖️,biology,true,"optimum pH",optimal_ph
+hydrogen bonds,"Weak bonds that hold a protein's 3D shape together — break during denaturation",🔗,biology,true,"hydrogen bond",hydrogen_bonds
+lock-and-key model,"A model where the enzyme and substrate fit together perfectly, like a key into a lock",🔐,biology,true,"lock and key",lock_and_key
+induced fit model,"A model where the enzyme changes shape slightly to grip the substrate tighter — like a glove tightening",🤝,biology,true,"induced fit",induced_fit
+
+chemical reaction,"A process where atoms rearrange — bonds break and new bonds form, turning reactants into products",⚗️,biology,true,"chemical reactions|reactions",chemical_reaction
+reactant,"A starting substance in a chemical reaction — what you begin with",📥,biology,true,"reactants|reactivos",reactant
+product,"A new substance formed at the end of a chemical reaction",📤,biology,true,"products|productos",product
+activation energy,"The minimum energy needed to start a chemical reaction — like pushing a boulder up a hill",⛰️,biology,true,"energia de activacion",activation_energy
+catalyst,"A substance that speeds up a chemical reaction by lowering activation energy, without being used up",🚀,biology,true,"catalysts|catalizador",catalyst
+brownian motion,"The random bouncing movement of tiny molecules — like a room full of bouncy balls",🎱,biology,false,"",brownian_motion
+enzyme,"A protein that acts as a biological catalyst — speeds up reactions by lowering activation energy",🧬,biology,true,"enzymes|enzima",enzyme
+active site,"The specific pocket or groove on an enzyme where the substrate fits and the reaction happens",🔑,biology,true,"",active_site
+substrate,"The molecule that fits into an enzyme's active site and gets changed by the reaction",🧩,biology,true,"substrates|sustrato",substrate
+lock-and-key model,"A model where the enzyme and substrate fit together perfectly, like a key into a lock",🔐,biology,true,"lock and key",lock_and_key
+induced fit model,"A model where the enzyme changes shape slightly to grip the substrate tighter — like a glove tightening",🤝,biology,true,"induced fit",induced_fit
+denaturation,"When a protein loses its 3D shape and stops working — like bending a key so it no longer fits the lock",🥚,biology,true,"denature|denatured|desnaturalizacion",denaturation
+optimal temperature,"The temperature at which an enzyme works best — for human enzymes, around 37°C",🌡️,biology,true,"",optimal_temperature
+optimal ph,"The pH at which an enzyme works best — different enzymes have different optimal pH values",⚖️,biology,true,"optimum pH",optimal_ph
+hydrogen bonds,"Weak bonds that hold a protein's 3D shape together — they break when conditions change too much",🔗,biology,true,"hydrogen bond",hydrogen_bonds
+macromolecule,"A very large molecule made of smaller repeating units (monomers) — the four types are carbohydrates, lipids, proteins, and nucleic acids",🔬,biology,true,"macromolecules",macromolecule
+monomer,"A small molecule that bonds with others to form a polymer — the building block",🧱,biology,true,"monomers",monomer
+polymer,"A large molecule made of many monomers bonded together in a chain",🔗,biology,true,"polymers",polymer
+monosaccharide,"A simple sugar — the building block (monomer) of carbohydrates. Examples: glucose, fructose",🍬,biology,true,"monosaccharides|simple sugar|simple sugars",monosaccharide
+polysaccharide,"A long chain of many sugar monomers bonded together — examples: starch, glycogen, cellulose",🔗,biology,true,"polysaccharides",polysaccharide
+triglyceride,"A fat molecule made of one glycerol and three fatty acid chains — stores long-term energy",🧈,biology,true,"triglycerides|triacylglycerol",triglyceride
+amino acid,"The building block (monomer) of proteins — there are 20 types, each with a unique R group (side chain)",🧩,biology,true,"amino acids|aminoacid",amino_acid
+r group,"The side chain of an amino acid that makes it unique — determines if it is polar, nonpolar, acidic, or basic",🔀,biology,true,"side chain|r-group",r_group
+nucleotide,"The building block (monomer) of DNA and RNA — made of a phosphate group, a sugar, and a nitrogenous base",🧬,biology,true,"nucleotides",nucleotide
+double helix,"The twisted ladder shape of DNA — two sugar-phosphate backbones connected by base pairs",🌀,biology,true,"",double_helix
+complementary base pairing,"The rule that A always pairs with T (or U in RNA) and G always pairs with C",🔀,biology,true,"base pairing rules|base pair|base pairs",complementary_base_pairing
+nitrogenous base,"The part of a nucleotide that carries the genetic 'letter' — A, T, G, C in DNA or A, U, G, C in RNA",🔤,biology,true,"nitrogenous bases|base|bases",nitrogenous_base
+passive transport,"Movement of molecules from high to low concentration — no energy needed (down the gradient)",⬇️,biology,true,"",passive_transport
+active transport,"Movement of molecules from low to high concentration — requires ATP energy (against the gradient)",⬆️,biology,true,"",active_transport
+osmosis,"The diffusion of water across a membrane — water moves toward the side with more dissolved particles (solute)",💧,biology,true,"",osmosis
+endocytosis,"The process where the cell membrane wraps around material to bring it INTO the cell",📥,biology,true,"",endocytosis
+exocytosis,"The process where a vesicle fuses with the cell membrane to push material OUT of the cell",📤,biology,true,"",exocytosis
+chaperone protein,"A protein that helps other proteins fold correctly by providing a protected environment",🤝,biology,true,"chaperone proteins|chaperones|chaperonin",chaperone_protein
+saturated fat,"A fat with NO double bonds between carbons — straight chains pack tightly, so it is solid at room temperature",🧱,biology,true,"saturated fats|saturated fatty acid",saturated_fat
+unsaturated fat,"A fat with one or more double bonds — kinked chains cannot pack tightly, so it is liquid at room temperature",〰️,biology,true,"unsaturated fats|unsaturated fatty acid",unsaturated_fat

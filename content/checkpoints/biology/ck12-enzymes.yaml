@@ -1,0 +1,302 @@
+id: ck12
+title: "Enzymes: The Chemistry That Keeps You Alive"
+course: biology
+icon: "🧬"
+banner_class: ck-entry-banner--bio
+quiz_info:
+  format: Paper quiz — 3–4 open response questions. You explain and apply. No multiple choice.
+  notes: You can use your <strong>handwritten notes</strong>. No phones, no Chromebooks.
+  grading: <strong>Pass = full points.</strong> If you don't pass, retake with different questions until you do.
+  warning: This quiz tests <strong>understanding, not memorization</strong>. You'll get real-world scenarios and need to explain <em>WHY</em> and <em>HOW</em> things happen at the molecular level.
+  readiness:
+    - Explain what activation energy is and why it's a problem for living things
+    - Describe how an enzyme lowers activation energy using its active site
+    - Explain the difference between lock-and-key and induced fit models
+    - Describe what denaturation is and what causes it (temperature AND pH)
+    - Explain why a high fever is dangerous using enzyme science
+    - Give an example of enzyme specificity (like lactase and lactose)
+language_bridge:
+  title: Language Bridge Strategy
+  steps:
+    - icon: 1️⃣
+      text: Watch the video in YOUR language first — focus on understanding the science
+    - icon: 2️⃣
+      text: Watch the English video — now you already know the ideas, focus on the English vocabulary
+    - icon: 3️⃣
+      text: Practice explaining in English using the reading passage and your notes
+  note: The quiz is in English. Your notes can be in any language.
+chapters:
+  - id: ch1
+    title: Chemical Reactions & Activation Energy
+    subtitle: Why your body needs help to make chemistry happen
+    video:
+      id: D0ZyjpAin_Y
+      title: "Activation Energy — TED-Ed"
+      channel: TED-Ed
+      time: "3:23"
+    reading: |
+      <p>Right now, as you read this sentence, your body is running thousands of <dfn data-def="A process where atoms rearrange — bonds break and new bonds form, turning reactants into products" tabindex="0">chemical reactions</dfn>. Your cells are breaking down the food you ate into smaller molecules. They are building new proteins. They are copying DNA. They are sending signals from your brain to your fingers. Every single one of these processes depends on chemical reactions.</p>
+
+      <p>So what IS a chemical reaction? It is when atoms rearrange. The bonds holding atoms together break apart, and the atoms form new bonds in new arrangements. The substances you start with are called <dfn data-def="The starting substances in a chemical reaction — what you begin with" tabindex="0">reactants</dfn>. The new substances you end up with are called <dfn data-def="The new substances created by a chemical reaction — what you end up with" tabindex="0">products</dfn>. The atoms themselves do not change — they just find new partners.</p>
+
+      <p>Think about cooking rice. You start with hard, dry grains and water. Heat causes chemical bonds to break and reform. You end up with soft, sticky rice. Same atoms, rearranged. That is a chemical reaction.</p>
+
+      <p>Here is the problem: atoms do not rearrange on their own. They need to collide with each other first. And not just any collision — they need to hit each other hard enough and at exactly the right angle.</p>
+
+      <p>Inside your cells, molecules are constantly moving. They bounce around randomly in every direction, bumping into each other, bouncing off walls, spinning and tumbling. This random movement is called <dfn data-def="The random bouncing movement of tiny particles — like a room full of bouncy balls" tabindex="0">Brownian motion</dfn>. Most of the time when two molecules bump into each other, nothing happens. They just bounce away. The collision was not hard enough, or the angle was wrong.</p>
+
+      <p>Every chemical reaction needs a push to get started. Even reactions that release energy — like burning wood — need a spark first. That initial push is called <dfn data-def="The minimum energy needed to start a chemical reaction — like the push to get a boulder over a hill" tabindex="0">activation energy</dfn>. Think of it like pushing a boulder up a hill. Once you get it to the top, it rolls down the other side on its own. But you have to do the hard work of pushing it up first.</p>
+
+      <p>In a chemistry lab, the usual solution is simple: add heat. But your body cannot do that. Your cells operate at 37°C, and that temperature cannot change much without serious problems.</p>
+
+      <p>Your body needs something that can lower the activation energy — make the hill shorter — so that reactions can happen quickly at body temperature. That something is a <dfn data-def="A substance that speeds up a chemical reaction by lowering activation energy — not used up in the process" tabindex="0">catalyst</dfn>. In living things, the catalysts that do this job are called <strong class="ck-hl">enzymes</strong>.</p>
+    terms:
+      - ["Chemical reaction", "a process where atoms rearrange — bonds break and new bonds form"]
+      - ["Reactant", "the starting substances in a chemical reaction"]
+      - ["Product", "the new substances created by a chemical reaction"]
+      - ["Activation energy", "the minimum energy needed to start a chemical reaction"]
+      - ["Catalyst", "a substance that speeds up a reaction by lowering activation energy"]
+    figure:
+      src: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Enzymes_free_energy_change_en.svg/800px-Enzymes_free_energy_change_en.svg.png
+      alt: Energy diagram showing two curves — a tall activation energy peak without enzyme and a shorter peak with enzyme
+      caption: "The blue curve shows the energy barrier WITHOUT an enzyme (tall hill). The green curve shows it WITH an enzyme (shorter hill). Same reaction, less energy needed to start."
+      source: Wikimedia Commons
+      source_url: https://commons.wikimedia.org/wiki/File:Enzymes_free_energy_change_en.svg
+      license: CC BY-SA 3.0
+    optional_videos:
+      - id: iUdU3I0zZGk
+        title: "Introduction to Chemical Reactions — AtomicSchool"
+        channel: AtomicSchool
+        time: "8:22"
+      - id: 4m5JnJBq2AU
+        title: "What Is Brownian Motion? — FuseSchool"
+        channel: FuseSchool
+        time: "2:35"
+
+  - id: ch2
+    title: How Enzymes Work
+    subtitle: Shape is everything — active sites, substrates, and the lock-and-key
+    video:
+      id: qgVFkRn8f10
+      title: "Enzymes (Updated) — Amoeba Sisters"
+      channel: Amoeba Sisters
+      time: "~8:00"
+    l1_videos:
+      es: { id: qWeMLG9r0e0, title: "¿Qué son las Enzimas? [Fácil y Rápido]", channel: "Biología Fácil", time: "2:05" }
+      pt: { id: noUFyMAf64M, title: "O QUE SÃO ENZIMAS?", channel: "Biologia Resumida", time: "1:53" }
+      fr: { id: Mb8ulKa1ZYk, title: "Rôle et mode d'action des enzymes", channel: "AlloprofTV", time: "4:53" }
+      vi: { id: sbOtAy9O7b8, title: "Cơ chế hoạt động của Enzyme trong cơ thể", channel: "3D Animation", time: "1:16" }
+    reading: |
+      <p><dfn data-def="A protein that speeds up chemical reactions in living things by lowering activation energy" tabindex="0">Enzymes</dfn> are proteins. That is the first and most important thing to understand. They are made of amino acids folded into a specific three-dimensional shape. And that shape is everything.</p>
+
+      <p>Each enzyme has a specific region called the <dfn data-def="The specific pocket or groove on an enzyme where the substrate fits — like a lock waiting for the right key" tabindex="0">active site</dfn>. The active site is like a pocket or groove on the surface of the enzyme, and it has a very specific shape. Only certain molecules — called <dfn data-def="The molecule that fits into an enzyme's active site and gets changed by the reaction" tabindex="0">substrates</dfn> — can fit into that active site.</p>
+
+      <p>This is the <dfn data-def="The idea that an enzyme and substrate fit together perfectly — like a key sliding into a lock" tabindex="0">lock-and-key model</dfn>. The enzyme is the lock. The substrate is the key. If the key does not match the lock, nothing happens.</p>
+
+      <p><strong class="ck-hl">Here is how the full process works:</strong></p>
+
+      <p><strong>1.</strong> The substrate floats around randomly until it bumps into the enzyme's active site.</p>
+      <p><strong>2.</strong> The substrate fits into the active site — like a key sliding into a lock.</p>
+      <p><strong>3.</strong> The enzyme holds the substrate in exactly the right position and puts stress on specific bonds. This is what lowers the activation energy.</p>
+      <p><strong>4.</strong> The chemical reaction happens. Bonds break, new bonds form.</p>
+      <p><strong>5.</strong> The products are released.</p>
+      <p><strong>6.</strong> The enzyme is unchanged. It is ready to do it again.</p>
+
+      <p>But scientists discovered something more interesting than the lock-and-key model. Enzymes are not rigid like a metal lock. They are flexible proteins. When the substrate begins to enter the active site, the enzyme actually changes shape slightly — it wraps around the substrate a little tighter, like a hug. This is called the <dfn data-def="The idea that an enzyme flexes and molds around the substrate — like a glove tightening around your hand" tabindex="0">induced fit model</dfn>.</p>
+
+      <p><strong class="ck-hl">Enzyme Specificity: One Enzyme, One Job.</strong> Because the active site has such a specific shape, each enzyme can only work with one type of substrate. This is called enzyme specificity. Your body has thousands of different enzymes, each shaped to catalyze one specific reaction.</p>
+
+      <p><strong class="ck-hl">Pattern: -ase and -ose.</strong> Most enzymes end in <strong>"-ase"</strong>. The substrate they work on often ends in <strong>"-ose"</strong> (for sugars). Lact<em>ase</em> works on lact<em>ose</em>. Malt<em>ase</em> works on malt<em>ose</em>. Once you see the pattern, enzyme names start making sense.</p>
+    terms:
+      - ["Enzyme", "a protein that speeds up chemical reactions by lowering activation energy"]
+      - ["Active site", "the specific pocket on an enzyme where the substrate fits"]
+      - ["Substrate", "the molecule that fits into an enzyme's active site"]
+      - ["Lock-and-key model", "the idea that enzyme and substrate fit together perfectly"]
+      - ["Induced fit model", "the idea that an enzyme flexes to mold around the substrate"]
+    figure:
+      src: https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Induced_fit_diagram.svg/700px-Induced_fit_diagram.svg.png
+      alt: Induced fit model showing enzyme changing shape slightly as substrate binds, gripping it more tightly
+      caption: "The enzyme is not rigid — it bends slightly to grip the substrate tighter. This 'hug' helps stress the bonds that need to break."
+      source: Wikimedia Commons
+      source_url: https://commons.wikimedia.org/wiki/File:Induced_fit_diagram.svg
+      license: CC BY-SA 3.0
+    optional_videos:
+      - id: rlH1ym916Fo
+        title: "Enzymes — FuseSchool"
+        channel: FuseSchool
+        time: "4:12"
+
+  - id: ch3
+    title: What Breaks Enzymes
+    subtitle: Denaturation — when shape is lost, function is lost
+    video:
+      id: qgVFkRn8f10
+      title: "Enzymes (Updated) — Amoeba Sisters"
+      channel: Amoeba Sisters
+      time: "~8:00"
+    l1_videos:
+      es: { id: C4PuXFkmggM, title: "¿Qué son y cómo funcionan las enzimas?", channel: "A Cierta Ciencia", time: "9:42" }
+      pt: { id: RE4yFBdCbxg, title: "ENZIMAS: O que são, função e como funcionam", channel: "Biologia com Samuel Cunha", time: "7:04" }
+      fr: { id: bR63gBmaTmc, title: "Les enzymes, des biomolécules aux propriétés catalytiques", channel: "SVT Lycée", time: "7:40" }
+      vi: { id: 5GfkLcODd3o, title: "Hóa sinh | 1. Enzyme | CLB ISSR", channel: "CLB ISSR", time: "9:01" }
+    reading: |
+      <p>Enzymes depend on their shape to work. The active site has to fit the substrate. So what happens if the enzyme loses its shape? It stops working. And the reactions it was supposed to catalyze slow down or stop entirely.</p>
+
+      <p>This is called <dfn data-def="When a protein loses its 3D shape and stops working — like a key that has been bent so it no longer fits the lock" tabindex="0">denaturation</dfn>. A denatured enzyme is like a key that has been bent — it will not fit the lock anymore.</p>
+
+      <p><strong class="ck-hl">Temperature.</strong> Enzymes work best at a specific temperature called their <dfn data-def="The temperature at which an enzyme works fastest — for human enzymes, about 37°C (98.6°F)" tabindex="0">optimal temperature</dfn>. For human enzymes, this is around 37°C — normal body temperature. As temperature increases above the optimum, the enzyme starts to vibrate more. The <dfn data-def="Weak bonds that hold a protein's 3D shape together — they break when temperature or pH changes too much" tabindex="0">hydrogen bonds</dfn> that hold the enzyme's 3D shape together begin to break. The enzyme unfolds. The active site changes shape. The substrate no longer fits.</p>
+
+      <p>You can see denaturation happen in your kitchen. When you cook an egg, the clear egg white turns solid and white. That is protein denaturation. The heat breaks the hydrogen bonds, and the proteins unfold and tangle together. You cannot un-cook an egg.</p>
+
+      <p><strong class="ck-hl">pH.</strong> Enzymes also have an <dfn data-def="The pH at which an enzyme works best — different enzymes have different optimal pH values" tabindex="0">optimal pH</dfn>. Most enzymes in your cells work best at nearly neutral pH (around 7). But not all. Your stomach is extremely acidic — about pH 2. The enzyme <strong>pepsin</strong> works best at this very low pH. Meanwhile, the enzyme <strong>trypsin</strong> works in your small intestine at pH 8. Each enzyme is adapted to the specific environment where it works.</p>
+
+      <p>The mechanism is the same for both causes: <strong class="ck-hl">hydrogen bonds break → shape changes → active site distorted → substrate cannot fit → reaction stops.</strong></p>
+
+      <p><strong class="ck-hl">Why High Fevers Are Dangerous.</strong> A fever of 40°C (104°F) or higher starts to denature your enzymes. If your enzymes stop working, your chemical reactions stop. If your chemical reactions stop, you die. A fever is your body fighting infection, but if it goes too high, the cure becomes worse than the disease.</p>
+
+      <p><strong class="ck-hl">Why This All Matters.</strong> Digestion is an enzyme relay race — amylase in your mouth, pepsin in your stomach, trypsin in your small intestine. Lactose intolerance is a missing enzyme — without lactase, milk sugar cannot be broken down. Catalase is working in your cells right now, breaking down toxic hydrogen peroxide into harmless water and oxygen. Enzymes are the reason chemistry works inside living things.</p>
+    terms:
+      - ["Denaturation", "when a protein loses its 3D shape and stops working"]
+      - ["Optimal temperature", "the temperature at which an enzyme works best"]
+      - ["Optimal pH", "the pH at which an enzyme works best"]
+      - ["Hydrogen bonds", "weak bonds that hold a protein's shape — break when conditions change"]
+    figure:
+      src: https://upload.wikimedia.org/wikipedia/commons/6/66/Enzyme-temperature.png
+      alt: Bell curve graph showing enzyme activity increasing with temperature up to an optimum, then dropping sharply
+      caption: "Activity increases as temperature rises — until the optimum. Above that, the enzyme denatures and activity drops fast."
+      source: Wikimedia Commons
+      source_url: https://commons.wikimedia.org/wiki/File:Enzyme-temperature.png
+      license: Public Domain
+
+notes:
+  intro: "HUGE HINT: Answer these questions while you study each section. They become your open notes on quiz day!"
+  foundation: "If you answer every question below carefully, you will be ready for every version of the checkpoint quiz. Write your answers on paper as you watch videos and read."
+  parts:
+    - title: "Part A: Chemical Reactions & Activation Energy"
+      icon: "🔬"
+      questions:
+        - id: n1
+          type: short
+          q: "What is a chemical reaction? Explain in your own words. What happens to the atoms?"
+        - id: n2
+          type: fill
+          q: |
+            Fill in the blanks:
+
+            The substances you START with are called _______________
+
+            The NEW substances you END with are called _______________
+
+            Do the atoms themselves change, or do they just rearrange? _______________
+        - id: n3
+          type: short
+          q: "In your own words, what is activation energy (energía de activación)? Use a comparison to explain it."
+        - id: n4
+          type: short
+          q: "Your body stays at 37°C. A chemistry lab can heat things to 500°C. Why is this a problem for your body? How does your body solve it? (Use the word enzyme or catalyst in your answer.)"
+
+    - title: "Part B: How Enzymes Work"
+      icon: "🧩"
+      questions:
+        - id: n5
+          type: short
+          q: "Enzymes are made of what type of molecule?"
+        - id: n6
+          type: fill
+          q: |
+            Write the steps of how an enzyme works:
+
+            Step 1: The substrate floats around until it...
+
+            Step 2: The substrate fits into the...
+
+            Step 3: The enzyme holds the substrate and...
+
+            Step 4: The reaction happens. Bonds...
+
+            Step 5: The products are...
+
+            Step 6: The enzyme is...
+        - id: n7
+          type: short
+          q: "What is the difference between the lock-and-key model (modelo de llave y cerradura) and the induced fit model (modelo de ajuste inducido)? Explain both in your own words."
+        - id: n8
+          type: table
+          q: |
+            Enzyme Naming Practice. Fill in the table:
+
+            | Enzyme | Substrate (what it breaks down) | Where in the body? |
+            |---|---|---|
+            | Maltase | ___ | ___ |
+            | Catalase | ___ | ___ |
+            | Sucrase | ___ | ___ |
+            | Trypsin | ___ | (What pH?) |
+            | (You name it) | Cellobiose | ___ |
+        - id: n9
+          type: short
+          q: "Why can an enzyme only work with ONE type of substrate? Explain using what you know about the shape of the active site."
+
+    - title: "Part C: What Breaks Enzymes"
+      icon: "🌡️"
+      questions:
+        - id: n10
+          type: short
+          q: "What is denaturation (desnaturalización)? Explain in your own words."
+        - id: n11
+          type: fill
+          q: |
+            Write the chain of events for denaturation:
+
+            ___________ bonds break → enzyme ___________ changes → active ___________ is distorted → ___________ cannot fit → reaction ___________
+        - id: n12
+          type: table
+          q: |
+            Two things cause denaturation. Fill in:
+
+            | Cause | Example from daily life | What happens to the enzyme? |
+            |---|---|---|
+            | Temperature too ___ | ___ | ___ |
+            | pH too far from ___ | ___ | ___ |
+        - id: n13
+          type: short
+          q: "Trypsin works in the small intestine at pH 8. The stomach has a pH of 2. Explain why trypsin would NOT work in the stomach."
+        - id: n14
+          type: short
+          q: "Why is a very high fever (above 40°C) dangerous? Use at least THREE of these words: enzymes, denaturation, hydrogen bonds, shape, active site, chemical reactions."
+        - id: n15
+          type: short
+          q: 'Write your own analogy: "Denaturation is like ___________ because ___________."'
+
+vocab:
+  - { en: chemical reaction, es: reacción química, pt: reação química, fr: réaction chimique, vi: phản ứng hóa học, ht: reyaksyon chimik }
+  - { en: reactant, es: reactivo, pt: reagente, fr: réactif, vi: chất phản ứng, ht: reyaktif }
+  - { en: product, es: producto, pt: produto, fr: produit, vi: sản phẩm, ht: pwodui }
+  - { en: activation energy, es: energía de activación, pt: energia de ativação, fr: énergie d'activation, vi: năng lượng hoạt hóa, ht: enèji aktivasyon }
+  - { en: catalyst, es: catalizador, pt: catalisador, fr: catalyseur, vi: chất xúc tác, ht: katalizè }
+  - { en: enzyme, es: enzima, pt: enzima, fr: enzyme, vi: enzyme, ht: anzim }
+  - { en: active site, es: sitio activo, pt: sítio ativo, fr: site actif, vi: vị trí hoạt động, ht: sit aktif }
+  - { en: substrate, es: sustrato, pt: substrato, fr: substrat, vi: cơ chất, ht: sibstra }
+  - { en: denaturation, es: desnaturalización, pt: desnaturação, fr: dénaturation, vi: biến tính, ht: denatirason }
+  - { en: optimal temperature, es: temperatura óptima, pt: temperatura ótima, fr: température optimale, vi: nhiệt độ tối ưu, ht: tanperati optimal }
+  - { en: optimal pH, es: pH óptimo, pt: pH ótimo, fr: pH optimal, vi: pH tối ưu, ht: pH optimal }
+
+practice_questions:
+  - q: "A patient has a fever of 105°F. Explain what is happening to their enzymes and why this is dangerous."
+  - q: "What is the difference between a reactant and a product?"
+  - q: "What is activation energy, and why is it a problem for living things?"
+  - q: "What do enzymes do? (Answer in one sentence.)"
+  - q: "What is the active site, and why does its shape matter?"
+  - q: "What is the difference between the lock-and-key model and the induced fit model?"
+  - q: 'What does "denaturation" mean? What causes it?'
+  - q: "Why does pepsin work in the stomach but not in the small intestine?"
+  - q: "What happens to someone who does not produce enough lactase?"
+  - q: 'An enzyme ends in "-ase." Its substrate is called "sucrose." What do you think the enzyme''s name is?'
+
+practice_resources:
+  - { title: "Enzymes & Energy", desc: "Lessons, practice, and videos", url: "https://www.khanacademy.org/science/biology/energy-and-enzymes", source: "Khan Academy" }
+  - { title: "Biology Simulations", desc: "Interactive molecule and reaction simulations", url: "https://phet.colorado.edu/en/simulations/filter?subjects=biology", source: "PhET" }
+
+textbook_packets:
+  - { title: "Chemical Reactions Basics", pages: "Atom 10A", url: "https://drive.google.com/file/d/1TGwK1Lti4ONdF98RAe851p7NzpAgqQYF/view" }
+  - { title: "How Enzymes Work", pages: "Atom 10B", url: "https://drive.google.com/file/d/1yIAJHU4LccemZOxGL5ZZwnqhjwhwLQ1S/view" }
+  - { title: "Factors Affecting Enzymes", pages: "Atom 10C", url: "https://drive.google.com/file/d/1pi65sto-foG0c8sU7ygp36IFzgcA7Mdi/view" }

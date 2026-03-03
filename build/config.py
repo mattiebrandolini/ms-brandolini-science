@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 21
+CACHE_VERSION = 22
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
@@ -272,6 +272,16 @@ CHECKPOINTS = [
         "banner_class": "ck-entry-banner--bio",
         "config_js": "checkpoints/ck11-cell-structure.js",
         "description": "Prokaryotes vs Eukaryotes, Endomembrane System, Energy Organelles, Plant vs Animal Cells",
+    },
+    {
+        "course": "biology",
+        "slug": "enzymes",
+        "title": "Checkpoint 12: Enzymes",
+        "short_title": "Enzymes",
+        "icon": "🧬",
+        "banner_class": "ck-entry-banner--bio",
+        "config_js": "checkpoints/ck12-enzymes.js",
+        "description": "Chemical Reactions, Activation Energy, Enzyme Mechanism, Lock-and-Key, Induced Fit, Denaturation",
     },
     {
         "course": "biology",

@@ -1,0 +1,14 @@
+chemical reaction,"A process where atoms rearrange — bonds break and new bonds form, turning reactants into products",⚗️,biology,true,"chemical reactions|reactions",chemical_reaction
+reactant,"A starting substance in a chemical reaction — what you begin with",📥,biology,true,"reactants|reactivos",reactant
+product,"A new substance formed at the end of a chemical reaction",📤,biology,true,"products|productos",product
+activation energy,"The minimum energy needed to start a chemical reaction — like pushing a boulder up a hill",⛰️,biology,true,"energia de activacion",activation_energy
+catalyst,"A substance that speeds up a chemical reaction by lowering activation energy, without being used up",🚀,biology,true,"catalysts|catalizador",catalyst
+enzyme,"A protein that acts as a biological catalyst — speeds up reactions by lowering activation energy",🧬,biology,true,"enzymes|enzima",enzyme
+active site,"The specific pocket or groove on an enzyme where the substrate fits and the reaction happens",🔑,biology,true,"",active_site
+substrate,"The molecule that fits into an enzyme's active site and gets changed by the reaction",🧩,biology,true,"substrates|sustrato",substrate
+denaturation,"When a protein loses its 3D shape and stops working — like bending a key so it no longer fits",🥚,biology,true,"denature|denatured|desnaturalizacion",denaturation
+optimal temperature,"The temperature at which an enzyme works best — for human enzymes, around 37°C",🌡️,biology,true,"",optimal_temperature
+optimal ph,"The pH at which an enzyme works best — different enzymes have different optimal pH values",⚖️,biology,true,"optimum pH",optimal_ph
+hydrogen bonds,"Weak bonds that hold a protein's 3D shape together — break during denaturation",🔗,biology,true,"hydrogen bond",hydrogen_bonds
+lock-and-key model,"A model where the enzyme and substrate fit together perfectly, like a key into a lock",🔐,biology,true,"lock and key",lock_and_key
+induced fit model,"A model where the enzyme changes shape slightly to grip the substrate tighter — like a glove tightening",🤝,biology,true,"induced fit",induced_fit

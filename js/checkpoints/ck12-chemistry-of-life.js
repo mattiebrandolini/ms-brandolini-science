@@ -1,0 +1,673 @@
+window.CHECKPOINT_CONFIG = {
+    "id": "ck12",
+    "title": "Chemistry of Life",
+    "course": "biology",
+    "icon": "🧬",
+    "bannerClass": "ck-entry-banner--bio",
+    "chapterOrder": [
+        "ch1",
+        "ch2",
+        "ch3",
+        "ch4",
+        "ch5",
+        "ch6"
+    ],
+    "chapters": {
+        "ch1": {
+            "title": "Carbon and the Four Macromolecules",
+            "subtitle": "The four categories of large molecules that build all living things",
+            "video": {
+                "id": "YO244P1e9QM",
+                "title": "Biomolecules (Updated)",
+                "channel": "Amoeba Sisters",
+                "time": "~8:00"
+            },
+            "reading": "<p>All living things are built from the same four categories of large molecules called <dfn data-def=\"Very large molecules made of smaller repeating units — the four types are carbohydrates, lipids, proteins, and nucleic acids\" tabindex=\"0\">macromolecules</dfn>. Each macromolecule is a <dfn data-def=\"A large molecule made of many smaller units (monomers) bonded together in a chain\" tabindex=\"0\">polymer</dfn> — a long chain built from smaller units called <dfn data-def=\"A small molecule that bonds with others to form a polymer — the building block\" tabindex=\"0\">monomers</dfn>.</p>\n\n<p>All four types contain <strong>carbon</strong>. Carbon is special because it can form four bonds at once, allowing it to build long chains, branches, and rings. This is why carbon is called the <strong class=\"ck-hl\">\"backbone of life.\"</strong></p>\n\n<p>Here are the four macromolecules:</p>\n\n<p><strong class=\"ck-hl\">1. Carbohydrates</strong> — Made of C, H, O. Monomers are <dfn data-def=\"A simple sugar — the building block of carbohydrates. Examples: glucose, fructose\" tabindex=\"0\">monosaccharides</dfn> (simple sugars like glucose). Provide <strong>quick energy</strong> and structure. Sizes: monosaccharides (1 sugar), disaccharides (2 sugars like sucrose), and <dfn data-def=\"A long chain of many sugar monomers bonded together — examples: starch, glycogen, cellulose\" tabindex=\"0\">polysaccharides</dfn> (many sugars like starch and cellulose).</p>\n\n<p><strong class=\"ck-hl\">2. Lipids</strong> — Made of C, H, O. Monomers are fatty acids + glycerol. Store <strong>long-term energy</strong>, make up cell membranes, and form hormones.</p>\n\n<p><strong class=\"ck-hl\">3. Proteins</strong> — Made of C, H, O, N (sometimes S). Monomers are <dfn data-def=\"The building block of proteins — there are 20 different types, each with a unique R group\" tabindex=\"0\">amino acids</dfn>. Do almost everything: enzymes, structure, transport, defense.</p>\n\n<p><strong class=\"ck-hl\">4. Nucleic Acids</strong> — Made of C, H, O, N, P. Monomers are <dfn data-def=\"The building block of DNA and RNA — made of a phosphate group, a sugar, and a nitrogenous base\" tabindex=\"0\">nucleotides</dfn>. Store <strong>genetic information</strong> (DNA and RNA).</p>\n\n<p><strong class=\"ck-hl\">Memory trick: CHO-CHO-CHON-CHONP</strong> — this helps you remember which elements are in each type!</p>\n\n<p>Both starch and cellulose are made of glucose, but we can digest starch and not cellulose. Why? The <strong>bond orientation</strong> is different. Our enzymes recognize starch bonds but not cellulose bonds. Same monomer, different shape, different result. This is why fiber passes through your digestive system.</p>",
+            "terms": [
+                [
+                    "Macromolecule",
+                    "a very large molecule made of smaller repeating units — the four types are carbohydrates, lipids, proteins, and nucleic acids"
+                ],
+                [
+                    "Monomer",
+                    "a small molecule that bonds with others to form a polymer — the building block"
+                ],
+                [
+                    "Polymer",
+                    "a large molecule made of many monomers bonded together in a chain"
+                ],
+                [
+                    "Monosaccharide",
+                    "a simple sugar — the building block of carbohydrates (example: glucose)"
+                ],
+                [
+                    "Polysaccharide",
+                    "a long chain of many sugars bonded together (examples: starch, glycogen, cellulose)"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Biological_Macromolecules.svg/800px-Biological_Macromolecules.svg.png",
+                "alt": "The four types of biological macromolecules — carbohydrates, lipids, proteins, and nucleic acids",
+                "caption": "The four macromolecule categories, their monomers, and example structures.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Biological_Macromolecules.svg",
+                "license": "CC BY-SA 4.0"
+            },
+            "optionalVideos": [
+                {
+                    "id": "H8WJ2KENlK0",
+                    "title": "Biological Molecules - You Are What You Eat",
+                    "channel": "CrashCourse",
+                    "time": "~14:00"
+                }
+            ]
+        },
+        "ch2": {
+            "title": "Lipids and the Cell Membrane",
+            "subtitle": "How fats, phospholipids, and steroids build the barrier around every cell",
+            "video": {
+                "id": "qBCVVszQQNs",
+                "title": "Inside the Cell Membrane",
+                "channel": "Amoeba Sisters",
+                "time": "~8:00"
+            },
+            "reading": "<p><dfn data-def=\"A type of fat made of one glycerol and three fatty acid chains — stores long-term energy\" tabindex=\"0\">Triglycerides</dfn> are fats and oils. They have one glycerol bonded to three fatty acid chains.</p>\n\n<p><strong class=\"ck-hl\">Saturated fats</strong> have NO double bonds. Their chains are straight, so they pack tightly and are <strong>solid</strong> at room temperature (butter, animal fat). <strong class=\"ck-hl\">Unsaturated fats</strong> have one or more double bonds. The double bonds create <strong>kinks</strong>, so the chains cannot pack tightly. Result: <strong>liquid</strong> at room temperature (olive oil, vegetable oil).</p>\n\n<p><dfn data-def=\"A lipid with a polar phosphate head (loves water) and two nonpolar fatty acid tails (fears water) — makes up cell membranes\" tabindex=\"0\">Phospholipids</dfn> have a glycerol, two fatty acid tails, and a phosphate group head. The head is <strong>polar</strong> — it is attracted to water. This is called <dfn data-def=\"Attracted to water — 'water-loving'\" tabindex=\"0\">hydrophilic</dfn>. The tails are <strong>nonpolar</strong> — they are repelled by water. This is called <dfn data-def=\"Repelled by water — 'water-fearing'\" tabindex=\"0\">hydrophobic</dfn>.</p>\n\n<p>When phospholipids are placed in water, they automatically arrange into a <dfn data-def=\"Two layers of phospholipids arranged tail-to-tail — forms the basic structure of all cell membranes\" tabindex=\"0\">bilayer</dfn>: heads face outward toward water on both sides, tails hide in the middle away from water. This happens <strong>spontaneously</strong> — no energy required. The structure emerges from the chemical properties of the molecules.</p>\n\n<p>The cell membrane is this phospholipid bilayer with embedded proteins. <strong>Cholesterol</strong> sits between phospholipids to keep the membrane fluid at low temperatures and stable at high temperatures. <strong>Membrane proteins</strong> form channels, act as receptors, or work as enzymes. <strong>Glycoproteins</strong> have carbohydrate chains that help with cell recognition — your immune system uses these to tell \"self\" from \"foreign.\"</p>",
+            "terms": [
+                [
+                    "Phospholipid",
+                    "a lipid with a water-loving head and water-fearing tails — makes up cell membranes"
+                ],
+                [
+                    "Hydrophilic",
+                    "attracted to water — 'water-loving' (polar)"
+                ],
+                [
+                    "Hydrophobic",
+                    "repelled by water — 'water-fearing' (nonpolar)"
+                ],
+                [
+                    "Phospholipid bilayer",
+                    "two layers of phospholipids arranged tail-to-tail — the basic structure of cell membranes"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cell_membrane_detailed_diagram_en.svg/800px-Cell_membrane_detailed_diagram_en.svg.png",
+                "alt": "Cell membrane detailed diagram showing phospholipid bilayer, proteins, cholesterol, and glycoproteins",
+                "caption": "The phospholipid bilayer with embedded proteins, cholesterol, and carbohydrate chains. Notice how the heads face water and tails face inward.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Cell_membrane_detailed_diagram_en.svg",
+                "license": "CC BY-SA 3.0"
+            }
+        },
+        "ch3": {
+            "title": "Cell Transport",
+            "subtitle": "How molecules cross the membrane — with or without energy",
+            "video": {
+                "id": "Ptmlvtei8hw",
+                "title": "Cell Transport",
+                "channel": "Amoeba Sisters",
+                "time": "~7:00"
+            },
+            "reading": "<p>Molecules move across membranes in two main ways:</p>\n\n<p><strong class=\"ck-hl\">Passive transport</strong> moves molecules from <strong>HIGH to LOW</strong> concentration — DOWN the gradient. No energy needed. There are three types:</p>\n\n<p><strong>Simple diffusion:</strong> Small, nonpolar molecules (O₂, CO₂) pass directly through the phospholipid bilayer.</p>\n\n<p><strong>Facilitated diffusion:</strong> Larger or polar molecules need help from membrane proteins. Channel proteins form tunnels. Carrier proteins change shape to move molecules across. Still no energy — still moving down the gradient.</p>\n\n<p><dfn data-def=\"The diffusion of water across a membrane — water moves toward the side with more dissolved particles\" tabindex=\"0\">Osmosis</dfn> is the diffusion of <strong>water</strong> across a membrane. Water moves toward the side with more solute (dissolved particles).</p>\n\n<p><strong class=\"ck-hl\">Active transport</strong> moves molecules from <strong>LOW to HIGH</strong> concentration — AGAINST the gradient. This requires <strong>ATP energy</strong>. Protein pumps use ATP to push molecules against their gradient. Example: the sodium-potassium pump moves Na⁺ out and K⁺ in.</p>\n\n<p><strong>Bulk transport</strong> moves large amounts or large particles. <dfn data-def=\"Cell membrane wraps around material to bring it INTO the cell\" tabindex=\"0\">Endocytosis</dfn> brings material IN (the membrane wraps around it). <dfn data-def=\"A vesicle fuses with the cell membrane to push material OUT of the cell\" tabindex=\"0\">Exocytosis</dfn> pushes material OUT (a vesicle fuses with the membrane).</p>\n\n<p><strong class=\"ck-hl\">Key rule:</strong> With the gradient = no energy (passive). Against the gradient = ATP required (active).</p>\n\n<p>Example: A plant cell placed in salt water. The salt water has more solute outside. By osmosis, water moves OUT of the cell toward the higher solute concentration. The cell loses water and shrinks.</p>",
+            "terms": [
+                [
+                    "Passive transport",
+                    "movement of molecules from high to low concentration — no energy needed"
+                ],
+                [
+                    "Active transport",
+                    "movement of molecules from low to high concentration — requires ATP energy"
+                ],
+                [
+                    "Osmosis",
+                    "diffusion of water across a membrane — water moves toward more solute"
+                ],
+                [
+                    "Endocytosis",
+                    "cell membrane wraps around material to bring it INTO the cell"
+                ],
+                [
+                    "Exocytosis",
+                    "vesicle fuses with membrane to push material OUT of the cell"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Passive_vs_Active_Membrane_Transport.svg/800px-Passive_vs_Active_Membrane_Transport.svg.png",
+                "alt": "Comparison of passive and active transport across cell membrane",
+                "caption": "Passive = down the gradient (no ATP). Active = against the gradient (ATP required).",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Passive_vs_Active_Membrane_Transport.svg",
+                "license": "CC BY-SA 4.0"
+            }
+        },
+        "ch4": {
+            "title": "Protein Structure and Folding",
+            "subtitle": "How amino acid chains fold into 3D shapes — and why shape IS function",
+            "video": {
+                "id": "hok2hyED9go",
+                "title": "Protein Structure and Folding",
+                "channel": "Amoeba Sisters",
+                "time": "~7:00"
+            },
+            "reading": "<p>Proteins are the workhorses of cells. They speed up reactions (enzymes), build structure (collagen, keratin), transport molecules (hemoglobin), fight invaders (antibodies), send signals (hormones), and enable movement (muscle proteins).</p>\n\n<p>All proteins are built from <strong>20 different amino acids</strong>. Each amino acid has a central carbon, an amino group (−NH₂), a carboxyl group (−COOH), and an <dfn data-def=\"The side chain of an amino acid — each of the 20 amino acids has a different R group, which determines its properties\" tabindex=\"0\">R group</dfn> (side chain). The R group is what makes each amino acid different. Some are polar, some nonpolar, some acidic, some basic.</p>\n\n<p>Proteins fold into four levels of structure:</p>\n\n<p><strong class=\"ck-hl\">Primary (1°):</strong> The <strong>sequence</strong> of amino acids in the chain. Determined by DNA. Change one amino acid, and the whole protein might fold differently.</p>\n\n<p><strong class=\"ck-hl\">Secondary (2°):</strong> Local folding patterns from hydrogen bonds between backbone atoms. Two shapes: <strong>alpha helix</strong> (coiled spiral) and <strong>beta sheet</strong> (folded pleated sheet).</p>\n\n<p><strong class=\"ck-hl\">Tertiary (3°):</strong> The overall <strong>3D shape</strong> of one polypeptide chain. This forms when R groups interact. Hydrophobic R groups cluster in the center. Hydrophilic R groups stay on the outside. <strong>This 3D shape IS the protein's function.</strong></p>\n\n<p><strong class=\"ck-hl\">Quaternary (4°):</strong> Some proteins have <strong>multiple polypeptide chains</strong> working together. Hemoglobin has four chains.</p>\n\n<p><strong>Causal chain:</strong> Amino acid sequence → folding patterns → 3D shape → protein function.</p>\n\n<p><dfn data-def=\"Proteins that help other proteins fold correctly by providing a protected environment\" tabindex=\"0\">Chaperone proteins</dfn> help by providing a protected environment for folding, preventing incorrect interactions, and helping misfolded proteins try again.</p>",
+            "terms": [
+                [
+                    "Amino acid",
+                    "the building block of proteins — 20 types, each with a unique R group"
+                ],
+                [
+                    "R group",
+                    "the side chain of an amino acid that determines its properties"
+                ],
+                [
+                    "Primary structure",
+                    "the sequence of amino acids in a protein chain"
+                ],
+                [
+                    "Denaturation",
+                    "when a protein loses its 3D shape and stops working"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Protein_structure_%28full%29.png/800px-Protein_structure_%28full%29.png",
+                "alt": "Four levels of protein structure from primary to quaternary",
+                "caption": "Primary (sequence) → Secondary (helix/sheet) → Tertiary (3D shape) → Quaternary (multiple chains). Each level builds on the one before.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Protein_structure_(full).png",
+                "license": "CC BY-SA 4.0"
+            }
+        },
+        "ch5": {
+            "title": "Enzymes and Denaturation",
+            "subtitle": "Biological catalysts — how shape controls speed, and what breaks it",
+            "video": {
+                "id": "qgVFkRn8f10",
+                "title": "Enzymes (Updated)",
+                "channel": "Amoeba Sisters",
+                "time": "~6:00"
+            },
+            "reading": "<p><dfn data-def=\"A protein that speeds up a chemical reaction without being used up — a biological catalyst\" tabindex=\"0\">Enzymes</dfn> are proteins that <strong>speed up chemical reactions</strong> without being used up. They are biological catalysts.</p>\n\n<p>Each enzyme has an <dfn data-def=\"The specific 3D pocket on an enzyme where the substrate fits and the reaction happens\" tabindex=\"0\">active site</dfn> — a specific 3D pocket where the reaction happens. The molecule that fits into the active site is called the <dfn data-def=\"The molecule that fits into an enzyme's active site and gets changed by the reaction\" tabindex=\"0\">substrate</dfn>. What comes out is the <strong>product</strong>.</p>\n\n<p>The old model was <strong>lock and key</strong> — the substrate fits the active site exactly. But the more accurate model is <strong class=\"ck-hl\">induced fit</strong>: when the substrate enters, the enzyme <strong>changes shape slightly</strong> to grip it better. Like a handshake — both adjust.</p>\n\n<p><strong>Enzyme specificity:</strong> Each enzyme works on specific substrates only. Lactase only breaks down lactose. Amylase only breaks down starch. This specificity comes from the precise shape of the active site.</p>\n\n<p>Enzymes are affected by <strong>temperature</strong> and <strong>pH</strong>. Each enzyme has an optimal temperature and pH where it works best. For human enzymes, optimal temperature is around 37°C (body temperature).</p>\n\n<p><dfn data-def=\"When a protein loses its 3D shape and stops working — caused by heat, pH extremes, or chemicals\" tabindex=\"0\">Denaturation</dfn> happens when a protein loses its 3D shape. The amino acid sequence stays the same, but the folding comes undone. Causes: <strong>high heat</strong> (breaks hydrogen bonds), <strong>extreme pH</strong> (disrupts ionic bonds), or <strong>chemicals</strong> (like alcohol).</p>\n\n<p>When an enzyme denatures, its active site changes shape. The substrate no longer fits. The enzyme stops working.</p>\n\n<p><strong>Example:</strong> Cooking an egg — the clear albumin turns white and solid because the proteins are denaturing. A high fever above 104°F is dangerous because body enzymes start to denature.</p>\n\n<p><strong>Causal chain:</strong> Heat or pH extreme → bonds break → protein unfolds → active site lost → enzyme stops working → biological process fails.</p>",
+            "terms": [
+                [
+                    "Enzyme",
+                    "a protein that speeds up a chemical reaction without being used up"
+                ],
+                [
+                    "Active site",
+                    "the specific 3D pocket on an enzyme where the substrate fits"
+                ],
+                [
+                    "Substrate",
+                    "the molecule that fits into an enzyme's active site"
+                ],
+                [
+                    "Induced fit",
+                    "the enzyme changes shape slightly to grip the substrate — like a handshake"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Induced_fit_diagram.svg/800px-Induced_fit_diagram.svg.png",
+                "alt": "Induced fit model showing enzyme changing shape to bind substrate",
+                "caption": "The enzyme changes shape to grip the substrate tightly. After the reaction, products are released and the enzyme is reused.",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:Induced_fit_diagram.svg",
+                "license": "CC BY-SA 4.0"
+            },
+            "optionalVideos": [
+                {
+                    "id": "ok9esggzN18",
+                    "title": "Enzymes",
+                    "channel": "Professor Dave Explains",
+                    "time": "~8:00"
+                }
+            ]
+        },
+        "ch6": {
+            "title": "Nucleic Acids: DNA and RNA",
+            "subtitle": "The molecules that store and transmit genetic information",
+            "video": {
+                "id": "8m6hHRlKwxY",
+                "title": "DNA, Chromosomes, Genes, Traits: Intro to Heredity",
+                "channel": "Amoeba Sisters",
+                "time": "~8:00"
+            },
+            "reading": "<p>The fourth macromolecule category is <strong>nucleic acids</strong>. Their job: store and transmit the instructions for building proteins.</p>\n\n<p><strong class=\"ck-hl\">DNA</strong> (deoxyribonucleic acid) is the permanent storage — your complete instruction manual. <strong class=\"ck-hl\">RNA</strong> (ribonucleic acid) makes working copies — it carries instructions from DNA to the ribosome.</p>\n\n<p>Both DNA and RNA are polymers of <dfn data-def=\"The monomer of nucleic acids — made of three parts: a phosphate group, a five-carbon sugar, and a nitrogenous base\" tabindex=\"0\">nucleotides</dfn>. Each nucleotide has three parts: a <strong>phosphate group</strong>, a <strong>five-carbon sugar</strong> (deoxyribose in DNA, ribose in RNA), and a <strong>nitrogenous base</strong> (the genetic \"letter\"). The phosphate and sugar form the backbone. The bases carry the genetic code.</p>\n\n<p>DNA uses four bases: <strong>Adenine (A), Thymine (T), Guanine (G), Cytosine (C)</strong>. RNA replaces thymine with <strong>Uracil (U)</strong>.</p>\n\n<p>DNA has two strands twisted into a <dfn data-def=\"The twisted ladder shape of DNA — two sugar-phosphate backbones connected by base pairs\" tabindex=\"0\">double helix</dfn> — like a twisted ladder. The \"rails\" are sugar-phosphate backbones. The \"rungs\" are base pairs connected by hydrogen bonds.</p>\n\n<p><strong class=\"ck-hl\">Base pairing rules:</strong> Bases pair by shape and hydrogen bonding. <strong>A pairs with T</strong> (2 hydrogen bonds). <strong>G pairs with C</strong> (3 hydrogen bonds). In RNA: <strong>A pairs with U</strong>. This is <dfn data-def=\"The rule that A always pairs with T (or U in RNA) and G always pairs with C — the two strands are complements of each other\" tabindex=\"0\">complementary base pairing</dfn>.</p>\n\n<p>If you know one strand, you can figure out the other: Original: G-C-A-T-T-A-G-C → Complement: C-G-T-A-A-T-C-G.</p>\n\n<p><strong>Chargaff's rule:</strong> In any DNA sample, %A = %T and %G = %C. If 22% is cytosine, then 22% is guanine (44% total). That leaves 56% split equally: 28% adenine and 28% thymine.</p>\n\n<p>RNA is usually <strong>single-stranded</strong>. Three key differences from DNA: single strand (not double), ribose sugar (not deoxyribose), and uracil (not thymine). Because RNA is single-stranded, it can fold into complex 3D shapes and do jobs DNA cannot.</p>\n\n<p>DNA's double helix allows <strong>accurate copying</strong> (each strand is a template), <strong>error checking</strong> (mismatched bases signal problems), and <strong>stability</strong> (double strand is harder to damage). RNA's single strand gives it <strong>mobility</strong> (can leave the nucleus), <strong>versatility</strong> (different types do different jobs), and is <strong>temporary</strong> (easy to build and break down as needed).</p>",
+            "terms": [
+                [
+                    "Nucleotide",
+                    "the monomer of DNA and RNA — made of a phosphate, a sugar, and a base"
+                ],
+                [
+                    "Double helix",
+                    "the twisted ladder shape of DNA"
+                ],
+                [
+                    "Complementary base pairing",
+                    "A pairs with T (or U in RNA), G pairs with C"
+                ],
+                [
+                    "Nitrogenous base",
+                    "the part of a nucleotide that carries the genetic letter — A, T, G, C (DNA) or A, U, G, C (RNA)"
+                ]
+            ],
+            "figure": {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/400px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png",
+                "alt": "DNA double helix structure showing base pairs, sugar-phosphate backbone, and hydrogen bonds",
+                "caption": "The twisted ladder — sugar-phosphate backbone forms the rails, base pairs form the rungs. A=T (2 H-bonds), G≡C (3 H-bonds).",
+                "source": "Wikimedia Commons",
+                "source_url": "https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png",
+                "license": "CC BY-SA 3.0"
+            },
+            "optionalVideos": [
+                {
+                    "id": "ruUf7ntRCk8",
+                    "title": "DNA vs RNA - 5 Differences",
+                    "channel": "MooMooMath and Science",
+                    "time": "~3:00"
+                }
+            ]
+        }
+    },
+    "quizInfo": {
+        "format": "Paper quiz — 3–4 open response questions. You explain and draw. No multiple choice.",
+        "notes": "You can use your <strong>handwritten notes</strong>. No phones, no Chromebooks.",
+        "grading": "<strong>Pass = full points.</strong> If you don't pass, retake with different questions until you do.",
+        "warning": "This quiz tests <strong>understanding, not memorization</strong>. You'll need to explain how molecular structure determines function — and trace causal chains.",
+        "readiness": [
+            "Name the four macromolecules, their monomers, and at least one function each",
+            "Explain why phospholipids automatically form a bilayer in water",
+            "Compare passive and active transport — direction, energy, and examples",
+            "Describe the four levels of protein structure and explain why shape = function",
+            "Explain how enzymes work using the induced fit model",
+            "Write complementary DNA base pairs and explain the pairing rules"
+        ]
+    },
+    "practiceQuestions": [
+        {
+            "q": "A scientist puts phospholipids into a beaker of water. Predict what will happen. Explain WHY using the terms hydrophilic and hydrophobic."
+        },
+        {
+            "q": "A student says: \"Saturated and unsaturated fats are the same because they're both made of fatty acids.\" Is this correct? Explain the key difference and why it matters for whether the fat is solid or liquid.",
+            "hint": "Think about double bonds and chain shape."
+        },
+        {
+            "q": "A red blood cell is placed in pure water. Will water move into or out of the cell? What will happen to the cell? Explain using osmosis."
+        },
+        {
+            "q": "Enzyme X works best at 37°C and pH 7. If you heat it to 80°C, it stops working. Explain what happened at the molecular level and whether the enzyme can work again if you cool it back down.",
+            "hint": "Think about denaturation and protein structure."
+        },
+        {
+            "q": "In a DNA sample, 30% of the bases are adenine. What percentage of the bases are cytosine? Show your reasoning step by step."
+        },
+        {
+            "q": "Explain why changing ONE amino acid in a protein's primary structure could cause the entire protein to stop working.",
+            "hint": "Think about how each level of structure builds on the one before."
+        }
+    ],
+    "notesQuestions": {
+        "intro": "HUGE HINT: Answer these questions while you study each section. They become your open notes on quiz day!",
+        "parts": [
+            {
+                "title": "Part A: Carbon, Carbs, Lipids, Membranes & Transport",
+                "icon": "🟢",
+                "questions": [
+                    {
+                        "id": "n1",
+                        "type": "short",
+                        "q": "In your own words, explain why carbon is called the \"backbone of life.\" What makes carbon special for building large molecules?"
+                    },
+                    {
+                        "id": "n2",
+                        "type": "table",
+                        "q": "Fill in this table for the four macromolecules:\n\n| Macromolecule | Monomer (building block) | One function |\n|---|---|---|\n| Carbohydrates | ___ | ___ |\n| Lipids | ___ | ___ |\n| Proteins | ___ | ___ |\n| Nucleic acids | ___ | ___ |\n"
+                    },
+                    {
+                        "id": "n3",
+                        "type": "short",
+                        "q": "Both glycogen and chitin are polysaccharides (made of glucose). Name where each is found and what job it does."
+                    },
+                    {
+                        "id": "n4",
+                        "type": "fill",
+                        "q": "A phospholipid has two parts with opposite properties:\n- The **head** is ______ (polar / nonpolar) and is attracted to water. This is called ______.\n- The **tails** are ______ (polar / nonpolar) and are repelled by water. This is called ______.\n"
+                    },
+                    {
+                        "id": "n5",
+                        "type": "short",
+                        "q": "Explain WHY phospholipids form a bilayer automatically when placed in water. What happens to the heads? What happens to the tails?"
+                    },
+                    {
+                        "id": "n6",
+                        "type": "table",
+                        "q": "Compare saturated and unsaturated fats:\n\n| Type | Double bonds? | Shape of chains | Solid or liquid at room temp? |\n|---|---|---|---|\n| Saturated | ___ | ___ | ___ |\n| Unsaturated | ___ | ___ | ___ |\n"
+                    },
+                    {
+                        "id": "n7",
+                        "type": "short",
+                        "q": "What are the two main types of cell transport? For each, write whether it needs energy and which direction molecules move (high→low or low→high)."
+                    },
+                    {
+                        "id": "n8",
+                        "type": "short",
+                        "q": "A plant cell is placed in salt water. Will water move INTO the cell or OUT OF the cell? Explain using the word *osmosis*."
+                    }
+                ]
+            },
+            {
+                "title": "Part B: Proteins & Enzymes",
+                "icon": "🟣",
+                "questions": [
+                    {
+                        "id": "n9",
+                        "type": "short",
+                        "q": "In your own words, explain what \"structure determines function\" means for proteins. Why does the 3D shape matter?"
+                    },
+                    {
+                        "id": "n10",
+                        "type": "table",
+                        "q": "Fill in the four levels of protein structure:\n\n| Level | What it describes |\n|---|---|\n| Primary (1°) | ___ |\n| Secondary (2°) | ___ |\n| Tertiary (3°) | ___ |\n| Quaternary (4°) | ___ |\n"
+                    },
+                    {
+                        "id": "n11",
+                        "type": "fill",
+                        "q": "Define these enzyme terms:\n- **Substrate:** ______\n- **Active site:** ______\n- **Product:** ______\n"
+                    },
+                    {
+                        "id": "n12",
+                        "type": "short",
+                        "q": "Explain the *induced fit* model. How is it different from the old \"lock and key\" idea?"
+                    },
+                    {
+                        "id": "n13",
+                        "type": "short",
+                        "q": "What does it mean when we say an enzyme is *specific*? Why can't one enzyme work on every substrate?"
+                    },
+                    {
+                        "id": "n14",
+                        "type": "short",
+                        "q": "*Denaturation* means an enzyme loses its shape and stops working. Name TWO things that can cause denaturation."
+                    },
+                    {
+                        "id": "n15",
+                        "type": "short",
+                        "q": "An enzyme works best at pH 7. What happens if you change the pH to 2? Explain WHY the enzyme stops working."
+                    }
+                ]
+            },
+            {
+                "title": "Part C: Nucleic Acids (DNA & RNA)",
+                "icon": "🔵",
+                "questions": [
+                    {
+                        "id": "n16",
+                        "type": "fill",
+                        "q": "A nucleotide has three parts. Name all three: ______, ______, ______\nWhich part carries the genetic \"letter\"? ______\nWhich parts form the backbone? ______\n"
+                    },
+                    {
+                        "id": "n17",
+                        "type": "table",
+                        "q": "Fill in the DNA vs RNA comparison:\n\n| Feature | DNA | RNA |\n|---|---|---|\n| Sugar | ___ | ___ |\n| Number of strands | ___ | ___ |\n| Bases used | ___ | ___ |\n| Location in cell | ___ | ___ |\n"
+                    },
+                    {
+                        "id": "n18",
+                        "type": "fill",
+                        "q": "Write the base pairing rules:\n- In DNA: A pairs with _____, G pairs with _____\n- In RNA: A pairs with _____, G pairs with _____\n"
+                    },
+                    {
+                        "id": "n19",
+                        "type": "fill",
+                        "q": "Write the complementary DNA strand:\nOriginal:   G — C — A — T — T — A — G — C\nComplement: ___ — ___ — ___ — ___ — ___ — ___ — ___ — ___\n"
+                    },
+                    {
+                        "id": "n20",
+                        "type": "short",
+                        "q": "In a DNA sample, 22% of the bases are cytosine (C). What percentage is guanine (G)? What percentage is adenine (A)? Show your reasoning."
+                    }
+                ]
+            }
+        ],
+        "foundation": "These questions cover the essentials — but don't stop here. Add anything that helps YOU understand. Drawings, examples, connections, translations. The more you write, the better your notes will be."
+    },
+    "languageBridge": {
+        "title": "Language Bridge Strategy",
+        "steps": [
+            {
+                "icon": "1️⃣",
+                "text": "Watch the video in YOUR language first — focus on understanding the science"
+            },
+            {
+                "icon": "2️⃣",
+                "text": "Watch the English video — now you already know the ideas, focus on the English vocabulary"
+            },
+            {
+                "icon": "3️⃣",
+                "text": "Practice explaining in English using the reading passage and your notes"
+            }
+        ],
+        "note": "The quiz is in English. Your notes can be in any language."
+    },
+    "vocabTable": [
+        {
+            "en": "Macromolecule",
+            "es": "Macromolécula",
+            "pt": "Macromolécula",
+            "fr": "Macromolécule",
+            "vi": "Đại phân tử",
+            "ht": "Makwomolekil"
+        },
+        {
+            "en": "Monomer",
+            "es": "Monómero",
+            "pt": "Monômero",
+            "fr": "Monomère",
+            "vi": "Đơn phân",
+            "ht": "Monomè"
+        },
+        {
+            "en": "Polymer",
+            "es": "Polímero",
+            "pt": "Polímero",
+            "fr": "Polymère",
+            "vi": "Polime",
+            "ht": "Polimè"
+        },
+        {
+            "en": "Carbohydrate",
+            "es": "Carbohidrato",
+            "pt": "Carboidrato",
+            "fr": "Glucide",
+            "vi": "Cacbohydrat",
+            "ht": "Karboidrat"
+        },
+        {
+            "en": "Lipid",
+            "es": "Lípido",
+            "pt": "Lipídio",
+            "fr": "Lipide",
+            "vi": "Lipit",
+            "ht": "Lipid"
+        },
+        {
+            "en": "Protein",
+            "es": "Proteína",
+            "pt": "Proteína",
+            "fr": "Protéine",
+            "vi": "Protein",
+            "ht": "Pwoteyin"
+        },
+        {
+            "en": "Nucleic acid",
+            "es": "Ácido nucleico",
+            "pt": "Ácido nucleico",
+            "fr": "Acide nucléique",
+            "vi": "Axit nucleic",
+            "ht": "Asid nikleyik"
+        },
+        {
+            "en": "Amino acid",
+            "es": "Aminoácido",
+            "pt": "Aminoácido",
+            "fr": "Acide aminé",
+            "vi": "Axit amin",
+            "ht": "Asid amine"
+        },
+        {
+            "en": "Monosaccharide",
+            "es": "Monosacárido",
+            "pt": "Monossacarídeo",
+            "fr": "Monosaccharide",
+            "vi": "Monosaccarit",
+            "ht": "Monosakkarid"
+        },
+        {
+            "en": "Polysaccharide",
+            "es": "Polisacárido",
+            "pt": "Polissacarídeo",
+            "fr": "Polysaccharide",
+            "vi": "Polisaccarit",
+            "ht": "Polisakkarid"
+        },
+        {
+            "en": "Phospholipid",
+            "es": "Fosfolípido",
+            "pt": "Fosfolipídio",
+            "fr": "Phospholipide",
+            "vi": "Photpholipit",
+            "ht": "Fosfolipid"
+        },
+        {
+            "en": "Hydrophilic",
+            "es": "Hidrofílico",
+            "pt": "Hidrofílico",
+            "fr": "Hydrophile",
+            "vi": "Ưa nước",
+            "ht": "Idwofilik"
+        },
+        {
+            "en": "Hydrophobic",
+            "es": "Hidrofóbico",
+            "pt": "Hidrofóbico",
+            "fr": "Hydrophobe",
+            "vi": "Kỵ nước",
+            "ht": "Idwofobik"
+        },
+        {
+            "en": "Enzyme",
+            "es": "Enzima",
+            "pt": "Enzima",
+            "fr": "Enzyme",
+            "vi": "Enzyme",
+            "ht": "Anzim"
+        },
+        {
+            "en": "Substrate",
+            "es": "Sustrato",
+            "pt": "Substrato",
+            "fr": "Substrat",
+            "vi": "Cơ chất",
+            "ht": "Sibstra"
+        },
+        {
+            "en": "Active site",
+            "es": "Sitio activo",
+            "pt": "Sítio ativo",
+            "fr": "Site actif",
+            "vi": "Trung tâm hoạt động",
+            "ht": "Sit aktif"
+        },
+        {
+            "en": "Denaturation",
+            "es": "Desnaturalización",
+            "pt": "Desnaturação",
+            "fr": "Dénaturation",
+            "vi": "Biến tính",
+            "ht": "Denatirayon"
+        },
+        {
+            "en": "Nucleotide",
+            "es": "Nucleótido",
+            "pt": "Nucleotídeo",
+            "fr": "Nucléotide",
+            "vi": "Nucleotit",
+            "ht": "Nikleyotid"
+        },
+        {
+            "en": "Double helix",
+            "es": "Doble hélice",
+            "pt": "Dupla hélice",
+            "fr": "Double hélice",
+            "vi": "Xoắn kép",
+            "ht": "Doub elis"
+        },
+        {
+            "en": "Base pair",
+            "es": "Par de bases",
+            "pt": "Par de bases",
+            "fr": "Paire de bases",
+            "vi": "Cặp bazơ",
+            "ht": "Pè baz"
+        },
+        {
+            "en": "Osmosis",
+            "es": "Ósmosis",
+            "pt": "Osmose",
+            "fr": "Osmose",
+            "vi": "Thẩm thấu",
+            "ht": "Osmoz"
+        },
+        {
+            "en": "Passive transport",
+            "es": "Transporte pasivo",
+            "pt": "Transporte passivo",
+            "fr": "Transport passif",
+            "vi": "Vận chuyển thụ động",
+            "ht": "Transpò pasif"
+        },
+        {
+            "en": "Active transport",
+            "es": "Transporte activo",
+            "pt": "Transporte ativo",
+            "fr": "Transport actif",
+            "vi": "Vận chuyển chủ động",
+            "ht": "Transpò aktif"
+        }
+    ],
+    "practiceResources": [
+        {
+            "title": "Biomolecules",
+            "desc": "Practice questions on macromolecules",
+            "url": "https://www.khanacademy.org/science/biology/macromolecules",
+            "source": "Khan Academy"
+        },
+        {
+            "title": "Cell Membrane & Transport",
+            "desc": "Interactive exercises on membrane structure and transport",
+            "url": "https://www.khanacademy.org/science/biology/membranes-and-transport",
+            "source": "Khan Academy"
+        },
+        {
+            "title": "Enzyme Activity",
+            "desc": "Virtual lab on enzyme temperature and pH",
+            "url": "https://learn.genetics.utah.edu/content/basics/",
+            "source": "Learn.Genetics"
+        }
+    ],
+    "textbookPackets": [
+        {
+            "title": "Carbohydrates & Lipids",
+            "pages": "pp. 90-97, 101-102, 106-107",
+            "url": "https://drive.google.com/file/d/1Dvdo2RGzV00w7tKYdkkzowRdg4xVyaJe/view"
+        },
+        {
+            "title": "Protein Structure & Folding",
+            "pages": "pp. 9, 82-84, 92-93, 98, 272-284, 342, 353",
+            "url": "https://drive.google.com/file/d/1BdPVVUrdYnq5c2F6Y-msa391baVUjLFJ/view"
+        },
+        {
+            "title": "Nucleic Acids",
+            "pages": "pp. 92, 99, 258-259, 263-265, 273-284",
+            "url": "https://drive.google.com/file/d/1IAF8qXd2O1Y2wVjwmZdz-fAh5UkavOGK/view"
+        }
+    ]
+};
