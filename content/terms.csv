@@ -28,3 +28,19 @@ photosynthesis,"The process by which plants use sunlight to convert CO₂ and wa
 cellular respiration,"The process by which cells break down glucose to release ATP energy — happens in mitochondria",🔥,biology,true,"",cellular_respiration
 nucleolus,"A small, dense area inside the nucleus where ribosomes are made",⚫,biology,true,"",nucleolus
 nuclear envelope,"The double membrane surrounding the nucleus — has pores that let messages in and out",🔲,biology,true,"",nuclear_envelope
+phospholipid,"A lipid with a hydrophilic phosphate head and two hydrophobic fatty acid tails — the building block of cell membranes",🧪,biology,true,"phospholipids",phospholipid
+phospholipid bilayer,"Two layers of phospholipids arranged tail-to-tail — the basic structure of all cell membranes",🧬,biology,true,"bilayer",bilayer
+hydrophilic,"Water-loving — dissolves in or is attracted to water (polar or charged molecules)",💧,biology,true,"",hydrophilic
+hydrophobic,"Water-fearing — does NOT dissolve in water (nonpolar molecules like oils and fats)",🛢️,biology,true,"",hydrophobic
+amphipathic,"Having both a water-loving (hydrophilic) part and a water-fearing (hydrophobic) part in the same molecule",↔️,biology,true,"amphiphilic",amphipathic
+semi-permeable,"Allows some materials through but not others — 'semi' means partial",🚧,biology,true,"selectively permeable|semi permeable",semi_permeable
+fluid mosaic model,"The scientific model of the cell membrane — 'fluid' because parts move freely, 'mosaic' because it has many different pieces",🎨,biology,true,"",fluid_mosaic
+cholesterol,"A molecule that sits between phospholipids and stabilizes the membrane — keeps it not too stiff and not too loose",⚖️,biology,true,"",cholesterol
+integral protein,"A protein permanently embedded in the membrane — often goes all the way through both layers",🔩,biology,true,"integral proteins|transmembrane protein|transmembrane proteins",integral_protein
+peripheral protein,"A protein that sits on the surface of the membrane — only temporarily attached, does not go through the bilayer",📎,biology,true,"peripheral proteins",peripheral_protein
+glycoprotein,"A protein with carbohydrate (sugar) chains attached — acts as an ID tag on the cell surface",🏷️,biology,true,"glycoproteins",glycoprotein
+glycolipid,"A lipid with carbohydrate (sugar) chains attached — part of the cell's identity coating on the outer surface",🏷️,biology,true,"glycolipids",glycolipid
+glycocalyx,"The sugar-coated outer surface of a cell made of glycoproteins and glycolipids — like an ID card that the immune system reads",🪪,biology,true,"cell coat",glycocalyx
+channel protein,"A membrane protein that forms a tunnel (pore) for specific ions or small molecules to pass through",🚇,biology,true,"channel proteins",channel_protein
+carrier protein,"A membrane protein that grabs a molecule, changes shape, and releases it on the other side of the membrane",🔄,biology,true,"carrier proteins|pump protein|pump proteins",carrier_protein
+receptor protein,"A membrane protein that receives chemical signals from outside the cell and triggers a response inside",📡,biology,true,"receptor proteins|receptors",receptor_protein
