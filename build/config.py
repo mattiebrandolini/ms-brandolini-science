@@ -7,7 +7,7 @@ Then run: python3 build.py
 SITE_URL = "https://mattiebrandolini.github.io/ms-brandolini-science"
 SITE_TITLE = "Ms. Brandolini's Science"
 SITE_DESCRIPTION = "Science courses, resources, and tools for students at Everett High School."
-CACHE_VERSION = 22
+CACHE_VERSION = 23
 
 # Font stack — ONE system, used everywhere
 # Fonts are self-hosted — no external CDN dependencies
@@ -292,5 +292,15 @@ CHECKPOINTS = [
         "banner_class": "ck-entry-banner--bio",
         "config_js": "checkpoints/ck12-cell-membrane.js",
         "description": "Phospholipid Bilayer Structure, Fluid Mosaic Model, Membrane Proteins, Cell Recognition",
+    },
+    {
+        "course": "biology",
+        "slug": "water-properties",
+        "title": "Checkpoint 12: Water Properties",
+        "short_title": "Water Properties",
+        "icon": "💧",
+        "banner_class": "ck-entry-banner--bio",
+        "config_js": "checkpoints/ck12-water-properties.js",
+        "description": "Water Structure & Polarity, Hydrogen Bonds, Cohesion, Adhesion, Specific Heat, Evaporative Cooling, Homeostasis",
     },
 ]

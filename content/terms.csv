@@ -94,3 +94,13 @@ exocytosis,"The process where a vesicle fuses with the cell membrane to push mat
 chaperone protein,"A protein that helps other proteins fold correctly by providing a protected environment",🤝,biology,true,"chaperone proteins|chaperones|chaperonin",chaperone_protein
 saturated fat,"A fat with NO double bonds between carbons — straight chains pack tightly, so it is solid at room temperature",🧱,biology,true,"saturated fats|saturated fatty acid",saturated_fat
 unsaturated fat,"A fat with one or more double bonds — kinked chains cannot pack tightly, so it is liquid at room temperature",〰️,biology,true,"unsaturated fats|unsaturated fatty acid",unsaturated_fat
+covalent bond,"A bond where atoms share electrons — the strongest type of bond within a molecule",🔗,biology,true,"covalent bonds",covalent_bond
+polar molecule,"A molecule with a slightly positive end and a slightly negative end because electrons are shared unequally — like a tiny magnet",🧲,biology,true,"polar molecules|polarity|dipole",polar_molecule
+cohesion,"The attraction between molecules of the SAME substance — water sticking to water due to hydrogen bonds",💧,biology,true,"cohesive",cohesion
+adhesion,"The attraction between molecules of DIFFERENT substances — water sticking to glass, paper, or plant tubes",🫗,biology,true,"adhesive",adhesion
+surface tension,"A 'skin' on the water's surface caused by extra hydrogen bonds between surface molecules — lets insects walk on water",🕷️,biology,true,"",surface_tension
+capillary action,"The ability of water to move upward through narrow tubes against gravity — uses adhesion and cohesion together",🌱,biology,true,"capillarity",capillary_action
+specific heat,"The amount of energy needed to raise the temperature of a substance — water's is very high because energy breaks hydrogen bonds first",🌡️,biology,true,"heat capacity|specific heat capacity",specific_heat
+evaporative cooling,"When water evaporates it takes heat energy with it and cools what's left behind — this is how sweating cools your body",💨,biology,true,"evaporation|evaporative",evaporative_cooling
+xylem,"The tissue in plants that transports water and minerals upward from roots to leaves — like tiny straws inside the stem",🌿,biology,true,"",xylem
+homeostasis,"Maintaining stable internal conditions — your body constantly works to keep temperature, pH, and water balance in a narrow range",⚖️,biology,true,"homeostatic",homeostasis
