@@ -3,7 +3,7 @@ cell,"The basic unit of life — all living things are made of cells",🔬,biolo
 prokaryotic,"A cell with NO nucleus and NO membrane-bound organelles. Example: bacteria.",🦠,biology,true,"prokaryotic cells|prokaryote|prokaryotes",prokaryotic
 eukaryotic,"A cell WITH a nucleus and WITH membrane-bound organelles. Example: plant and animal cells.",🧫,biology,true,"eukaryotic cells|eukaryote|eukaryotes",eukaryotic
 organelle,"A small structure inside a cell that has a specific job — means ""little organ""",⚙️,biology,true,"organelles",organelle
-nucleus,"The control center of the cell — holds DNA and sends instructions",🎯,biology,true,"",nucleus
+nucleus,"The dense center — in a cell, the control center holding DNA; in an atom, the core containing protons and neutrons",🎯,"biology,sheltered-chemistry",true,"",nucleus
 dna,"The molecule that carries genetic instructions for life — shaped like a twisted ladder (double helix)",🧬,biology,true,"",dna
 chromatin,"DNA in its spread-out, tangled form — like a messy pile of yarn",🧶,biology,true,"",chromatin
 chromosome,"DNA coiled up tightly into a compact X or rod shape — happens when a cell is ready to divide",✖️,biology,true,"chromosomes",chromosome
@@ -104,3 +104,16 @@ specific heat,"The amount of energy needed to raise the temperature of a substan
 evaporative cooling,"When water evaporates it takes heat energy with it and cools what's left behind — this is how sweating cools your body",💨,biology,true,"evaporation|evaporative",evaporative_cooling
 xylem,"The tissue in plants that transports water and minerals upward from roots to leaves — like tiny straws inside the stem",🌿,biology,true,"",xylem
 homeostasis,"Maintaining stable internal conditions — your body constantly works to keep temperature, pH, and water balance in a narrow range",⚖️,biology,true,"homeostatic",homeostasis
+atom,"The smallest unit of an element — made of protons, neutrons, and electrons",⚛️,sheltered-chemistry,true,"atoms",atom
+subatomic particle,"A particle smaller than an atom — protons, neutrons, and electrons",🔬,sheltered-chemistry,true,"subatomic particles",subatomic_particle
+proton,"A subatomic particle with a positive (+1) charge and mass of about 1 amu — found in the nucleus",➕,sheltered-chemistry,true,"protons",proton
+neutron,"A subatomic particle with no charge (neutral) and mass of about 1 amu — found in the nucleus",⚪,sheltered-chemistry,true,"neutrons",neutron
+electron,"A subatomic particle with a negative (−1) charge and almost no mass — found in the electron cloud",➖,sheltered-chemistry,true,"electrons",electron
+electron cloud,"The region around the nucleus where electrons move rapidly — mostly empty space",☁️,sheltered-chemistry,true,"",electron_cloud
+atomic number,"The number of protons in an atom — this number defines which element the atom is",🔢,sheltered-chemistry,true,"",atomic_number
+mass number,"The total number of protons + neutrons in the nucleus — a whole number for a specific atom",🔢,sheltered-chemistry,true,"",mass_number
+isotope,"Atoms of the SAME element (same protons) with DIFFERENT numbers of neutrons — same element, different mass",⚖️,sheltered-chemistry,true,"isotopes",isotope
+atomic mass,"The weighted average mass of all naturally occurring isotopes of an element — shown as a decimal on the periodic table",⚖️,sheltered-chemistry,true,"",atomic_mass
+energy level,"A region around the nucleus where electrons are found — also called a shell",🎯,sheltered-chemistry,true,"energy levels|electron shell|electron shells|shell|shells",energy_level
+valence electron,"An electron in the outermost energy level — determines bonding and chemical properties",⭐,sheltered-chemistry,true,"valence electrons",valence_electron
+core electron,"An electron in an inner energy level — held tightly near the nucleus and does NOT participate in bonding",🔒,sheltered-chemistry,true,"core electrons",core_electron
