@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../../../../">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedigree Project — Biology — Ms. Brandolini's Science</title>
+    <link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+    <link rel="icon" type="image/png" href="../../../../favicon.png">
+    <meta property="og:title" content="Pedigree Project — Biology">
+    <meta property="og:description" content="Be Mendel for a day. Trace a trait through your family.">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Pedigree project — trace a trait through your family.">
+    <link rel="stylesheet" href="../../../../static/fonts/fonts.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="stylesheet" href="../../../../styles/responsive.css">
+    <link rel="stylesheet" href="../../../../styles/print.css" media="print">
+<style>
+    .pp-page { max-width: 880px; margin: 0 auto; padding: 2rem 1.25rem 4rem; line-height: 1.65; }
+    .pp-page h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; margin-bottom: 0.5rem; color: var(--accent-bio); }
+    .pp-page h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 600; margin: 2.5rem 0 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
+    .pp-page h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--text-primary); }
+    .pp-page p { margin-bottom: 1rem; color: var(--text-primary); }
+    .pp-page ul, .pp-page ol { margin: 1rem 0 1rem 1.5rem; }
+    .pp-page li { margin-bottom: 0.5rem; }
+    .pp-page strong { color: var(--accent-bio); font-weight: 600; }
+    .pp-subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
+    .pp-callout { background: rgba(52, 211, 153, 0.06); border-left: 3px solid var(--accent-bio); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.25rem 0; }
+    .pp-callout--warm { background: rgba(251, 191, 36, 0.06); border-left-color: var(--accent-warm); }
+    .pp-callout--blue { background: rgba(96, 165, 250, 0.06); border-left-color: var(--accent-env); }
+    .pp-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .pp-key-item { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 1rem; text-align: center; }
+    .pp-key-symbol { font-size: 1.5rem; margin-bottom: 0.25rem; color: var(--accent-bio); }
+    .pp-key-label { font-size: 0.85rem; color: var(--text-secondary); }
+    .pp-buckets { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin: 1rem 0 1.5rem; }
+    .pp-bucket { padding: 0.85rem; border-radius: 8px; border: 1px solid var(--border-subtle); }
+    .pp-bucket--brown { background: rgba(168, 85, 24, 0.15); border-color: rgba(168, 85, 24, 0.4); }
+    .pp-bucket--red { background: rgba(216, 90, 48, 0.15); border-color: rgba(216, 90, 48, 0.4); }
+    .pp-bucket--blond { background: rgba(180, 180, 180, 0.12); border-color: rgba(180, 180, 180, 0.3); }
+    .pp-bucket--unknown { background: transparent; border-style: dashed; border-color: var(--text-dim); }
+    .pp-bucket-name { font-weight: 600; margin-bottom: 0.25rem; }
+    .pp-bucket-desc { font-size: 0.85rem; color: var(--text-secondary); }
+    .pp-steps { counter-reset: step; list-style: none; margin-left: 0; }
+    .pp-steps > li { counter-increment: step; padding-left: 2.5rem; position: relative; margin-bottom: 1.25rem; }
+    .pp-steps > li::before { content: counter(step); position: absolute; left: 0; top: -2px; width: 1.85rem; height: 1.85rem; border-radius: 50%; background: var(--accent-bio); color: var(--bg-deep); font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+    .pp-data { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+    .pp-data h4 { font-size: 1rem; font-weight: 600; color: var(--accent-warm); margin-bottom: 0.5rem; }
+    .pp-data dl { margin: 0; }
+    .pp-data dt { font-weight: 600; margin-top: 0.75rem; color: var(--text-primary); }
+    .pp-data dd { color: var(--text-secondary); margin-left: 0; font-size: 0.95rem; }
+    .pp-relative { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle); align-items: baseline; }
+    .pp-relative:last-child { border-bottom: none; }
+    .pp-relative-name { color: var(--text-primary); }
+    .pp-relative-trait { color: var(--text-secondary); font-size: 0.9rem; font-style: italic; }
+    .pp-relative-trait--unknown { color: var(--text-dim); }
+    .pp-pedigree-svg { width: 100%; max-width: 720px; margin: 1rem auto; display: block; }
+    .pp-pedigree-svg text { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: var(--text-secondary); }
+    .pp-pedigree-svg text.name { fill: var(--text-primary); font-weight: 500; }
+    .pp-pedigree-svg .line { stroke: var(--text-secondary); stroke-width: 1; fill: none; }
+    .pp-pedigree-svg .brown { fill: #a85518; stroke: #d97706; stroke-width: 1; }
+    .pp-pedigree-svg .red { fill: #d85a30; stroke: #f87171; stroke-width: 1; }
+    .pp-pedigree-svg .blond { fill: #d4d4d4; stroke: #888; stroke-width: 1; }
+    .pp-pedigree-svg .unknown { fill: none; stroke: var(--text-dim); stroke-width: 1; stroke-dasharray: 3 2; }
+    .pp-back { display: inline-block; margin-top: 2rem; color: var(--text-dim); font-size: 0.9rem; padding: 0.5rem 1.25rem; border: 1px solid var(--border-subtle); border-radius: 100px; }
+    .pp-back:hover { color: var(--text-primary); border-color: var(--border-hover); }
+</style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
+<div class="bg-atmosphere"></div>
+<div class="page-wrap">
+    <nav class="topbar anim-fade">
+        <a href="../../../../" class="topbar-brand">Ms. Brandolini's Science</a>
+        <div class="topbar-nav">
+            <a href="../../" class="topbar-link">Biology</a>
+            <span class="topbar-role topbar-role--student">Student</span>
+        </div>
+    </nav>
+
+    <article class="pp-page">
+        <h1>Pedigree Project</h1>
+        <p class="pp-subtitle">Be Mendel for a day. Trace a trait through your family and discover an inheritance pattern — the same way scientists did before they knew DNA existed.</p>
+
+        <h2>What we're doing and why</h2>
+
+        <p>Gregor Mendel didn't know about DNA. He didn't know about chromosomes. He didn't know what genes were. He just looked at thousands of pea plants, tracked which traits showed up in which generations, and found a pattern.</p>
+
+        <p>We're going to do the same thing — but with <strong>your family</strong> as the data. You'll pick a trait, list which of your relatives have it, draw a chart called a <strong>pedigree</strong>, and look for patterns.</p>
+
+        <p>Then we'll use a tool called a <strong>Punnett square</strong> to predict what should be happening if a single gene with a few versions controls the trait. Your prediction will be partly right and partly wrong. <strong>That's the point.</strong> Real biology is messier than the simple model — and finding where the model breaks is how scientists improve it.</p>
+
+        <div class="pp-callout pp-callout--warm">
+            <strong>Important:</strong> If you can't or don't want to use your own family — that's totally fine. Use <strong>Throckmorton's family</strong> (below) instead. Just tell Ms. Brandolini before you start. No questions asked.
+        </div>
+
+        <h2>The trait you'll track</h2>
+
+        <p>For this project, we are all working with <strong>hair color</strong>. We're keeping it simple — three buckets:</p>
+
+        <div class="pp-buckets">
+            <div class="pp-bucket pp-bucket--brown">
+                <div class="pp-bucket-name">Brown</div>
+                <div class="pp-bucket-desc">Any brown — light, dark, or in between. Includes light brown that some people might call dirty blond.</div>
+            </div>
+            <div class="pp-bucket pp-bucket--red">
+                <div class="pp-bucket-name">Red</div>
+                <div class="pp-bucket-desc">Any red. Includes auburn, ginger, strawberry, red brown, brown red.</div>
+            </div>
+            <div class="pp-bucket pp-bucket--blond">
+                <div class="pp-bucket-name">Blond</div>
+                <div class="pp-bucket-desc">Pale yellow. Light enough that you wouldn't call it brown.</div>
+            </div>
+            <div class="pp-bucket pp-bucket--unknown">
+                <div class="pp-bucket-name">Unknown</div>
+                <div class="pp-bucket-desc">You don't know, can't tell, or never knew them. <strong>This is real data — not a failure.</strong></div>
+            </div>
+        </div>
+
+        <p>If you're not sure which bucket someone fits into — pick the closest one. There's no wrong answer. We're making approximations the same way Mendel did when he sorted peas as "yellow" or "green."</p>
+
+        <h2>Pedigree symbols</h2>
+
+        <div class="pp-key">
+            <div class="pp-key-item"><div class="pp-key-symbol">⬛</div><div class="pp-key-label">Square = male</div></div>
+            <div class="pp-key-item"><div class="pp-key-symbol">⬤</div><div class="pp-key-label">Circle = female</div></div>
+            <div class="pp-key-item"><div class="pp-key-symbol">▢▢</div><div class="pp-key-label">Side by side, connected by a line = partners</div></div>
+            <div class="pp-key-item"><div class="pp-key-symbol">▢ │ ⬤</div><div class="pp-key-label">Vertical line down to a child</div></div>
+            <div class="pp-key-item"><div class="pp-key-symbol">⌐⌐</div><div class="pp-key-label">Dashed shape = unknown</div></div>
+        </div>
+
+        <p>Color or shade in the shape based on the trait — brown, red, or blond. If you don't know someone's hair color, leave the shape dashed and unfilled.</p>
+
+        <h2>How to do this</h2>
+
+        <ol class="pp-steps">
+            <li><strong>Make a list of your relatives</strong> you can confidently say something about. Start with the closest family — yourself, siblings, parents — and work outward as far as you can. Aim for at least 8 people across at least 2 generations.</li>
+            <li><strong>For each relative, decide their bucket</strong> — brown, red, blond, or unknown. If you're not sure, mark unknown. Unknown is real data.</li>
+            <li><strong>Draw your pedigree</strong> on paper, following the symbols above. Put yourself at the bottom, parents above, grandparents above them. Draw squares for males, circles for females. Color or shade based on the bucket.</li>
+            <li><strong>Find a partner</strong> who picked the same trait (we'll do hair color, so that's everyone). You'll compare your two pedigrees and look for patterns together.</li>
+            <li><strong>Look for patterns.</strong> Does the trait skip generations? Does it appear in some sibling groups but not others? What does that tell you about how it might be inherited?</li>
+            <li><strong>Predict with a Punnett square.</strong> We'll learn how to do this in class. Your goal: pick the most complete piece of your pedigree and try to predict what should have happened.</li>
+        </ol>
+
+        <h2>Worked example: Morgan's family</h2>
+
+        <p>Here's what a completed pedigree looks like. Morgan picked hair color and tracked her family across three generations. Notice how she handles unknowns and how the colors form a pattern.</p>
+
+        <div class="pp-data">
+            <h4>Morgan's family — relatives and traits</h4>
+            <dl>
+                <dt>Generation I (grandparents)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Grandma Lisa (mom's side, alive)</span><span class="pp-relative-trait">red — strawberry</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Grandpa Robert (mom's side, alive)</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Grandma Anita (dad's side, alive)</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Grandpa David (dad's side, deceased — family says brown)</span><span class="pp-relative-trait">brown</span></div>
+                </dd>
+                <dt>Generation II (parents and their siblings)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Mom Sara</span><span class="pp-relative-trait">red — strawberry</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Aunt Beth (Mom's sister)</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Dad Marcus</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Uncle Tom (Dad's brother)</span><span class="pp-relative-trait">brown</span></div>
+                </dd>
+                <dt>Generation III (Morgan and her siblings)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Morgan (the student)</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Brother Theo (older)</span><span class="pp-relative-trait">red</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Sister Lila (younger)</span><span class="pp-relative-trait">brown</span></div>
+                </dd>
+            </dl>
+        </div>
+
+        <h3>Morgan's completed pedigree</h3>
+
+        <svg class="pp-pedigree-svg" viewBox="0 0 720 460" role="img" aria-labelledby="morgan-title">
+            <title id="morgan-title">Morgan's family pedigree across three generations</title>
+            <text class="name" x="360" y="22" text-anchor="middle">Morgan's family — hair color</text>
+            <line class="line" x1="118" y1="65" x2="142" y2="65"/>
+            <line class="line" x1="130" y1="65" x2="130" y2="160"/>
+            <circle class="red" cx="100" cy="65" r="14"/>
+            <text class="name" x="100" y="103" text-anchor="middle">Lisa</text>
+            <text x="100" y="118" text-anchor="middle">red</text>
+            <rect class="blond" x="146" y="51" width="28" height="28"/>
+            <text class="name" x="160" y="103" text-anchor="middle">Robert</text>
+            <text x="160" y="118" text-anchor="middle">blond</text>
+            <line class="line" x1="498" y1="65" x2="522" y2="65"/>
+            <line class="line" x1="510" y1="65" x2="510" y2="160"/>
+            <circle class="brown" cx="480" cy="65" r="14"/>
+            <text class="name" x="480" y="103" text-anchor="middle">Anita</text>
+            <text x="480" y="118" text-anchor="middle">brown</text>
+            <rect class="brown" x="526" y="51" width="28" height="28"/>
+            <text class="name" x="540" y="103" text-anchor="middle">David</text>
+            <text x="540" y="118" text-anchor="middle">brown</text>
+            <line class="line" x1="80" y1="160" x2="180" y2="160"/>
+            <line class="line" x1="80" y1="160" x2="80" y2="195"/>
+            <line class="line" x1="180" y1="160" x2="180" y2="195"/>
+            <line class="line" x1="460" y1="160" x2="560" y2="160"/>
+            <line class="line" x1="460" y1="160" x2="460" y2="195"/>
+            <line class="line" x1="560" y1="160" x2="560" y2="195"/>
+            <circle class="red" cx="180" cy="210" r="14"/>
+            <text class="name" x="180" y="248" text-anchor="middle">Sara</text>
+            <text x="180" y="263" text-anchor="middle">red</text>
+            <circle class="blond" cx="80" cy="210" r="14"/>
+            <text class="name" x="80" y="248" text-anchor="middle">Beth</text>
+            <text x="80" y="263" text-anchor="middle">blond</text>
+            <rect class="brown" x="446" y="196" width="28" height="28"/>
+            <text class="name" x="460" y="248" text-anchor="middle">Marcus</text>
+            <text x="460" y="263" text-anchor="middle">brown</text>
+            <rect class="brown" x="546" y="196" width="28" height="28"/>
+            <text class="name" x="560" y="248" text-anchor="middle">Tom</text>
+            <text x="560" y="263" text-anchor="middle">brown</text>
+            <line class="line" x1="194" y1="210" x2="446" y2="210"/>
+            <line class="line" x1="320" y1="210" x2="320" y2="290"/>
+            <line class="line" x1="240" y1="290" x2="400" y2="290"/>
+            <line class="line" x1="240" y1="290" x2="240" y2="325"/>
+            <line class="line" x1="320" y1="290" x2="320" y2="325"/>
+            <line class="line" x1="400" y1="290" x2="400" y2="325"/>
+            <rect class="red" x="226" y="326" width="28" height="28"/>
+            <text class="name" x="240" y="378" text-anchor="middle">Theo</text>
+            <text x="240" y="393" text-anchor="middle">red</text>
+            <circle class="blond" cx="320" cy="340" r="14"/>
+            <text class="name" x="320" y="378" text-anchor="middle">Morgan</text>
+            <text x="320" y="393" text-anchor="middle">blond</text>
+            <circle class="brown" cx="400" cy="340" r="14"/>
+            <text class="name" x="400" y="378" text-anchor="middle">Lila</text>
+            <text x="400" y="393" text-anchor="middle">brown</text>
+            <text x="20" y="68" text-anchor="start" font-weight="600">I</text>
+            <text x="20" y="213" text-anchor="start" font-weight="600">II</text>
+            <text x="20" y="343" text-anchor="start" font-weight="600">III</text>
+        </svg>
+
+        <h3>What Morgan noticed</h3>
+
+        <p>Morgan looked at her completed pedigree and wrote down patterns she saw:</p>
+
+        <ul>
+            <li>Red hair shows up in Mom's side: Grandma Lisa, Mom, and brother Theo all have red.</li>
+            <li>Blond shows up in both sides: Grandpa Robert, Aunt Beth, and Morgan herself.</li>
+            <li>Brown shows up in Dad's side: both grandparents, Dad, Uncle Tom, and sister Lila.</li>
+            <li>The kids in Morgan's generation (Theo, Morgan, Lila) are all <strong>different colors</strong> — even though they have the same parents.</li>
+            <li>Morgan herself is blond, but neither Mom (red) nor Dad (brown) is blond. Her blond came from somewhere — both parents must be carrying a hidden blond allele.</li>
+        </ul>
+
+        <p>This is the kind of reasoning you'll do for your own family. Look at who has what, then ask <strong>"where could that allele have come from?"</strong></p>
+
+        <h2>If you can't use your own family: Throckmorton's data</h2>
+
+        <p>Some people can't use their own family for this assignment, for many reasons. Maybe you don't know your biological relatives. Maybe your family history is private. Maybe the people who could tell you aren't around. <strong>Use Throckmorton's family below instead.</strong> The work is the same.</p>
+
+        <p>Throckmorton's data has gaps — like a real student's would. Not every relative is known. That's normal.</p>
+
+        <div class="pp-data">
+            <h4>Throckmorton's family — relatives and traits</h4>
+            <dl>
+                <dt>Generation I (grandparents)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Maternal grandma (passed away when Throckmorton was little)</span><span class="pp-relative-trait pp-relative-trait--unknown">unknown — no clear photos</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Maternal grandpa (still living, family lunches every Sunday)</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Paternal grandma (still living)</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Paternal grandpa (no contact with the family — never met)</span><span class="pp-relative-trait pp-relative-trait--unknown">unknown</span></div>
+                </dd>
+                <dt>Generation II (parents, aunts, and uncles)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Mom</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Dad</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Aunt Carol (Mom's sister, has red hair in old photos)</span><span class="pp-relative-trait">red</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Uncle on Dad's side (haven't met him)</span><span class="pp-relative-trait pp-relative-trait--unknown">unknown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Stepdad (Mom's new partner)</span><span class="pp-relative-trait">not on the pedigree — not biologically related</span></div>
+                </dd>
+                <dt>Generation III (Throckmorton and siblings)</dt>
+                <dd>
+                    <div class="pp-relative"><span class="pp-relative-name">Throckmorton (the student)</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Sister</span><span class="pp-relative-trait">brown</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Younger half-brother (Mom and Stepdad's son)</span><span class="pp-relative-trait">blond</span></div>
+                    <div class="pp-relative"><span class="pp-relative-name">Cousin Devin (Aunt Carol's kid — dyes hair, no idea what's natural)</span><span class="pp-relative-trait pp-relative-trait--unknown">unknown — dyed</span></div>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="pp-callout pp-callout--blue">
+            <strong>How to handle Throckmorton's gaps:</strong>
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                <li>Maternal grandma — passed away. Mark unknown with a dashed shape.</li>
+                <li>Paternal grandpa — never met. Mark unknown with a dashed shape.</li>
+                <li>Uncle on Dad's side — never met. Mark unknown with a dashed shape.</li>
+                <li>Cousin Devin — dyes hair. Mark unknown. (Real scientists distinguish between observed and reported data.)</li>
+                <li>Stepdad — biologically unrelated. Don't include on the pedigree at all.</li>
+                <li>Half-brother — biologically related to Mom only. Include him, but only connected to Mom (not Dad).</li>
+            </ul>
+        </div>
+
+        <h2>What you'll turn in</h2>
+
+        <ul>
+            <li>Your hand-drawn pedigree (your family or Throckmorton's).</li>
+            <li>A short list of patterns you noticed (3–5 sentences is fine).</li>
+            <li>One Punnett square showing a prediction for one cross in your pedigree (we'll do this part in class together).</li>
+            <li>A short note on what your prediction got right and what it got wrong (2–3 sentences).</li>
+        </ul>
+
+        <p>You don't need to be right. You need to <strong>show your reasoning</strong> — the way you got from data to pattern to prediction. That's the science.</p>
+
+        <a href="../../" class="pp-back">← Back to Biology</a>
+    </article>
+</div>
+    </main>
+    <script src="../../../../js/terms-db.js?v=23" defer></script>
+    <script src="../../../../js/term-system.js?v=23" defer></script>
+    <script src="../../../../js/toolbar.js?v=23" defer></script>
+</body>
+</html>
