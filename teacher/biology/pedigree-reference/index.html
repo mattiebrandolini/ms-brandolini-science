@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattie's pedigree reference (private)</title>
+    <link rel="stylesheet" href="../../../static/fonts/fonts.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+<style>
+    body { background: #1a1a1a; color: #eee; font-family: 'DM Sans', sans-serif; padding: 1rem; line-height: 1.5; }
+    .ref { max-width: 900px; margin: 0 auto; }
+    h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; margin-bottom: 0.25rem; color: #34d399; }
+    .private { color: #f87171; font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #fbbf24; border-bottom: 1px solid #333; padding-bottom: 0.25rem; }
+    .ped { width: 100%; max-width: 880px; margin: 0.5rem auto; display: block; background: #222; border-radius: 8px; padding: 0.5rem; }
+    .ped text { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #ccc; }
+    .ped text.name { fill: #fff; font-weight: 500; font-size: 12px; }
+    .ped text.note { fill: #fbbf24; font-size: 10px; font-style: italic; }
+    .ped .line { stroke: #888; stroke-width: 1; fill: none; }
+    .ped .brown { fill: #a85518; stroke: #d97706; stroke-width: 1; }
+    .ped .red { fill: #d85a30; stroke: #f87171; stroke-width: 1; }
+    .ped .blond { fill: #d4d4d4; stroke: #888; stroke-width: 1; }
+    .ped .unknown { fill: none; stroke: #777; stroke-width: 1; stroke-dasharray: 3 2; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 0.5rem; }
+    .card { background: #222; border-radius: 8px; padding: 0.85rem 1rem; border: 1px solid #333; }
+    .card h3 { font-size: 0.95rem; color: #34d399; margin-bottom: 0.4rem; }
+    .card ul { margin: 0 0 0 1.25rem; font-size: 0.9rem; color: #ddd; }
+    .card li { margin-bottom: 0.35rem; }
+    .talk { background: rgba(96, 165, 250, 0.08); border-left: 3px solid #60a5fa; padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 6px 6px 0; font-size: 0.92rem; }
+    .talk strong { color: #60a5fa; }
+    .cliff { background: rgba(251, 191, 36, 0.08); border-left: 3px solid #fbbf24; padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 6px 6px 0; font-size: 0.92rem; }
+    .cliff strong { color: #fbbf24; }
+    code { background: #333; padding: 0 0.3rem; border-radius: 3px; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="ref">
+    <h1>Pedigree live demo — your family</h1>
+    <div class="private">private — not linked anywhere</div>
+
+    <svg class="ped" viewBox="0 0 880 480" role="img" aria-labelledby="ped-title">
+        <title id="ped-title">Mattie's family pedigree for live demo</title>
+        <text class="name" x="20" y="50">I</text>
+        <line class="line" x1="68" y1="58" x2="92" y2="58"/>
+        <circle class="unknown" cx="50" cy="58" r="14"/>
+        <rect class="unknown" x="96" y="44" width="28" height="28"/>
+        <text x="80" y="92" text-anchor="middle">pat bio gpants</text>
+        <text x="80" y="106" text-anchor="middle">unknown</text>
+        <text class="note" x="80" y="120" text-anchor="middle">(dad's adopted)</text>
+
+        <line class="line" x1="588" y1="58" x2="612" y2="58"/>
+        <circle class="brown" cx="570" cy="58" r="14"/>
+        <rect class="red" x="616" y="44" width="28" height="28"/>
+        <text class="name" x="570" y="92" text-anchor="middle">M grandma</text>
+        <text x="570" y="106" text-anchor="middle">brown · Br/Br</text>
+        <text class="name" x="630" y="92" text-anchor="middle">M grandpa</text>
+        <text x="630" y="106" text-anchor="middle">red br · Br/R</text>
+
+        <line class="line" x1="80" y1="72" x2="80" y2="160"/>
+        <line class="line" x1="600" y1="72" x2="600" y2="160"/>
+
+        <text class="name" x="20" y="210">II</text>
+
+        <line class="line" x1="40" y1="160" x2="370" y2="160"/>
+        <line class="line" x1="40" y1="160" x2="40" y2="195"/>
+        <line class="line" x1="110" y1="160" x2="110" y2="195"/>
+        <line class="line" x1="180" y1="160" x2="180" y2="195"/>
+        <line class="line" x1="370" y1="160" x2="370" y2="195"/>
+
+        <line class="line" x1="450" y1="160" x2="700" y2="160"/>
+        <line class="line" x1="450" y1="160" x2="450" y2="195"/>
+        <line class="line" x1="700" y1="160" x2="700" y2="195"/>
+
+        <rect class="brown" x="26" y="196" width="28" height="28"/>
+        <rect class="brown" x="96" y="196" width="28" height="28"/>
+        <rect class="brown" x="166" y="196" width="28" height="28"/>
+        <text x="40" y="248" text-anchor="middle">Bro 1</text>
+        <text x="110" y="248" text-anchor="middle">Bro 2</text>
+        <text x="180" y="248" text-anchor="middle">Bro 3</text>
+
+        <circle class="blond" cx="290" cy="210" r="14"/>
+        <text x="290" y="248" text-anchor="middle">HB mom</text>
+        <text x="290" y="262" text-anchor="middle">blond · b/b</text>
+
+        <rect class="brown" x="356" y="196" width="28" height="28"/>
+        <text class="name" x="370" y="248" text-anchor="middle">Dad</text>
+        <text x="370" y="262" text-anchor="middle">brown · Br/?</text>
+
+        <circle class="red" cx="450" cy="210" r="14"/>
+        <text class="name" x="450" y="248" text-anchor="middle">Mom</text>
+        <text x="450" y="262" text-anchor="middle">br red · Br/R</text>
+
+        <rect class="blond" x="526" y="196" width="28" height="28"/>
+        <text x="540" y="248" text-anchor="middle">K dad</text>
+        <text x="540" y="262" text-anchor="middle">blond · b/b</text>
+
+        <rect class="red" x="686" y="196" width="28" height="28"/>
+        <text x="700" y="248" text-anchor="middle">M uncle</text>
+        <text x="700" y="262" text-anchor="middle">red br · Br/R</text>
+
+        <line class="line" x1="304" y1="210" x2="356" y2="210"/>
+        <line class="line" x1="384" y1="210" x2="436" y2="210"/>
+        <line class="line" x1="464" y1="210" x2="526" y2="210"/>
+
+        <text class="name" x="20" y="343">III</text>
+
+        <line class="line" x1="330" y1="210" x2="330" y2="320"/>
+        <line class="line" x1="330" y1="320" x2="330" y2="345"/>
+
+        <line class="line" x1="410" y1="210" x2="410" y2="295"/>
+        <line class="line" x1="385" y1="295" x2="435" y2="295"/>
+        <line class="line" x1="385" y1="295" x2="385" y2="345"/>
+        <line class="line" x1="435" y1="295" x2="435" y2="345"/>
+
+        <line class="line" x1="495" y1="210" x2="495" y2="320"/>
+        <line class="line" x1="495" y1="320" x2="495" y2="345"/>
+
+        <rect class="brown" x="316" y="346" width="28" height="28"/>
+        <text class="name" x="330" y="398" text-anchor="middle">Will</text>
+        <text x="330" y="412" text-anchor="middle">brown · Br/b</text>
+        <text class="note" x="330" y="426" text-anchor="middle">b from HB mom</text>
+
+        <circle class="brown" cx="385" cy="360" r="14"/>
+        <text class="name" x="385" y="398" text-anchor="middle">Me</text>
+        <text x="385" y="412" text-anchor="middle">brown · Br/?</text>
+
+        <circle class="brown" cx="435" cy="360" r="14"/>
+        <text class="name" x="435" y="398" text-anchor="middle">Dee</text>
+        <text x="435" y="412" text-anchor="middle">brown · Br/?</text>
+
+        <rect class="brown" x="481" y="346" width="28" height="28"/>
+        <text class="name" x="495" y="398" text-anchor="middle">Kip</text>
+        <text x="495" y="412" text-anchor="middle">brown · Br/b</text>
+        <text class="note" x="495" y="426" text-anchor="middle">b from K dad</text>
+    </svg>
+
+    <h2>Order to draw on the board</h2>
+    <ol>
+        <li>Yourself first (circle, brown). Center-bottom of the board.</li>
+        <li>Mom and Dad above you, partnership line between them. Mom = circle, brown red. Dad = square, brown.</li>
+        <li>Add Dee (sister, circle, brown) next to you. Connect to Mom-Dad.</li>
+        <li>Add Will to dad's left side. Then HB mom (blond circle) connected to Dad. Drop line to Will.</li>
+        <li>Add Kip to mom's right side. Then K dad (blond square) connected to Mom. Drop line to Kip.</li>
+        <li>Above Mom: maternal grandparents. M grandma brown, M grandpa red brown. Drop to Mom and to maternal uncle (red brown).</li>
+        <li>Above Dad: paternal bio grandparents — DASHED, unknown. "My dad is adopted, I have no data." Drop to Dad's three brothers (all brown) and Dad.</li>
+    </ol>
+
+    <h2>Things to say out loud while drawing</h2>
+
+    <div class="talk"><strong>On dad being adopted:</strong> "My dad's biological parents — I don't know them. He was adopted. So this whole branch is dashed and unknown. That's a hard stop, not a failure. I'll still draw the shapes so we know they exist."</div>
+
+    <div class="talk"><strong>On grandparents you forgot:</strong> "I texted my mom mid-drawing because I wasn't sure about my maternal grandfather. She said reddish brown. That's normal — going back and checking is what scientists do."</div>
+
+    <div class="talk"><strong>On maternal uncle:</strong> "I thought my uncle was light brown but I'm pretty sure he has a red beard, so I'm calling him red brown. Memory is fuzzy. Updates are normal."</div>
+
+    <div class="talk"><strong>On step-parents:</strong> "HB mom and K dad aren't biologically related to me. They're on the chart only because they're parents of my half-siblings. They're not in my own ancestry."</div>
+
+    <div class="talk"><strong>On half-siblings:</strong> "Will is my dad's son with HB mom — same dad, different mom. Kip is my mom's son with K dad — same mom, different dad. Both are biologically my half-siblings. Both go on the pedigree."</div>
+
+    <h2>The cliffhangers (next class)</h2>
+
+    <div class="cliff"><strong>1. Where does Will's blond carrier come from?</strong> His mom is blond (b/b), so she gave him a b for sure. He looks brown, so dad gave Br. Will is Br/b — brown, but carries blond. Same with Kip from K dad.</div>
+
+    <div class="cliff"><strong>2. What's Dad's other allele?</strong> Could be Br, R, or b. We can't tell from this pedigree. Open question.</div>
+
+    <div class="cliff"><strong>3. What about black hair?</strong> No one in my family has black hair. Our model has no place for it. Some of you have black hair in your families. What does YOUR pedigree show that mine doesn't?</div>
+
+    <h2>The model (one-line version)</h2>
+    <p>Three alleles: <code>Br</code> (brown), <code>R</code> (red), <code>b</code> (blond). Brown and red blend (codominant — both express). Both dominate blond. To look blond you need two blond alleles.</p>
+
+    <h2>Quick genotype cheat sheet</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Determined</h3>
+            <ul>
+                <li>M grandma: <code>Br/Br</code></li>
+                <li>M grandpa: <code>Br/R</code></li>
+                <li>Mom: <code>Br/R</code></li>
+                <li>M uncle: <code>Br/R</code></li>
+                <li>HB mom: <code>b/b</code></li>
+                <li>K dad: <code>b/b</code></li>
+                <li>Will: <code>Br/b</code> (b from HB mom)</li>
+                <li>Kip: <code>Br/b</code> (b from K dad)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Open</h3>
+            <ul>
+                <li>Dad: <code>Br/?</code> — could be Br, R, or b</li>
+                <li>Dad's 3 brothers: <code>Br/?</code> — same</li>
+                <li>Me: <code>Br/?</code> — Br/Br or Br/b</li>
+                <li>Dee: <code>Br/?</code> — Br/Br or Br/b</li>
+                <li>Pat bio grandparents: completely unknown</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
